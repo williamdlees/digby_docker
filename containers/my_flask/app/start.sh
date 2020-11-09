@@ -2,7 +2,19 @@
 
 #while true; do sleep 60; done
 
+# Allow other containers to stabilise
+sleep 20
+
 cd /app
+echo "migrating database"
+if [ ! -f migrations/README ]; then
+  rm migrations/.gitkeep
+  rm exports/.gitkeep
+  flask db init
+fi
+flask db migrate
+flask db upgrade
+
 echo "starting RabbitMQ"
 service rabbitmq-server restart 
 echo "starting redis"

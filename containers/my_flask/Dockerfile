@@ -17,7 +17,8 @@ RUN \
   apt-get -y install redis-server && \
   git clone https://github.com/williamdlees/digby_backend.git /app && \
   ln -s /config/migrations /app/migrations && \
-  cd /app/static/gff && \
+  ln -s /config/exports /app/exports && \
+ cd /app/static/gff && \
   dos2unix *.fasta && \
   for foo in *.fasta; do samtools faidx $foo; done && \
   chmod +x make_bam && \
@@ -30,7 +31,6 @@ RUN \
   pip install gevent && \
   chmod +x /app/start.sh && \
   cd / && \
-  mkdir /app/exports && \
   mkdir /app/static/output && \
   mkdir /app/static/study_data/VDJbase/samples && \
   mkdir /app/static/study_data/VDJbase/samples/Human && \

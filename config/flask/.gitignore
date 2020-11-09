@@ -1,3 +1,6 @@
-migrations/
+migrations/*
+!migrations/.gitkeep
+exports/*
+!exports/.gitkeep
 *.zip
 __pycache__/
