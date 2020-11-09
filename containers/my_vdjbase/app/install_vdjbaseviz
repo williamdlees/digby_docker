@@ -1,0 +1,3 @@
+library(devtools)
+install_bitbucket('yaarilab/rabhit')
+install_bitbucket('yaarilab/vdjbaseVis')

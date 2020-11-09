@@ -1,0 +1,10 @@
+bind = ':5000' 
+timeout = 300 
+limit-request-line = 0 
+worker-class = 'gthread' 
+keep-alive = 5 
+workers = 10 
+graceful-timeout = 300 
+access-logfile = '/config/log/access.log' 
+error-logfile = /config/log/error.log 
+log-level = 'debug'

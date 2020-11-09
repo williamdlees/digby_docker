@@ -1,0 +1,10 @@
+bind = ':5000' 
+timeout = 300 
+limit_request_line = 0 
+worker_class = 'gevent' 
+#keep_alive = 5 
+workers = 10 
+graceful_timeout = 300 
+access_logfile = '/config/log/access.log' 
+error_logfile = '/config/log/error.log' 
+log_level = 'debug'
