@@ -16,6 +16,7 @@ services:
     container_name: flask
     volumes:
         - /root/digby_docker/config/flask:/config
+        - /root/digby_docker/study_data:/study_data 
   mariadb:
     image: linuxserver/mariadb
     container_name: mariadb

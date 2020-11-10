@@ -2,8 +2,6 @@ FROM python:3
 
 MAINTAINER William Lees william@lees.org.uk
 
-VOLUME /config
-
 RUN mkdir /app
 
 COPY app/* /app/
