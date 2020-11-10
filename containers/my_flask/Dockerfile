@@ -16,7 +16,7 @@ RUN \
   git clone https://github.com/williamdlees/digby_backend.git /app && \
   ln -s /config/migrations /app/migrations && \
   ln -s /config/exports /app/exports && \
- cd /app/static/gff && \
+  cd /app/static/gff && \
   dos2unix *.fasta && \
   for foo in *.fasta; do samtools faidx $foo; done && \
   chmod +x make_bam && \
@@ -35,8 +35,8 @@ RUN \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
   unzip /app/samples.zip -d /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
   mkdir /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH && \
-  unzip /app/new_pipeline_samples.zip -d /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH
-  mv /app/static/study_data /study_data && \
-  ln -s /config/study_data /app/static/study_data  && \
+  unzip /app/new_pipeline_samples.zip -d /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH && \
+  mv /app/static/study_data /app/static/init_study_data && \
+  ln -s /study_data /app/static/study_data
  
 CMD ["/app/start.sh"]
