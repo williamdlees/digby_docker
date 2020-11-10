@@ -19,10 +19,11 @@ server {
         proxy_set_header X-Script-Name /admin;
     }
 
-    location /digby {
+
+    location / {
         root /config/www;
         index index.html;
-        try_files $uri $uri/ /digby/index.html =404;
+        try_files $uri $uri/ /index.html =404;
     }
 }
 
