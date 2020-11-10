@@ -32,6 +32,8 @@ RUN \
   chmod +x /app/start.sh && \
   cd / && \
   mkdir /app/static/output && \
+  mv /app/static/study_data /config/. && \
+  ln -s /config/study_data /app/static/study_data  && \
   mkdir /app/static/study_data/VDJbase/samples && \
   mkdir /app/static/study_data/VDJbase/samples/Human && \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
