@@ -1,6 +1,7 @@
 migrations/*
 !migrations/.gitkeep
 exports/*
+!exports/genomic_metadata
 !exports/.gitkeep
 *.zip
 __pycache__/
