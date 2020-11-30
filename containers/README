@@ -1,0 +1,1 @@
+use docker-compose-swag.yml to add https support with LetsEncrypt. Replace the 'digby' file in site-confs with the one here, and create an empty default site config.
