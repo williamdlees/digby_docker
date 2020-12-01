@@ -16,6 +16,6 @@ Macaque_IGH:
         Assembly_id: GCF_003339765.1
         Assembly_reference: https://www.ncbi.nlm.nih.gov/assembly/GCF_003339765.1/
         Assembly_file: igh_rhemac10_chr-7165128660-169868564.fasta 
-        Chromosome: 10
-        Start_CoOrd: 7165128660
+        Chromosome: 7
+        Start_CoOrd: 165128660
         End_CoOrd: 169868564
