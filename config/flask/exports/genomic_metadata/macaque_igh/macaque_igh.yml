@@ -19,6 +19,8 @@ Macaque_IGH:
         Assembly_id: GCF_003339765.1
         Assembly_reference: https://www.ncbi.nlm.nih.gov/assembly/GCF_003339765.1/
         Assembly_file: igh_rhemac10_chr-7165128660-169868564.fasta 
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 165128660
         End_CoOrd: 169868564    
@@ -40,6 +42,8 @@ Macaque_IGH:
         Assembly_id: 000533F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000533F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -61,6 +65,8 @@ Macaque_IGH:
         Assembly_id: 000756F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000756F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -82,6 +88,8 @@ Macaque_IGH:
         Assembly_id: 000842F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000842F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -103,6 +111,8 @@ Macaque_IGH:
         Assembly_id: 000853F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000853F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -124,6 +134,8 @@ Macaque_IGH:
         Assembly_id: 000885F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000885F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -145,6 +157,8 @@ Macaque_IGH:
         Assembly_id: 000891F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000891F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -166,6 +180,8 @@ Macaque_IGH:
         Assembly_id: 000945F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>000945F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -187,6 +203,8 @@ Macaque_IGH:
         Assembly_id: 001099F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>001099F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -208,6 +226,8 @@ Macaque_IGH:
         Assembly_id: 001102F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>001102F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -229,6 +249,8 @@ Macaque_IGH:
         Assembly_id: 001164F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>001164F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -250,6 +272,8 @@ Macaque_IGH:
         Assembly_id: 001179F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>001179F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -271,6 +295,8 @@ Macaque_IGH:
         Assembly_id: 001372F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>001372F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
@@ -292,6 +318,8 @@ Macaque_IGH:
         Assembly_id: 001388F
         Assembly_reference: https://www.ncbi.nlm.nih.gov/Traces/wgs/SBKD01?display=contigs
         Assembly_file: LJI_Rh.PacBio_All.IGH.Contigs.fasta>001388F|quiver
+        Annotation_method: VDJbase
+        Annotation_reference: https://github.com/williamdlees/digger
         Chromosome: 7
         Start_CoOrd: 
         End_CoOrd: 
