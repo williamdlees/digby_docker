@@ -2,10 +2,22 @@ upstream hello_flask {
     server flask:5000;
 }
 
+# redirect all traffic to https
 server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name _;
+        return 301 https://$host$request_uri;
+}
 
-    listen 80;
+
+server {
+    listen 443 ssl http2 default_server;
+        listen [::]:443 ssl http2 default_server;
+
     server_name vdjbase.lees.org.uk;
+
+    include /config/nginx/ssl.conf;
 
     location /admin {
         proxy_pass http://hello_flask/;

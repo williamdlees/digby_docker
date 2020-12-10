@@ -1,22 +1,39 @@
 version: '2'
 
 services:
-  nginx:
-    image: linuxserver/nginx
-    volumes:
-        - /root/digby_docker/config/nginx:/config
-    ports:
-       - 80:80
+  swag:
+    image: ghcr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=Europe/London
+      - URL=vdjbase.org
+      - SUBDOMAINS=beta
+      - VALIDATION=http
+      - DNSPLUGIN=cloudflare #optional
+      - PROPAGATION= #optional
+      - DUCKDNSTOKEN= #optional
+      - EMAIL=william@lees.org.uk  #optional
+      - ONLY_SUBDOMAINS=true #optional
+      - EXTRA_DOMAINS= #optional
+      - STAGING=false #optional
+      - MAXMINDDB_LICENSE_KEY= #optional
+    volumes:
+      - /root/digby_docker/config/nginx:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
     restart: unless-stopped
   flask:
     image: my_flask
     container_name: flask
     volumes:
         - /root/digby_docker/config/flask:/config
-        - /root/digby_docker/study_data:/study_data 
+        - /root/digby_docker/study_data:/study_data
+    restart: unless-stopped 
   mariadb:
     image: linuxserver/mariadb
     container_name: mariadb
