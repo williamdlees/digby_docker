@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  nginx:
+    image: linuxserver/nginx
+    volumes:
+        - /root/digby_docker/config/nginx:/config
+    ports:
+       - 80:80
+    environment:
+      - PUID=1000
+      - PGID=1000
+    restart: unless-stopped
+  flask:
+    image: my_flask
+    container_name: flask
+    volumes:
+        - /root/digby_docker/config/flask:/config
+        - /root/digby_docker/study_data:/study_data 
+  mariadb:
+    image: linuxserver/mariadb
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=gsdfgtwevdfg
+      - TZ=Europe/London
+      - MYSQL_DATABASE=digby #optional
+      - MYSQL_USER=digby #optional
+      - MYSQL_PASSWORD=digby #optional
+    volumes:
+      - /root/digby_docker/config/mysql:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
