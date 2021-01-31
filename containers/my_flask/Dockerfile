@@ -13,6 +13,7 @@ RUN \
   apt-get -y install ghostscript && \
   apt-get -y install rabbitmq-server && \
   apt-get -y install redis-server && \
+  apt-get -y install mariadb-client && \
   git clone https://github.com/williamdlees/digby_backend.git /app && \
   ln -s /config/migrations /app/migrations && \
   ln -s /config/exports /app/exports && \
@@ -22,12 +23,14 @@ RUN \
   chmod +x make_bam && \
   ./make_bam
 COPY app/* /app/
+COPY app/cronjobs /etc/crontabs/root
 
 RUN \
   pip install "celery[redis]" && \
   pip install -r /app/requirements.txt && \
   pip install gevent && \
   chmod +x /app/start.sh && \
+  chmod +x /app/do_backup.sh && \
   cd / && \
   mkdir /app/static/output && \
   mkdir /app/static/study_data/VDJbase/samples && \
@@ -37,6 +40,11 @@ RUN \
   mkdir /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH && \
   unzip /app/new_pipeline_samples.zip -d /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH && \
   mv /app/static/study_data /app/static/init_study_data && \
-  ln -s /study_data /app/static/study_data
+  ln -s /study_data /app/static/study_data && \
+  mkdir -p /backup/backup.daily && \
+  mkdir -p /backup/backup.weekly && \
+  mkdir -p /backup/backup.monthly && \
+  cp /app/rotate.sh /backup/. &&\
+  chmod +x /backup/rotate.sh
  
 CMD ["/app/start.sh"]
