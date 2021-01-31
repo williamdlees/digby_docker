@@ -8,6 +8,9 @@ TEMP_DIR=/tmp
 # Precautionary cleanup
 mkdir -p $BACKUP_DIR/incoming
 mkdir -p $BACKUP_DIR/temp
+mkdir -p $BACKUP_DIR/backup.daily
+mkdir -p $BACKUP_DIR/backup.weekly
+mkdir -p $BACKUP_DIR/backup.monthly
 rm $BACKUP_DIR/incoming/*
 rm -rf $BACKUP_DIR/temp/*
 
@@ -27,4 +30,4 @@ rm -rf $BACKUP_DIR/temp/*
 
 # Run backup rotate
 cd $BACKUP_DIR
-bash rotate.sh
+bash /app/rotate.sh

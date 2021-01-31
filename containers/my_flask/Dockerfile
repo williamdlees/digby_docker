@@ -31,6 +31,7 @@ RUN \
   pip install gevent && \
   chmod +x /app/start.sh && \
   chmod +x /app/do_backup.sh && \
+  chmod +x /app/rotate.sh && \
   cd / && \
   mkdir /app/static/output && \
   mkdir /app/static/study_data/VDJbase/samples && \
@@ -44,8 +45,6 @@ RUN \
   mkdir -p /backup/backup.daily && \
   mkdir -p /backup/backup.weekly && \
   mkdir -p /backup/backup.monthly && \
-  cp /app/rotate.sh /backup/. && \
-  crontab /app/cronjobs && \
-  chmod +x /backup/rotate.sh
+  crontab /app/cronjobs
  
 CMD ["/app/start.sh"]
