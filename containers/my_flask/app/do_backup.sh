@@ -6,6 +6,8 @@ BACKUP_DIR=/backup
 TEMP_DIR=/tmp
 
 # Precautionary cleanup
+mkdir -p $BACKUP_DIR/incoming
+mkdir -p $BACKUP_DIR/temp
 rm $BACKUP_DIR/incoming/*
 rm -rf $BACKUP_DIR/temp/*
 
@@ -13,7 +15,7 @@ rm -rf $BACKUP_DIR/temp/*
 mysqldump --all-databases -h mariadb -P 3306 -u root -pgsdfgtwevdfg >/config/log/sqldump
 
 # Backup logs and config
-cp /config/*  $BACKUP_DIR/temp/.
+cp -r /config/*  $BACKUP_DIR/temp/.
 
 cd $BACKUP_DIR/temp
 

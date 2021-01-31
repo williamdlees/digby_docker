@@ -44,7 +44,8 @@ RUN \
   mkdir -p /backup/backup.daily && \
   mkdir -p /backup/backup.weekly && \
   mkdir -p /backup/backup.monthly && \
-  cp /app/rotate.sh /backup/. &&\
+  cp /app/rotate.sh /backup/. && \
+  crontab /app/cronjobs && \
   chmod +x /backup/rotate.sh
  
 CMD ["/app/start.sh"]
