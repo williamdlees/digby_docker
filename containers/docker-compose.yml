@@ -32,7 +32,7 @@ services:
     container_name: flask
     volumes:
         - /root/digby_docker/config/flask:/config
-        - /root/digby_docker/backup:/backup
+        - /backup:/backup
         - /root/digby_docker/study_data:/study_data
     restart: unless-stopped 
   mariadb:
