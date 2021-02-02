@@ -25,6 +25,8 @@ fi
 flask db migrate
 flask db upgrade
 
+echo "starting cron"
+service cron start
 echo "starting RabbitMQ"
 service rabbitmq-server restart 
 echo "starting redis"
