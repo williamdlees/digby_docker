@@ -17,7 +17,7 @@ services:
       - PROPAGATION= #optional
       - DUCKDNSTOKEN= #optional
       - EMAIL=william@lees.org.uk  #optional
-      - ONLY_SUBDOMAINS=true #optional
+      - ONLY_SUBDOMAINS=false #optional
       - EXTRA_DOMAINS= #optional
       - STAGING=false #optional
       - MAXMINDDB_LICENSE_KEY= #optional
