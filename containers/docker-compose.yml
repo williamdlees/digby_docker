@@ -11,13 +11,13 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - URL=vdjbase.org
-      - SUBDOMAINS=beta
+      - SUBDOMAINS=beta,www
       - VALIDATION=http
       - DNSPLUGIN=cloudflare #optional
       - PROPAGATION= #optional
       - DUCKDNSTOKEN= #optional
       - EMAIL=william@lees.org.uk  #optional
-      - ONLY_SUBDOMAINS=false #optional
+      - ONLY_SUBDOMAINS=true #optional
       - EXTRA_DOMAINS= #optional
       - STAGING=false #optional
       - MAXMINDDB_LICENSE_KEY= #optional
