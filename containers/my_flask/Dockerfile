@@ -37,9 +37,7 @@ RUN \
   mkdir /app/static/study_data/VDJbase/samples && \
   mkdir /app/static/study_data/VDJbase/samples/Human && \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
-  unzip /app/samples.zip -d /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
-  mkdir /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH && \
-  unzip /app/new_pipeline_samples.zip -d /app/static/study_data/VDJbase/samples/Human/New_Pipeline_IGH && \
+  unzip /app/new_pipeline_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGH && \
   mv /app/static/study_data /app/static/init_study_data && \
   ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
