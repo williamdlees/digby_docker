@@ -34,6 +34,7 @@ RUN \
   chmod +x /app/rotate.sh && \
   cd / && \
   mkdir /app/static/output && \
+  mkdir /app/static/study_data/VDJbase && \
   mkdir /app/static/study_data/VDJbase/samples && \
   mkdir /app/static/study_data/VDJbase/samples/Human && \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
