@@ -1,3 +1,3 @@
 library(devtools)
 install_bitbucket('yaarilab/rabhit')
-install_bitbucket('yaarilab/vdjbaseVis', ref='92cf156')
+install_bitbucket('yaarilab/vdjbaseVis', ref='508030e')
