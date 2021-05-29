@@ -39,11 +39,16 @@ RUN \
   mkdir /app/static/study_data/VDJbase/samples/Human && \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
   unzip /app/new_pipeline_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGH && \
+  mkdir /app/static/study_data/VDJbase/samples/Human/Human_TRB && \
+  unzip /app/TRB_samples.zip -d /app/static/study_data/VDJbase/samples/Human/TRB && \
   mkdir /app/static/study_data/VDJbase/db && \
   mkdir /app/static/study_data/VDJbase/db/Human && \
   mkdir /app/static/study_data/VDJbase/db/Human/IGH && \
   cp /app/new_pipeline_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGH/db.sqlite3 && \
   cp /app/new_pipeline_db_description.txt /app/static/study_data/VDJbase/db/Human/IGH/db_description.txt && \
+  mkdir /app/static/study_data/VDJbase/db/Human/TRB && \
+  cp /app/TRB_db.sqlite3 /app/static/study_data/VDJbase/db/Human/TRB/db.sqlite3 && \
+  cp /app/TRB_db_description.txt /app/static/study_data/VDJbase/db/Human/TRB/db_description.txt && \
   mv /app/static/study_data /app/static/init_study_data && \
   ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
