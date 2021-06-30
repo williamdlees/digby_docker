@@ -32,6 +32,7 @@ RUN \
   chmod +x /app/start.sh && \
   chmod +x /app/do_backup.sh && \
   chmod +x /app/rotate.sh && \
+  Rscript /app/install_vdjbaseviz && \
   cd / && \
   mkdir /app/static/output && \
   mkdir /app/static/study_data/VDJbase && \
