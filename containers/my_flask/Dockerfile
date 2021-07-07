@@ -43,8 +43,8 @@ RUN \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
   unzip /app/IGH_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGH && \
   mkdir /app/static/study_data/VDJbase/db/Human/IGH && \
-  cp /app/new_pipeline_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGH/db.sqlite3 && \
-  cp /app/new_pipeline_db_description.txt /app/static/study_data/VDJbase/db/Human/IGH/db_description.txt && \
+  cp /app/IGH_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGH/db.sqlite3 && \
+  cp /app/IGH_db_description.txt /app/static/study_data/VDJbase/db/Human/IGH/db_description.txt && \
   mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGK && \
   unzip /app/IGK_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGK && \
   mkdir /app/static/study_data/VDJbase/db/Human/IGK && \
