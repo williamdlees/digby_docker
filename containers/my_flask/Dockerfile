@@ -40,26 +40,26 @@ RUN \
   mkdir /app/static/study_data/VDJbase/samples/Human && \
   mkdir /app/static/study_data/VDJbase/db && \
   mkdir /app/static/study_data/VDJbase/db/Human && \
-  mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGH && \
-  unzip /app/IGH_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGH && \
+  mkdir /app/static/study_data/VDJbase/samples/Human/IGH && \
+  unzip /app/Human_IGH_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGH && \
   mkdir /app/static/study_data/VDJbase/db/Human/IGH && \
-  cp /app/IGH_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGH/db.sqlite3 && \
-  cp /app/IGH_db_description.txt /app/static/study_data/VDJbase/db/Human/IGH/db_description.txt && \
-  mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGK && \
-  unzip /app/IGK_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGK && \
+  cp /app/Human_IGH_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGH/db.sqlite3 && \
+  cp /app/Human_IGH_db_description.txt /app/static/study_data/VDJbase/db/Human/IGH/db_description.txt && \
+  mkdir /app/static/study_data/VDJbase/samples/Human/IGK && \
+  unzip /app/Human_IGK_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGK && \
   mkdir /app/static/study_data/VDJbase/db/Human/IGK && \
-  cp /app/IGK_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGK/db.sqlite3 && \
-  cp /app/IGK_db_description.txt /app/static/study_data/VDJbase/db/Human/IGK/db_description.txt && \
-  mkdir /app/static/study_data/VDJbase/samples/Human/Human_IGL && \
-  unzip /app/IGL_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGL && \
+  cp /app/Human_IGK_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGK/db.sqlite3 && \
+  cp /app/Human_IGK_db_description.txt /app/static/study_data/VDJbase/db/Human/IGK/db_description.txt && \
+  mkdir /app/static/study_data/VDJbase/samples/Human/IGL && \
+  unzip /app/Human_IGL_samples.zip -d /app/static/study_data/VDJbase/samples/Human/IGL && \
   mkdir /app/static/study_data/VDJbase/db/Human/IGL && \
-  cp /app/IGL_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGL/db.sqlite3 && \
-  cp /app/IGL_db_description.txt /app/static/study_data/VDJbase/db/Human/IGL/db_description.txt && \
-  mkdir /app/static/study_data/VDJbase/samples/Human/Human_TRB && \
-  unzip /app/TRB_samples.zip -d /app/static/study_data/VDJbase/samples/Human/TRB && \
+  cp /app/Human_IGL_db.sqlite3 /app/static/study_data/VDJbase/db/Human/IGL/db.sqlite3 && \
+  cp /app/Human_IGL_db_description.txt /app/static/study_data/VDJbase/db/Human/IGL/db_description.txt && \
+  mkdir /app/static/study_data/VDJbase/samples/Human/TRB && \
+  unzip /app/Human_TRB_samples.zip -d /app/static/study_data/VDJbase/samples/Human/TRB && \
   mkdir /app/static/study_data/VDJbase/db/Human/TRB && \
-  cp /app/TRB_db.sqlite3 /app/static/study_data/VDJbase/db/Human/TRB/db.sqlite3 && \
-  cp /app/TRB_db_description.txt /app/static/study_data/VDJbase/db/Human/TRB/db_description.txt && \
+  cp /app/Human_TRB_db.sqlite3 /app/static/study_data/VDJbase/db/Human/TRB/db.sqlite3 && \
+  cp /app/Human_TRB_db_description.txt /app/static/study_data/VDJbase/db/Human/TRB/db_description.txt && \
   mv /app/static/study_data /app/static/init_study_data && \
   ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
