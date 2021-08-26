@@ -6,7 +6,7 @@ services:
     container_name: vdjbase_flask
     volumes:
         - /root/digby_docker/config/flask:/config
-        - /backup:/backup
+        - /root/digby_docker/backup:/backup
         - /root/digby_docker/study_data:/study_data
     restart: unless-stopped 
 networks:
