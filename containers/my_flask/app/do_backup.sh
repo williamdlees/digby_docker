@@ -18,7 +18,10 @@ rm -rf $BACKUP_DIR/temp/*
 mysqldump --all-databases -h mariadb -P 3306 -u root -pgsdfgtwevdfg >/config/log/sqldump
 
 # Backup logs and config
-cp -r /config/*  $BACKUP_DIR/temp/.
+mkdir -p $BACKUP_DIR/temp/config
+cp -r /config/*  $BACKUP_DIR/temp/config/.
+mkdir -p $BACKUP_DIR/temp/app
+cp -r /app/*  $BACKUP_DIR/temp/app/.
 
 cd $BACKUP_DIR/temp
 

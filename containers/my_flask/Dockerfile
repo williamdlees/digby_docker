@@ -14,6 +14,7 @@ RUN \
   apt-get -y install rabbitmq-server && \
   apt-get -y install redis-server && \
   apt-get -y install mariadb-client && \
+  apt-get -y install cron && \
   git clone https://github.com/williamdlees/digby_backend.git /app && \
   ln -s /config/migrations /app/migrations && \
   ln -s /config/exports /app/exports && \
