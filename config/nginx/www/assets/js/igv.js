@@ -22213,7 +22213,7 @@
 	  this.freqsDist = freqsDist;
 	  return (
 	    /** @type {!(Uint16Array|Array.<number>)} */
-	     lz77buf.subarray(0, pos) 
+	     lz77buf.subarray(0, pos)
 	  );
 	};
 	/**
@@ -27404,7 +27404,7 @@
 	                return _context.abrupt("return", undefined);
 
 	              case 10:
-	                this.loading = {
+	                this.loadingNews = {
 	                  start: bpStart,
 	                  end: bpEnd
 	                };
@@ -27488,7 +27488,7 @@
 
 	              case 47:
 	                this.tile = new Tile(referenceFrame.chrName, bpStart, bpEnd, referenceFrame.bpPerPixel, features, roiFeatures);
-	                this.loading = false;
+	                this.loadingNews = false;
 	                this.hideMessage();
 	                this.stopSpinner();
 	                return _context.abrupt("return", this.tile);
@@ -27501,7 +27501,7 @@
 
 	              case 58:
 	                _context.prev = 58;
-	                this.loading = false;
+	                this.loadingNews = false;
 	                this.stopSpinner();
 	                return _context.finish(58);
 
@@ -64971,7 +64971,7 @@
 	/*
 	 * The MIT License (MIT)
 	 *
-	 * Copyright (c) 2016-2017 The Regents of the University of California 
+	 * Copyright (c) 2016-2017 The Regents of the University of California
 	 * Author: Jim Robinson
 	 *
 	 * Permission is hereby granted, free of charge, to any person obtaining a copy
