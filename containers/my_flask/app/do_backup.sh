@@ -22,6 +22,8 @@ mkdir -p $BACKUP_DIR/temp/config
 cp -r /config/*  $BACKUP_DIR/temp/config/.
 mkdir -p $BACKUP_DIR/temp/app
 cp -r /app/*  $BACKUP_DIR/temp/app/.
+mkdir -p $BACKUP_DIR/temp/study_data
+cp -r /study_data/*  $BACKUP_DIR/temp/study_data/.
 
 cd $BACKUP_DIR/temp
 
