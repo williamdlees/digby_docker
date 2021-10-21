@@ -1,3 +1,5 @@
 library(devtools)
+library(remotes)
+install_version("plotly", version = "4.9.4.1", repos = "http://cran.us.r-project.org")
 install_bitbucket('yaarilab/rabhit')
 install_bitbucket('yaarilab/vdjbaseVis')
