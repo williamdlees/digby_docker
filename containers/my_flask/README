@@ -1,6 +1,0 @@
-To update the app:
-- modify the code as you want
-- build the app: docker build --no-cache -t my_flask . 
-- from Container Station press Edit, Validate YML and Apply. No need to make any changes to the YML
-- to migrate, telnet into the flask container from Container station: then flask db migrate, flask db upgrade
-- (can block port 80 on the router first to avoid issues)
