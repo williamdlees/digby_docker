@@ -2,7 +2,7 @@ version: '2'
 
 services:
   vdjbase_flask:
-    image: my_flask
+    image: vdjbase_flask
     container_name: vdjbase_flask
     volumes:
         - /root/digby_docker/config/flask:/config
