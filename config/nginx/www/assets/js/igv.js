@@ -17296,7 +17296,7 @@
               handleError("Access forbidden: " + url);
             } else if (xhr.status === 416) {
               //  Tried to read off the end of the file.   This shouldn't happen, but if it does return an
-              handleError("Unsatisfiable range");
+              handleError("xxUnsatisfiable range");
             } else {
               handleError(xhr.status);
             }
@@ -37806,6 +37806,7 @@
           const pos = readInt(ba, offset + 8);
 
           if (blockEnd > ba.length) {
+            console.log('finished block (no return value');
             return;
           }
 
@@ -37813,6 +37814,7 @@
             offset = blockEnd;
             continue; // unmapped read
           } else if (chrIdx !== undefined && (refID > chrIdx || pos > max)) {
+            console.log('decodeBamRecords: got to end');
             return true; // off right edge, we're done
           } else if (chrIdx !== undefined && refID < chrIdx) {
             offset = blockEnd;
@@ -37836,6 +37838,7 @@
           }
 
           readName = readName.join('');
+          console.log('readName: ' + readName);
           let lengthOnRef = 0;
           let cigar = '';
           let p = offset + 36 + nl;
@@ -38371,6 +38374,7 @@
       }
 
       async readAlignments(chr, bpStart, bpEnd) {
+        console.log('in bamreader.readalignments');
         const chrToIndex = await this.getChrIndex();
         const queryChr = this.chrAliasTable.hasOwnProperty(chr) ? this.chrAliasTable[chr] : chr;
         const chrId = chrToIndex[queryChr];
@@ -38412,11 +38416,12 @@
               range: range
             }));
             var ba = unbgzf(compressed); //new Uint8Array(BGZip.unbgzf(compressed)); //, c.maxv.block - c.minv.block + 1));
-
+            console.log('loaded chunk');
             const done = BamUtils.decodeBamRecords(ba, c.minv.offset, alignmentContainer, this.indexToChr, chrId, bpStart, bpEnd, this.filter);
 
             if (done) {
-              //    console.log(`Loaded ${counter} chunks out of  ${chunks.length}`);
+              console.log('done loading chunks');
+              // console.log(`Loaded ${counter} chunks out of  ${chunks.length}`);
               break;
             }
           }
@@ -54706,9 +54711,12 @@
         const genome = this.genome;
         const showSoftClips = this.showSoftClips;
 
+        console.log('in getALignments');
         if (this.alignmentContainer && this.alignmentContainer.contains(chr, bpStart, bpEnd)) {
+          console.log('returning cached container');
           return this.alignmentContainer;
         } else {
+          console.log('refreshing alignments');
           const alignmentContainer = await this.bamReader.readAlignments(chr, bpStart, bpEnd);
           let alignments = alignmentContainer.alignments;
 
@@ -54728,6 +54736,7 @@
             const sequence = await genome.sequence.getSequence(chr, alignmentContainer.start, alignmentContainer.end);
 
             if (sequence) {
+              console.log('got something back');
               alignmentContainer.coverageMap.refSeq = sequence; // TODO -- fix this
 
               alignmentContainer.sequence = sequence; // TODO -- fix this
@@ -54871,6 +54880,7 @@
       }
 
       async getFeatures(chr, bpStart, bpEnd, bpPerPixel, viewport) {
+        console.log('bamtrack.getFeatures: start ' + bpStart + 'end ' + bpEnd);
         const alignmentContainer = await this.featureSource.getAlignments(chr, bpStart, bpEnd);
 
         if (alignmentContainer.alignments && alignmentContainer.alignments.length > 99) {
@@ -55618,6 +55628,8 @@
             const lastBlockReverseStrand = false === alignment.strand && b === 0;
             const lastBlock = lastBlockPositiveStrand | lastBlockReverseStrand;
 
+            console.log("drawBlock");
+
             if (lastBlock) {
               let xListPixel;
               let yListPixel;
@@ -56241,6 +56253,8 @@
           end,
           visibilityWindow
         }); // Check for score or value
+
+        console.log('getFeatures: start $(start) end $(end)');
 
         if (this.hasValue === undefined && features && features.length > 0) {
           this.hasValue = features[0].score !== undefined;

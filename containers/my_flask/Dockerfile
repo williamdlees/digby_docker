@@ -61,6 +61,13 @@ RUN \
   mkdir /app/static/study_data/VDJbase/db/Human/TRB && \
   cp /app/Human_TRB_db.sqlite3 /app/static/study_data/VDJbase/db/Human/TRB/db.sqlite3 && \
   cp /app/Human_TRB_db_description.txt /app/static/study_data/VDJbase/db/Human/TRB/db_description.txt && \
+#  mkdir /app/static/study_data/VDJbase/samples/Rhesus_Macaque && \
+#  mkdir /app/static/study_data/VDJbase/samples/Rhesus_Macaque/IGH && \
+#  unzip /app/Rhesus_Macaque_IGH_samples.zip -d /app/static/study_data/VDJbase/samples/Rhesus_Macaque/IGH && \
+#  mkdir /app/static/study_data/VDJbase/db/Rhesus_Macaque && \
+#  mkdir /app/static/study_data/VDJbase/db/Rhesus_Macaque/IGH && \
+#  cp /app/Rhesus_Macaque_IGH_db.sqlite3 /app/static/study_data/VDJbase/db/Rhesus_Macaque/IGH/db.sqlite3 && \
+#  cp /app/Rhesus_Macaque_IGH_db_description.txt /app/static/study_data/VDJbase/db/Rhesus_Macaque/IGH/db_description.txt && \
   mv /app/static/study_data /app/static/init_study_data && \
   ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
