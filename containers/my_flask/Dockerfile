@@ -67,6 +67,7 @@ RUN \
   mkdir "/app/static/study_data/Genomic/samples/Rhesus_Macaque" && \
   mkdir "/app/static/study_data/Genomic/samples/Rhesus_Macaque/IGH" && \
   unzip /app/Rhesus_Macaque_IGH_samples.zip -d "/app/static/study_data/Genomic/samples/Rhesus_Macaque/IGH" && \
+  mkdir "/app/static/study_data/Genomic/db" && \
   mkdir "/app/static/study_data/Genomic/db/Rhesus Macaque" && \
   mkdir "/app/static/study_data/Genomic/db/Rhesus Macaque/IGH" && \
   cp /app/Rhesus_Macaque_IGH_db.sqlite3 "/app/static/study_data/Genomic/db/Rhesus Macaque/IGH/db.sqlite3" && \
