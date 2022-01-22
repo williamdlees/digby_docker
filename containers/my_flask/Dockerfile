@@ -62,6 +62,8 @@ RUN \
   mkdir /app/static/study_data/VDJbase/db/Human/TRB && \
   cp /app/Human_TRB_db.sqlite3 /app/static/study_data/VDJbase/db/Human/TRB/db.sqlite3 && \
   cp /app/Human_TRB_db_description.txt /app/static/study_data/VDJbase/db/Human/TRB/db_description.txt && \
+  mkdir "/app/static/study_data/Genomic" && \
+  mkdir "/app/static/study_data/Genomic/samples" && \
   mkdir "/app/static/study_data/Genomic/samples/Rhesus_Macaque" && \
   mkdir "/app/static/study_data/Genomic/samples/Rhesus_Macaque/IGH" && \
   unzip /app/Rhesus_Macaque_IGH_samples.zip -d "/app/static/study_data/Genomic/samples/Rhesus_Macaque/IGH" && \
