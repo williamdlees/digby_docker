@@ -1,3 +1,4 @@
+install.packages('nloptr')
 install.packages("BiocManager")
 BiocManager::install("Biostrings")
 BiocManager::install("GenomicAlignments")
