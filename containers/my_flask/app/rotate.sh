@@ -41,6 +41,24 @@ fi
 mkdir $destination
 mv -v $source/* $destination
 
+if ! [ $(find "$destination") ]
+then
+    python /app/healthchecks.py vdjbase-backups fail -m "backup file $destination not created"
+	exit
+else
+	echo "backup file $destination exists"
+fi	
+
+if [ $(find "$destination" -mmin +60) ]
+then
+	python /app/healthchecks.py vdjbase-backups fail -m "backup file $destination not updated"
+	exit
+else
+	echo "backup file $destination has been updated"
+fi
+
+python /app/healthchecks.py vdjbase-backups log -m "backup file stored at $destination"
+
 # daily - keep for 14 days
 find $storage/backup.daily/ -maxdepth 1 -mtime +14 -type d -exec rm -rv {} \;
 
