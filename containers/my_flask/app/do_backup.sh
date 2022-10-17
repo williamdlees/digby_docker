@@ -35,6 +35,14 @@ else
 	echo "/config/log/sqldump updated"
 fi
 
+if [ $(find "/config/log/sqldump" -printf "%s") -lt 1000 ]
+then
+	python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump is implausibly small"
+	exit
+else
+	echo "/config/log/sqldump is a reasonable size"
+fi
+
 # Backup logs and config
 mkdir -p $BACKUP_DIR/temp/config
 cp -r /config/*  $BACKUP_DIR/temp/config/.
@@ -64,6 +72,16 @@ else
 	echo "$BACKUP_DIR/incoming/archive.tgz updated"
 fi
 
+backupsize=$(find "$BACKUP_DIR/incoming/archive.tgz" -printf "%s")
+
+if [ $backupsize -lt 1000 ]
+then
+	python /app/healthchecks.py vdjbase-backups fail -m "$BACKUP_DIR/incoming/archive.tgz is implausibly small"
+	exit
+else
+	echo "$BACKUP_DIR/incoming/archive.tgz is a reasonable size"
+fi
+
 # Cleanup
 rm -rf $BACKUP_DIR/temp/*
 
@@ -71,4 +89,4 @@ rm -rf $BACKUP_DIR/temp/*
 cd $BACKUP_DIR
 bash /app/rotate.sh
 
-python /app/healthchecks.py vdjbase-backups success
+python /app/healthchecks.py vdjbase-backups success -m "size $backupsize bytes" 
