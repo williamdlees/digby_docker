@@ -21,7 +21,7 @@ mysqldump --all-databases -h mariadb -P 3306 -u root -pgsdfgtwevdfg >/config/log
 
 if ! [ $(find "/config/log/sqldump") ]
 then
-    python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump not created"
+    /usr/local/bin/python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump not created"
 	exit
 else
 	echo "/config/log/sqldump created"
@@ -29,7 +29,7 @@ fi
 
 if [ $(find "/config/log/sqldump" -mmin +60) ]
 then
-	python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump not updated"
+	/usr/local/bin/python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump not updated"
 	exit
 else
 	echo "/config/log/sqldump updated"
@@ -37,7 +37,7 @@ fi
 
 if [ $(find "/config/log/sqldump" -printf "%s") -lt 1000 ]
 then
-	python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump is implausibly small"
+	/usr/local/bin/python /app/healthchecks.py vdjbase-backups fail -m "/config/log/sqldump is implausibly small"
 	exit
 else
 	echo "/config/log/sqldump is a reasonable size"
