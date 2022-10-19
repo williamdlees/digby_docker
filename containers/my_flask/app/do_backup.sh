@@ -5,7 +5,7 @@
 BACKUP_DIR=/backup
 TEMP_DIR=/tmp
 
-python /app/healthchecks.py vdjbase-backups start
+/usr/local/bin/python /app/healthchecks.py vdjbase-backups start
 
 # Precautionary cleanup
 mkdir -p $BACKUP_DIR/incoming
@@ -58,7 +58,7 @@ tar -cvzf $BACKUP_DIR/incoming/archive.tgz *
 
 if ! [ $(find "$BACKUP_DIR/incoming/archive.tgz") ]
 then
-    python /app/healthchecks.py vdjbase-backups -m "$BACKUP_DIR/incoming/archive.tgz not created"
+    /usr/local/bin/python /app/healthchecks.py vdjbase-backups -m "$BACKUP_DIR/incoming/archive.tgz not created"
 	exit
 else
 	echo "$BACKUP_DIR/incoming/archive.tgz created"
@@ -66,7 +66,7 @@ fi
 
 if [ $(find "$BACKUP_DIR/incoming/archive.tgz" -mmin +60) ]
 then
-	python /app/healthchecks.py vdjbase-backups -m "$BACKUP_DIR/incoming/archive.tgz not updated"
+	/usr/local/bin/python /app/healthchecks.py vdjbase-backups -m "$BACKUP_DIR/incoming/archive.tgz not updated"
 	exit
 else
 	echo "$BACKUP_DIR/incoming/archive.tgz updated"
@@ -76,7 +76,7 @@ backupsize=$(find "$BACKUP_DIR/incoming/archive.tgz" -printf "%s")
 
 if [ $backupsize -lt 1000 ]
 then
-	python /app/healthchecks.py vdjbase-backups fail -m "$BACKUP_DIR/incoming/archive.tgz is implausibly small"
+	/usr/local/bin/python /app/healthchecks.py vdjbase-backups fail -m "$BACKUP_DIR/incoming/archive.tgz is implausibly small"
 	exit
 else
 	echo "$BACKUP_DIR/incoming/archive.tgz is a reasonable size"
@@ -89,4 +89,4 @@ rm -rf $BACKUP_DIR/temp/*
 cd $BACKUP_DIR
 bash /app/rotate.sh
 
-python /app/healthchecks.py vdjbase-backups success -m "size $backupsize bytes" 
+/usr/local/bin/python /app/healthchecks.py vdjbase-backups success -m "size $backupsize bytes" 
