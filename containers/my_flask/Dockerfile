@@ -31,7 +31,6 @@ RUN \
   pip install -r /app/requirements.txt && \
   pip install gevent && \
   chmod +x /app/start.sh && \
-  chmod +x /app/do_backup.sh && \
   chmod +x /app/rotate.sh && \
   Rscript /app/install_vdjbaseviz && \
   cd / && \

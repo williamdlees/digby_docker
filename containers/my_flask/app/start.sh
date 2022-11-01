@@ -36,6 +36,7 @@ celery -A app:celery worker -l INFO --logfile /config/log/celery.log&
 echo "starting gunicorn"
 cp /config/secret.cfg /app/secret.cfg
 cp /config/do_backup.sh /app/do_backup.sh
+chmod +x /app/do_backup.sh
 export PYTHONUNBUFFERED=1
 exec gunicorn -b :5000 --timeout 300 --limit-request-line 0 --worker-class gthread --keep-alive 5 --workers=5 --graceful-timeout 900 --access-logfile /config/log/access.log --error-logfile /config/log/error.log --capture-output --log-level debug app:app 
 
