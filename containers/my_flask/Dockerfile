@@ -2,8 +2,6 @@ FROM my_r
 
 MAINTAINER William Lees william@lees.org.uk
 
-COPY app/* /app/
-COPY app/cronjobs /etc/crontabs/root
 
 RUN \ 
   rm -rf /app && \
@@ -17,14 +15,11 @@ RUN \
   apt-get -y install rabbitmq-server && \
   apt-get -y install redis-server && \
   apt-get -y install mariadb-client && \
-  apt-get -y install cron && \
-  pip install "celery[redis]" && \
-  pip install -r /app/requirements.txt && \
-  pip install gevent && \
-  Rscript /app/install_vdjbaseviz
+  apt-get -y install cron
 
 # ensure we don't use the cache if the repo has changed
 ADD "https://api.github.com/repos/williamdlees/digby_backend/commits?per_page=1" latest_commit
+
 
 RUN \
   git clone https://github.com/williamdlees/digby_backend.git /app && \
@@ -34,8 +29,14 @@ RUN \
   dos2unix *.fasta && \
   for foo in *.fasta; do samtools faidx $foo; done && \
   chmod +x make_bam && \
-  ./make_bam
+  ./make_bam && \
+  pip install "celery[redis]" && \
+  pip install -r /app/requirements.txt && \
+  pip install gevent && \
+  Rscript /app/install_vdjbaseviz
 
+COPY app/* /app/
+COPY app/cronjobs /etc/crontabs/root
 
 RUN \
   chmod +x /app/start.sh && \
