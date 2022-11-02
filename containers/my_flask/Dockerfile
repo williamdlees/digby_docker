@@ -32,13 +32,13 @@ RUN \
   ./make_bam && \
   pip install "celery[redis]" && \
   pip install -r /app/requirements.txt && \
-  pip install gevent && \
-  Rscript /app/install_vdjbaseviz
+  pip install gevent
 
 COPY app/* /app/
 COPY app/cronjobs /etc/crontabs/root
 
 RUN \
+  Rscript /app/install_vdjbaseviz && \
   chmod +x /app/start.sh && \
   chmod +x /app/rotate.sh && \
   cd / && \
