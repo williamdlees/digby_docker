@@ -2,10 +2,10 @@ install.packages('devtools')
 install.packages('remotes')
 # install rabhit and vdjbaseviz here in order to get their dependencies
 # will install again in my_flask to get latest versions
-install_bitbucket('yaarilab/rabhit')
-install_bitbucket('yaarilab/vdjbaseVis')
 library(devtools)
 library(remotes)
+install_bitbucket('yaarilab/rabhit')
+install_bitbucket('yaarilab/vdjbaseVis')
 install.packages('nloptr')
 install.packages("BiocManager")
 BiocManager::install("Biostrings")
