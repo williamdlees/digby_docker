@@ -2,6 +2,9 @@ FROM my_r
 
 MAINTAINER William Lees william@lees.org.uk
 
+COPY app/* /app/
+COPY app/cronjobs /etc/crontabs/root
+
 RUN \ 
   rm -rf /app && \
   apt-get update && \
@@ -33,8 +36,6 @@ RUN \
   chmod +x make_bam && \
   ./make_bam
 
-COPY app/* /app/
-COPY app/cronjobs /etc/crontabs/root
 
 RUN \
   chmod +x /app/start.sh && \
