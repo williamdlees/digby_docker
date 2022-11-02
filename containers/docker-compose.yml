@@ -9,6 +9,9 @@ services:
         - /root/digby_docker/backup:/backup
         - /root/digby_docker/study_data:/study_data
     restart: unless-stopped 
+    environment:
+        - GUNICORN_WORKERS=1
+        - CELERY_WORKERS=1    
 networks:
     default:
         external: true
