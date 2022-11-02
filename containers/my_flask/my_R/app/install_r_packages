@@ -1,10 +1,17 @@
+install.packages('devtools')
+install.packages('remotes')
+# install rabhit and vdjbaseviz here in order to get their dependencies
+# will install again in my_flask to get latest versions
+install_bitbucket('yaarilab/rabhit')
+install_bitbucket('yaarilab/vdjbaseVis')
+library(devtools)
+library(remotes)
 install.packages('nloptr')
 install.packages("BiocManager")
 BiocManager::install("Biostrings")
 BiocManager::install("GenomicAlignments")
 install.packages('alakazam')
 install.packages('openssl')
-install.packages('devtools')
 install.packages('mltools')
 install.packages('cowplot')
 install.packages('wesanderson')
