@@ -1,4 +1,5 @@
 library(devtools)
 library(remotes)
+install.packages('http://cran.r-project.org/src/contrib/Archive/dplyr/dplyr_1.0.10.tar.gz', repos=NULL, type="source")
 install_bitbucket('yaarilab/rabhit')
 install_bitbucket('yaarilab/vdjbaseVis')
