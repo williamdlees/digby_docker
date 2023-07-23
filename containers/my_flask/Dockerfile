@@ -102,6 +102,13 @@ RUN \
   cp /app/Human_IGL_genomic_db_description.txt "/app/static/study_data/Genomic/db/Human/IGL/db_description.txt" && \
   mv /app/static/study_data /app/static/init_study_data && \
   ln -s /study_data /app/static/study_data && \
+  mkdir "/app/static/study_data/Genomic/samples/Human/IGH" && \
+  unzip /app/Human_IGH_genomic_samples.zip -d "/app/static/study_data/Genomic/samples/Human/IGH" && \
+  mkdir "/app/static/study_data/Genomic/db/Human/IGH" && \
+  cp /app/Human_IGH_genomic_db.sqlite3 "/app/static/study_data/Genomic/db/Human/IGH/db.sqlite3" && \
+  cp /app/Human_IGH_genomic_db_description.txt "/app/static/study_data/Genomic/db/Human/IGH/db_description.txt" && \
+  mv /app/static/study_data /app/static/init_study_data && \
+  ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
   mkdir -p /backup/backup.weekly && \
   mkdir -p /backup/backup.monthly && \
