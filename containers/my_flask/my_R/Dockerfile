@@ -8,8 +8,7 @@ COPY app/* /app/
 
 ENV R_BASE_VERSION 4.1.0
 
-RUN   
-apt-get update && \
+RUN apt-get update && \
       apt-get -y install software-properties-common && \
       apt-get install -y --no-install-recommends \
 		r-base \
