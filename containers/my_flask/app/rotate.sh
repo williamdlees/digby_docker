@@ -43,11 +43,11 @@ mv -v $source/* $destination
 
 /usr/local/bin/python /app/healthchecks.py vdjbase-backups log -m "backup file stored at $destination"
 
-# daily - keep for 14 days
+# daily - keep for 7 days
 find $storage/backup.daily/ -maxdepth 1 -mtime +14 -type d -exec rm -rv {} \;
 
-# weekly - keep for 60 days
+# weekly - keep for 30 days
 find $storage/backup.weekly/ -maxdepth 1 -mtime +60 -type d -exec rm -rv {} \;
 
-# monthly - keep for 300 days
+# monthly - keep for 180 days
 find $storage/backup.monthly/ -maxdepth 1 -mtime +300 -type d -exec rm -rv {} \;
