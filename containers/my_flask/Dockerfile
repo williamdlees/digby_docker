@@ -2,7 +2,7 @@ FROM my_r
 
 MAINTAINER William Lees william@lees.org.uk
 
-
+ARG backend_repo_url="https://github.com/williamdlees/digby_backend.git"
 RUN \ 
   rm -rf /app && \
   apt-get update && \
@@ -22,7 +22,7 @@ ADD "https://api.github.com/repos/williamdlees/digby_backend/commits?per_page=1"
 
 
 RUN \
-  git clone https://github.com/williamdlees/digby_backend.git /app && \
+  git clone "$backend_repo_url" /app && \
   ln -s /config/migrations /app/migrations && \
   ln -s /config/exports /app/exports && \
   cd /app/static/gff && \
