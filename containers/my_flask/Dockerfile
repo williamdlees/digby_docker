@@ -85,14 +85,6 @@ RUN \
   cp /app/Crab-eating_Macaque_IGH_db_description.txt "/app/static/study_data/VDJbase/db/Crab-eating Macaque/IGH/db_description.txt" && \
   mkdir "/app/static/study_data/Genomic" && \
   mkdir "/app/static/study_data/Genomic/samples" && \
-  mkdir "/app/static/study_data/Genomic/samples/Rhesus_Macaque" && \
-  mkdir "/app/static/study_data/Genomic/samples/Rhesus_Macaque/IGH" && \
-  unzip /app/Rhesus_Macaque_IGH_genomic_samples.zip -d "/app/static/study_data/Genomic/samples/Rhesus_Macaque/IGH" && \
-  mkdir "/app/static/study_data/Genomic/db" && \
-  mkdir "/app/static/study_data/Genomic/db/Rhesus Macaque" && \
-  mkdir "/app/static/study_data/Genomic/db/Rhesus Macaque/IGH" && \
-  cp /app/Rhesus_Macaque_IGH_genomic_db.sqlite3 "/app/static/study_data/Genomic/db/Rhesus Macaque/IGH/db.sqlite3" && \
-  cp /app/Rhesus_Macaque_IGH_genomic_db_description.txt "/app/static/study_data/Genomic/db/Rhesus Macaque/IGH/db_description.txt" && \
   mkdir "/app/static/study_data/Genomic/samples/Human" && \
   mkdir "/app/static/study_data/Genomic/samples/Human/IGL" && \
   unzip /app/Human_IGL_genomic_samples.zip -d "/app/static/study_data/Genomic/samples/Human/IGL" && \
