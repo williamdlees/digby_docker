@@ -88,6 +88,7 @@ RUN \
   mkdir "/app/static/study_data/Genomic/samples/Human" && \
   mkdir "/app/static/study_data/Genomic/samples/Human/IGL" && \
   unzip /app/Human_IGL_genomic_samples.zip -d "/app/static/study_data/Genomic/samples/Human/IGL" && \
+  mkdir "/app/static/study_data/Genomic/db" && \
   mkdir "/app/static/study_data/Genomic/db/Human" && \
   mkdir "/app/static/study_data/Genomic/db/Human/IGL" && \
   cp /app/Human_IGL_genomic_db.sqlite3 "/app/static/study_data/Genomic/db/Human/IGL/db.sqlite3" && \
