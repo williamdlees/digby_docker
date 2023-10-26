@@ -11,11 +11,8 @@ chmod +x /app/do_backup.sh
 
 cd /app
 
-if [ -f /study_data/.gitkeep ]; then
-  echo "initialising study_data"
-  rm /study_data/.gitkeep
-  cp -r static/init_study_data/* /study_data/.
-fi
+python /app/dataSeparationVdjbase.py
+
 
 #while true; do sleep 60; done
 
@@ -42,4 +39,3 @@ export PYTHONUNBUFFERED=1
 exec gunicorn -b :5000 --timeout 300 --limit-request-line 0 --worker-class gthread --keep-alive 5 --workers=$GUNICORN_WORKERS --graceful-timeout 900 --access-logfile /config/log/access.log --error-logfile /config/log/error.log --capture-output --log-level debug app:app 
 
 while true; do sleep 60; done
-
