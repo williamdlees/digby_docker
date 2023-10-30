@@ -13,8 +13,8 @@ This helps in keeping the study data current and well-organized.
 """
 
 
-CONFIG_PATH = r'/app/study_data_conf.csv'
-FILES_VERSION_PATH = r"/app/study_data_versions.csv"
+CONFIG_PATH = r'/config/study_data_conf.csv'
+FILES_VERSION_PATH = r"/config/study_data_versions.csv"
 
 
 # Configuration Files Description:

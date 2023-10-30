@@ -11,6 +11,11 @@ chmod +x /app/do_backup.sh
 
 cd /app
 
+echo "configuring study data"
+if [ ! -f /config/study_data_conf.csv ]; then
+  cp /app/sample_study_data_conf.csv /config/study_data_conf.csv 
+fi
+
 python /app/dataSeparationVdjbase.py
 
 
