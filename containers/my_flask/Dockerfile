@@ -25,11 +25,6 @@ RUN \
   git clone "$backend_repo_url" /app && \
   ln -s /config/migrations /app/migrations && \
   ln -s /config/exports /app/exports && \
-  cd /app/static/gff && \
-  dos2unix *.fasta && \
-  for foo in *.fasta; do samtools faidx $foo; done && \
-  chmod +x make_bam && \
-  ./make_bam && \
   pip install "celery[redis]" && \
   pip install -r /app/requirements.txt && \
   pip install gevent
@@ -41,6 +36,7 @@ RUN \
   Rscript /app/install_vdjbaseviz && \
   chmod +x /app/start.sh && \
   chmod +x /app/rotate.sh && \
+  mkdir /app/static/output && \  
   ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
   mkdir -p /backup/backup.weekly && \
