@@ -6,6 +6,7 @@ ARG backend_repo_url="https://github.com/williamdlees/digby_backend.git"
 RUN \ 
   rm -rf /app && \
   apt-get update && \
+  apt-get -y --no-install-recommends install apt-utils && \
   apt-get -y install vim && \
   apt-get -y install telnet && \
   apt-get -y install git && \
