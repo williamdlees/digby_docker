@@ -1,6 +1,7 @@
 library(devtools)
 library(remotes)
 install_bitbucket('yaarilab/rabhit')
-install_bitbucket('yaarilab/vdjbaseVis')
 # old version of dplyr required for vdjbase data_tables import
 install.packages('http://cran.r-project.org/src/contrib/Archive/dplyr/dplyr_1.0.10.tar.gz', repos=NULL, type="source")
+# watch for unsatified dependencies. repos=NULL is needed to stop dplyr getting updated
+install_bitbucket('yaarilab/vdjbaseVis', repos=NULL)
