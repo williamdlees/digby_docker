@@ -16,9 +16,7 @@ RUN gpg --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC7
     apt-get install -y --no-install-recommends \
                 r-base \
                 r-base-dev \
-                r-base-core \
-                r-recommended \
-                r-cran-devtools
+                r-base-core 
 
 RUN apt-get -y install libcairo2-dev libgtk2.0-dev xvfb xauth xfonts-base libxt-dev libcurl4-openssl-dev libxml2-dev libssl-dev cmake
 RUN apt-get -y install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev

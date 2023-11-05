@@ -1,4 +1,5 @@
 install.packages('remotes')
+install.packages('devtools')
 library(remotes)
 install.packages("BiocManager")
 install.packages('pbkrtest')
