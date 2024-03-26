@@ -32,16 +32,16 @@ RUN \
 
 COPY app/* /app/
 COPY app/cronjobs /etc/crontabs/root
+RUN dos2unix /app/start.sh
 
 RUN \
   Rscript /app/install_vdjbaseviz && \
   chmod +x /app/start.sh && \
   chmod +x /app/rotate.sh && \
-  mkdir /app/static/output && \  
   ln -s /study_data /app/static/study_data && \
   mkdir -p /backup/backup.daily && \
   mkdir -p /backup/backup.weekly && \
   mkdir -p /backup/backup.monthly && \
   crontab /app/cronjobs
-
+ 
 CMD ["/app/start.sh"]

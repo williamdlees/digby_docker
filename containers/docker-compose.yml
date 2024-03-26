@@ -5,17 +5,19 @@ services:
     image: vdjbase_flask
     container_name: vdjbase_flask
     volumes:
-        - /root/digby_docker/config/flask:/config
-        - /root/digby_docker/backup:/backup
-        - /root/digby_docker/study_data:/study_data
+        - /work/VDJbase/digby_docker/config/flask:/config
+        - /work/VDJbase/digby_docker/backup:/backup
+        - /work/VDJbase/digby_docker/study_data:/study_data
     restart: unless-stopped 
+    ports:
+      - "5000:5000"
     environment:
         - GUNICORN_WORKERS=1
-        - CELERY_WORKERS=1   
+        - CELERY_WORKERS=1
     ulimits:
         nofile:
             soft: "65536"
-            hard: "65536"
+            hard: "65536"    
 networks:
     default:
         external: true

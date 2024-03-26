@@ -1,0 +1,1137 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.56kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/my_r:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/8] FROM docker.io/library/my_r:latest
+#5 CACHED
+
+#6 [2/8] RUN   rm -rf /app &&   apt-get update &&   apt-get -y --no-install-recommends install apt-utils &&   apt-get -y install vim &&   apt-get -y install telnet &&   apt-get -y install git &&   apt-get -y install dos2unix &&   apt-get -y install samtools &&   apt-get -y install ghostscript &&   apt-get -y install rabbitmq-server &&   apt-get -y install redis-server &&   apt-get -y install mariadb-client &&   apt-get -y install cron
+#6 ...
+
+#7 [3/8] ADD https://api.github.com/repos/williamdlees/digby_backend/commits?per_page=1 latest_commit
+#7 DONE 0.4s
+
+#7 [3/8] ADD https://api.github.com/repos/williamdlees/digby_backend/commits?per_page=1 latest_commit
+#7 CACHED
+
+#4 [internal] load build context
+#4 transferring context: 13.77kB done
+#4 DONE 0.0s
+
+#6 [2/8] RUN   rm -rf /app &&   apt-get update &&   apt-get -y --no-install-recommends install apt-utils &&   apt-get -y install vim &&   apt-get -y install telnet &&   apt-get -y install git &&   apt-get -y install dos2unix &&   apt-get -y install samtools &&   apt-get -y install ghostscript &&   apt-get -y install rabbitmq-server &&   apt-get -y install redis-server &&   apt-get -y install mariadb-client &&   apt-get -y install cron
+#6 0.555 Hit:1 http://deb.debian.org/debian bullseye InRelease
+#6 0.582 Hit:2 http://deb.debian.org/debian-security bullseye-security InRelease
+#6 0.642 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+#6 0.732 Hit:4 https://cloud.r-project.org/bin/linux/debian bullseye-cran40/ InRelease
+#6 1.463 Fetched 44.1 kB in 1s (37.1 kB/s)
+#6 1.463 Reading package lists...
+#6 1.907 Reading package lists...
+#6 2.310 Building dependency tree...
+#6 2.393 Reading state information...
+#6 2.514 The following NEW packages will be installed:
+#6 2.514   apt-utils
+#6 2.726 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#6 2.726 Need to get 439 kB of archives.
+#6 2.726 After this operation, 1192 kB of additional disk space will be used.
+#6 2.726 Get:1 http://deb.debian.org/debian bullseye/main amd64 apt-utils amd64 2.2.4 [439 kB]
+#6 3.107 debconf: delaying package configuration, since apt-utils is not installed
+#6 3.216 Fetched 439 kB in 0s (1093 kB/s)
+#6 3.266 Selecting previously unselected package apt-utils.
+#6 3.266 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 76543 files and directories currently installed.)
+#6 3.317 Preparing to unpack .../apt-utils_2.2.4_amd64.deb ...
+#6 3.317 Unpacking apt-utils (2.2.4) ...
+#6 3.411 Setting up apt-utils (2.2.4) ...
+#6 3.413 Processing triggers for man-db (2.9.4-2) ...
+#6 4.124 Reading package lists...
+#6 4.526 Building dependency tree...
+#6 4.610 Reading state information...
+#6 4.706 The following additional packages will be installed:
+#6 4.706   libgpm2 vim-common vim-runtime xxd
+#6 4.706 Suggested packages:
+#6 4.706   gpm ctags vim-doc vim-scripts
+#6 4.802 The following NEW packages will be installed:
+#6 4.802   libgpm2 vim vim-common vim-runtime xxd
+#6 5.010 0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+#6 5.010 Need to get 8174 kB of archives.
+#6 5.010 After this operation, 36.9 MB of additional disk space will be used.
+#6 5.010 Get:1 http://deb.debian.org/debian bullseye/main amd64 xxd amd64 2:8.2.2434-3+deb11u1 [192 kB]
+#6 5.214 Get:2 http://deb.debian.org/debian bullseye/main amd64 vim-common all 2:8.2.2434-3+deb11u1 [226 kB]
+#6 5.243 Get:3 http://deb.debian.org/debian bullseye/main amd64 libgpm2 amd64 1.20.7-8 [35.6 kB]
+#6 5.279 Get:4 http://deb.debian.org/debian bullseye/main amd64 vim-runtime all 2:8.2.2434-3+deb11u1 [6226 kB]
+#6 6.676 Get:5 http://deb.debian.org/debian bullseye/main amd64 vim amd64 2:8.2.2434-3+deb11u1 [1494 kB]
+#6 7.169 debconf: unable to initialize frontend: Dialog
+#6 7.169 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 7.169 debconf: falling back to frontend: Readline
+#6 7.183 debconf: unable to initialize frontend: Readline
+#6 7.183 debconf: (This frontend requires a controlling tty.)
+#6 7.183 debconf: falling back to frontend: Teletype
+#6 7.193 dpkg-preconfigure: unable to re-open stdin: 
+#6 7.269 Fetched 8174 kB in 2s (3736 kB/s)
+#6 7.297 Selecting previously unselected package xxd.
+#6 7.297 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 76624 files and directories currently installed.)
+#6 7.335 Preparing to unpack .../xxd_2%3a8.2.2434-3+deb11u1_amd64.deb ...
+#6 7.335 Unpacking xxd (2:8.2.2434-3+deb11u1) ...
+#6 7.389 Selecting previously unselected package vim-common.
+#6 7.399 Preparing to unpack .../vim-common_2%3a8.2.2434-3+deb11u1_all.deb ...
+#6 7.413 Unpacking vim-common (2:8.2.2434-3+deb11u1) ...
+#6 7.470 Selecting previously unselected package libgpm2:amd64.
+#6 7.479 Preparing to unpack .../libgpm2_1.20.7-8_amd64.deb ...
+#6 7.479 Unpacking libgpm2:amd64 (1.20.7-8) ...
+#6 7.524 Selecting previously unselected package vim-runtime.
+#6 7.540 Preparing to unpack .../vim-runtime_2%3a8.2.2434-3+deb11u1_all.deb ...
+#6 7.562 Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
+#6 7.593 Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
+#6 7.595 Unpacking vim-runtime (2:8.2.2434-3+deb11u1) ...
+#6 8.195 Selecting previously unselected package vim.
+#6 8.206 Preparing to unpack .../vim_2%3a8.2.2434-3+deb11u1_amd64.deb ...
+#6 8.220 Unpacking vim (2:8.2.2434-3+deb11u1) ...
+#6 8.375 Setting up libgpm2:amd64 (1.20.7-8) ...
+#6 8.376 Setting up xxd (2:8.2.2434-3+deb11u1) ...
+#6 8.377 Setting up vim-common (2:8.2.2434-3+deb11u1) ...
+#6 8.398 Setting up vim-runtime (2:8.2.2434-3+deb11u1) ...
+#6 8.570 Setting up vim (2:8.2.2434-3+deb11u1) ...
+#6 8.590 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+#6 8.596 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+#6 8.603 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+#6 8.608 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+#6 8.615 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+#6 8.624 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+#6 8.633 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+#6 8.643 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+#6 8.659 Processing triggers for libc-bin (2.31-13+deb11u8) ...
+#6 8.687 Processing triggers for man-db (2.9.4-2) ...
+#6 9.268 Processing triggers for hicolor-icon-theme (0.17-2) ...
+#6 9.360 Reading package lists...
+#6 9.769 Building dependency tree...
+#6 9.854 Reading state information...
+#6 9.989 The following NEW packages will be installed:
+#6 9.989   telnet
+#6 10.20 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#6 10.20 Need to get 71.1 kB of archives.
+#6 10.20 After this operation, 167 kB of additional disk space will be used.
+#6 10.20 Get:1 http://deb.debian.org/debian bullseye/main amd64 telnet amd64 0.17-42 [71.1 kB]
+#6 10.45 debconf: unable to initialize frontend: Dialog
+#6 10.45 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 10.45 debconf: falling back to frontend: Readline
+#6 10.46 debconf: unable to initialize frontend: Readline
+#6 10.46 debconf: (This frontend requires a controlling tty.)
+#6 10.46 debconf: falling back to frontend: Teletype
+#6 10.47 dpkg-preconfigure: unable to re-open stdin: 
+#6 10.54 Fetched 71.1 kB in 0s (252 kB/s)
+#6 10.56 Selecting previously unselected package telnet.
+#6 10.56 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 78597 files and directories currently installed.)
+#6 10.60 Preparing to unpack .../telnet_0.17-42_amd64.deb ...
+#6 10.60 Unpacking telnet (0.17-42) ...
+#6 10.67 Setting up telnet (0.17-42) ...
+#6 10.68 update-alternatives: using /usr/bin/telnet.netkit to provide /usr/bin/telnet (telnet) in auto mode
+#6 10.69 Processing triggers for man-db (2.9.4-2) ...
+#6 10.99 Reading package lists...
+#6 11.39 Building dependency tree...
+#6 11.48 Reading state information...
+#6 11.60 git is already the newest version (1:2.30.2-1+deb11u2).
+#6 11.60 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#6 11.62 Reading package lists...
+#6 12.02 Building dependency tree...
+#6 12.11 Reading state information...
+#6 12.22 The following NEW packages will be installed:
+#6 12.22   dos2unix
+#6 12.43 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#6 12.43 Need to get 392 kB of archives.
+#6 12.43 After this operation, 1353 kB of additional disk space will be used.
+#6 12.43 Get:1 http://deb.debian.org/debian bullseye/main amd64 dos2unix amd64 7.4.1-1 [392 kB]
+#6 12.79 debconf: unable to initialize frontend: Dialog
+#6 12.79 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 12.79 debconf: falling back to frontend: Readline
+#6 12.80 debconf: unable to initialize frontend: Readline
+#6 12.80 debconf: (This frontend requires a controlling tty.)
+#6 12.80 debconf: falling back to frontend: Teletype
+#6 12.81 dpkg-preconfigure: unable to re-open stdin: 
+#6 12.88 Fetched 392 kB in 0s (1009 kB/s)
+#6 12.91 Selecting previously unselected package dos2unix.
+#6 12.91 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 78607 files and directories currently installed.)
+#6 12.95 Preparing to unpack .../dos2unix_7.4.1-1_amd64.deb ...
+#6 12.95 Unpacking dos2unix (7.4.1-1) ...
+#6 13.04 Setting up dos2unix (7.4.1-1) ...
+#6 13.04 Processing triggers for man-db (2.9.4-2) ...
+#6 13.49 Reading package lists...
+#6 13.90 Building dependency tree...
+#6 13.98 Reading state information...
+#6 14.08 The following additional packages will be installed:
+#6 14.08   libhts3
+#6 14.08 Suggested packages:
+#6 14.08   cwltool
+#6 14.12 The following NEW packages will be installed:
+#6 14.12   libhts3 samtools
+#6 14.32 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+#6 14.32 Need to get 923 kB of archives.
+#6 14.32 After this operation, 2160 kB of additional disk space will be used.
+#6 14.32 Get:1 http://deb.debian.org/debian bullseye/main amd64 libhts3 amd64 1.11-4 [378 kB]
+#6 14.57 Get:2 http://deb.debian.org/debian bullseye/main amd64 samtools amd64 1.11-1 [545 kB]
+#6 14.86 debconf: unable to initialize frontend: Dialog
+#6 14.86 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 14.86 debconf: falling back to frontend: Readline
+#6 14.87 debconf: unable to initialize frontend: Readline
+#6 14.87 debconf: (This frontend requires a controlling tty.)
+#6 14.87 debconf: falling back to frontend: Teletype
+#6 14.88 dpkg-preconfigure: unable to re-open stdin: 
+#6 14.96 Fetched 923 kB in 1s (1622 kB/s)
+#6 14.99 Selecting previously unselected package libhts3:amd64.
+#6 14.99 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 78706 files and directories currently installed.)
+#6 15.03 Preparing to unpack .../libhts3_1.11-4_amd64.deb ...
+#6 15.03 Unpacking libhts3:amd64 (1.11-4) ...
+#6 15.10 Selecting previously unselected package samtools.
+#6 15.11 Preparing to unpack .../samtools_1.11-1_amd64.deb ...
+#6 15.11 Unpacking samtools (1.11-1) ...
+#6 15.19 Setting up libhts3:amd64 (1.11-4) ...
+#6 15.20 Setting up samtools (1.11-1) ...
+#6 15.20 Processing triggers for man-db (2.9.4-2) ...
+#6 15.89 Processing triggers for libc-bin (2.31-13+deb11u8) ...
+#6 15.97 Reading package lists...
+#6 16.38 Building dependency tree...
+#6 16.46 Reading state information...
+#6 16.56 The following additional packages will be installed:
+#6 16.56   fonts-droid-fallback fonts-noto-mono fonts-urw-base35 libgs9 libgs9-common
+#6 16.56   libidn11 libijs-0.35 libjbig2dec0 poppler-data
+#6 16.56 Suggested packages:
+#6 16.56   fonts-noto fonts-freefont-otf | fonts-freefont-ttf fonts-texgyre
+#6 16.56   ghostscript-x poppler-utils fonts-japanese-mincho | fonts-ipafont-mincho
+#6 16.56   fonts-japanese-gothic | fonts-ipafont-gothic fonts-arphic-ukai
+#6 16.56   fonts-arphic-uming fonts-nanum
+#6 16.62 The following NEW packages will be installed:
+#6 16.62   fonts-droid-fallback fonts-noto-mono fonts-urw-base35 ghostscript libgs9
+#6 16.62   libgs9-common libidn11 libijs-0.35 libjbig2dec0 poppler-data
+#6 16.84 0 upgraded, 10 newly installed, 0 to remove and 0 not upgraded.
+#6 16.84 Need to get 13.5 MB of archives.
+#6 16.84 After this operation, 54.2 MB of additional disk space will be used.
+#6 16.84 Get:1 http://deb.debian.org/debian bullseye/main amd64 fonts-droid-fallback all 1:6.0.1r16-1.1 [1807 kB]
+#6 17.40 Get:2 http://deb.debian.org/debian bullseye/main amd64 poppler-data all 0.4.10-1 [1602 kB]
+#6 17.76 Get:3 http://deb.debian.org/debian bullseye/main amd64 fonts-noto-mono all 20201225-1 [402 kB]
+#6 17.83 Get:4 http://deb.debian.org/debian bullseye/main amd64 fonts-urw-base35 all 20200910-1 [6367 kB]
+#6 19.27 Get:5 http://deb.debian.org/debian bullseye/main amd64 libgs9-common all 9.53.3~dfsg-7+deb11u6 [735 kB]
+#6 19.44 Get:6 http://deb.debian.org/debian bullseye/main amd64 libidn11 amd64 1.33-3 [116 kB]
+#6 19.46 Get:7 http://deb.debian.org/debian bullseye/main amd64 libijs-0.35 amd64 0.35-15 [16.4 kB]
+#6 19.46 Get:8 http://deb.debian.org/debian bullseye/main amd64 libjbig2dec0 amd64 0.19-2 [67.2 kB]
+#6 19.48 Get:9 http://deb.debian.org/debian bullseye/main amd64 libgs9 amd64 9.53.3~dfsg-7+deb11u6 [2245 kB]
+#6 19.99 Get:10 http://deb.debian.org/debian bullseye/main amd64 ghostscript amd64 9.53.3~dfsg-7+deb11u6 [98.3 kB]
+#6 20.19 debconf: unable to initialize frontend: Dialog
+#6 20.19 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 20.19 debconf: falling back to frontend: Readline
+#6 20.21 debconf: unable to initialize frontend: Readline
+#6 20.21 debconf: (This frontend requires a controlling tty.)
+#6 20.21 debconf: falling back to frontend: Teletype
+#6 20.22 dpkg-preconfigure: unable to re-open stdin: 
+#6 20.29 Fetched 13.5 MB in 3s (3968 kB/s)
+#6 20.32 Selecting previously unselected package fonts-droid-fallback.
+#6 20.32 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 78800 files and directories currently installed.)
+#6 20.36 Preparing to unpack .../0-fonts-droid-fallback_1%3a6.0.1r16-1.1_all.deb ...
+#6 20.41 Unpacking fonts-droid-fallback (1:6.0.1r16-1.1) ...
+#6 20.60 Selecting previously unselected package poppler-data.
+#6 20.61 Preparing to unpack .../1-poppler-data_0.4.10-1_all.deb ...
+#6 20.61 Unpacking poppler-data (0.4.10-1) ...
+#6 20.85 Selecting previously unselected package fonts-noto-mono.
+#6 20.87 Preparing to unpack .../2-fonts-noto-mono_20201225-1_all.deb ...
+#6 20.87 Unpacking fonts-noto-mono (20201225-1) ...
+#6 20.94 Selecting previously unselected package fonts-urw-base35.
+#6 20.95 Preparing to unpack .../3-fonts-urw-base35_20200910-1_all.deb ...
+#6 21.10 Unpacking fonts-urw-base35 (20200910-1) ...
+#6 21.44 Selecting previously unselected package libgs9-common.
+#6 21.45 Preparing to unpack .../4-libgs9-common_9.53.3~dfsg-7+deb11u6_all.deb ...
+#6 21.45 Unpacking libgs9-common (9.53.3~dfsg-7+deb11u6) ...
+#6 21.57 Selecting previously unselected package libidn11:amd64.
+#6 21.58 Preparing to unpack .../5-libidn11_1.33-3_amd64.deb ...
+#6 21.58 Unpacking libidn11:amd64 (1.33-3) ...
+#6 21.63 Selecting previously unselected package libijs-0.35:amd64.
+#6 21.64 Preparing to unpack .../6-libijs-0.35_0.35-15_amd64.deb ...
+#6 21.64 Unpacking libijs-0.35:amd64 (0.35-15) ...
+#6 21.68 Selecting previously unselected package libjbig2dec0:amd64.
+#6 21.70 Preparing to unpack .../7-libjbig2dec0_0.19-2_amd64.deb ...
+#6 21.70 Unpacking libjbig2dec0:amd64 (0.19-2) ...
+#6 21.75 Selecting previously unselected package libgs9:amd64.
+#6 21.77 Preparing to unpack .../8-libgs9_9.53.3~dfsg-7+deb11u6_amd64.deb ...
+#6 21.77 Unpacking libgs9:amd64 (9.53.3~dfsg-7+deb11u6) ...
+#6 21.99 Selecting previously unselected package ghostscript.
+#6 22.00 Preparing to unpack .../9-ghostscript_9.53.3~dfsg-7+deb11u6_amd64.deb ...
+#6 22.00 Unpacking ghostscript (9.53.3~dfsg-7+deb11u6) ...
+#6 22.07 Setting up fonts-noto-mono (20201225-1) ...
+#6 22.07 Setting up libijs-0.35:amd64 (0.35-15) ...
+#6 22.07 Setting up fonts-urw-base35 (20200910-1) ...
+#6 22.21 Setting up poppler-data (0.4.10-1) ...
+#6 22.24 Setting up libjbig2dec0:amd64 (0.19-2) ...
+#6 22.25 Setting up libidn11:amd64 (1.33-3) ...
+#6 22.25 Setting up fonts-droid-fallback (1:6.0.1r16-1.1) ...
+#6 22.30 Setting up libgs9-common (9.53.3~dfsg-7+deb11u6) ...
+#6 22.31 Setting up libgs9:amd64 (9.53.3~dfsg-7+deb11u6) ...
+#6 22.31 Setting up ghostscript (9.53.3~dfsg-7+deb11u6) ...
+#6 22.33 Processing triggers for fontconfig (2.13.1-4.2) ...
+#6 22.49 Processing triggers for libc-bin (2.31-13+deb11u8) ...
+#6 22.52 Processing triggers for man-db (2.9.4-2) ...
+#6 23.07 Reading package lists...
+#6 23.48 Building dependency tree...
+#6 23.56 Reading state information...
+#6 23.66 The following additional packages will be installed:
+#6 23.66   bsd-mailx erlang-asn1 erlang-base erlang-crypto erlang-eldap erlang-ftp
+#6 23.66   erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key
+#6 23.66   erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp
+#6 23.66   erlang-tools erlang-xmerl exim4-base exim4-config exim4-daemon-light
+#6 23.66   libc-l10n libgnutls-dane0 liblockfile-bin liblockfile1 libpopt0 libsctp1
+#6 23.66   libunbound8 libwrap0 locales-all logrotate psmisc socat
+#6 23.66 Suggested packages:
+#6 23.66   erlang erlang-manpages erlang-doc exim4-doc-html | exim4-doc-info eximon4
+#6 23.66   spf-tools-perl swaks dns-root-data lksctp-tools
+#6 23.80 The following NEW packages will be installed:
+#6 23.80   bsd-mailx erlang-asn1 erlang-base erlang-crypto erlang-eldap erlang-ftp
+#6 23.80   erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key
+#6 23.80   erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp
+#6 23.80   erlang-tools erlang-xmerl exim4-base exim4-config exim4-daemon-light
+#6 23.80   libc-l10n libgnutls-dane0 liblockfile-bin liblockfile1 libpopt0 libsctp1
+#6 23.80   libunbound8 libwrap0 locales-all logrotate psmisc rabbitmq-server socat
+#6 24.07 0 upgraded, 34 newly installed, 0 to remove and 0 not upgraded.
+#6 24.07 Need to get 48.0 MB of archives.
+#6 24.07 After this operation, 286 MB of additional disk space will be used.
+#6 24.07 Get:1 http://deb.debian.org/debian bullseye/main amd64 libpopt0 amd64 1.18-2 [49.6 kB]
+#6 24.19 Get:2 http://deb.debian.org/debian bullseye/main amd64 logrotate amd64 3.18.0-2+deb11u2 [72.6 kB]
+#6 24.22 Get:3 http://deb.debian.org/debian bullseye/main amd64 libc-l10n all 2.31-13+deb11u8 [865 kB]
+#6 24.45 Get:4 http://deb.debian.org/debian bullseye/main amd64 liblockfile-bin amd64 1.17-1+b1 [20.8 kB]
+#6 24.45 Get:5 http://deb.debian.org/debian bullseye/main amd64 exim4-config all 4.94.2-7+deb11u2 [335 kB]
+#6 24.53 Get:6 http://deb.debian.org/debian bullseye/main amd64 exim4-base amd64 4.94.2-7+deb11u2 [1176 kB]
+#6 24.79 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 libunbound8 amd64 1.13.1-1+deb11u2 [508 kB]
+#6 24.91 Get:8 http://deb.debian.org/debian bullseye/main amd64 libgnutls-dane0 amd64 3.7.1-5+deb11u4 [395 kB]
+#6 25.00 Get:9 http://deb.debian.org/debian bullseye/main amd64 exim4-daemon-light amd64 4.94.2-7+deb11u2 [658 kB]
+#6 25.14 Get:10 http://deb.debian.org/debian bullseye/main amd64 liblockfile1 amd64 1.17-1+b1 [17.0 kB]
+#6 25.15 Get:11 http://deb.debian.org/debian bullseye/main amd64 bsd-mailx amd64 8.1.2-0.20180807cvs-2 [88.6 kB]
+#6 25.17 Get:12 http://deb.debian.org/debian bullseye/main amd64 erlang-base amd64 1:23.2.6+dfsg-1+deb11u1 [8456 kB]
+#6 27.07 Get:13 http://deb.debian.org/debian bullseye/main amd64 erlang-asn1 amd64 1:23.2.6+dfsg-1+deb11u1 [771 kB]
+#6 27.24 Get:14 http://deb.debian.org/debian bullseye/main amd64 erlang-crypto amd64 1:23.2.6+dfsg-1+deb11u1 [176 kB]
+#6 27.30 Get:15 http://deb.debian.org/debian bullseye/main amd64 erlang-public-key amd64 1:23.2.6+dfsg-1+deb11u1 [675 kB]
+#6 27.43 Get:16 http://deb.debian.org/debian bullseye/main amd64 erlang-mnesia amd64 1:23.2.6+dfsg-1+deb11u1 [755 kB]
+#6 27.61 Get:17 http://deb.debian.org/debian bullseye/main amd64 erlang-runtime-tools amd64 1:23.2.6+dfsg-1+deb11u1 [216 kB]
+#6 27.66 Get:18 http://deb.debian.org/debian bullseye/main amd64 erlang-ssl amd64 1:23.2.6+dfsg-1+deb11u1 [1317 kB]
+#6 27.96 Get:19 http://deb.debian.org/debian bullseye/main amd64 erlang-eldap amd64 1:23.2.6+dfsg-1+deb11u1 [133 kB]
+#6 28.00 Get:20 http://deb.debian.org/debian bullseye/main amd64 erlang-ftp amd64 1:23.2.6+dfsg-1+deb11u1 [102 kB]
+#6 28.01 Get:21 http://deb.debian.org/debian bullseye/main amd64 erlang-tftp amd64 1:23.2.6+dfsg-1+deb11u1 [117 kB]
+#6 28.03 Get:22 http://deb.debian.org/debian bullseye/main amd64 erlang-inets amd64 1:23.2.6+dfsg-1+deb11u1 [560 kB]
+#6 28.17 Get:23 http://deb.debian.org/debian bullseye/main amd64 erlang-snmp amd64 1:23.2.6+dfsg-1+deb11u1 [1603 kB]
+#6 28.53 Get:24 http://deb.debian.org/debian bullseye/main amd64 erlang-os-mon amd64 1:23.2.6+dfsg-1+deb11u1 [110 kB]
+#6 28.54 Get:25 http://deb.debian.org/debian bullseye/main amd64 erlang-parsetools amd64 1:23.2.6+dfsg-1+deb11u1 [183 kB]
+#6 28.59 Get:26 http://deb.debian.org/debian bullseye/main amd64 erlang-syntax-tools amd64 1:23.2.6+dfsg-1+deb11u1 [377 kB]
+#6 28.67 Get:27 http://deb.debian.org/debian bullseye/main amd64 erlang-tools amd64 1:23.2.6+dfsg-1+deb11u1 [532 kB]
+#6 28.79 Get:28 http://deb.debian.org/debian bullseye/main amd64 erlang-xmerl amd64 1:23.2.6+dfsg-1+deb11u1 [1137 kB]
+#6 29.06 Get:29 http://deb.debian.org/debian bullseye/main amd64 libsctp1 amd64 1.0.18+dfsg-1 [28.3 kB]
+#6 29.06 Get:30 http://deb.debian.org/debian bullseye/main amd64 libwrap0 amd64 7.6.q-31 [59.0 kB]
+#6 29.07 Get:31 http://deb.debian.org/debian bullseye/main amd64 locales-all amd64 2.31-13+deb11u8 [10.9 MB]
+#6 31.51 Get:32 http://deb.debian.org/debian bullseye/main amd64 psmisc amd64 23.4-2 [198 kB]
+#6 31.56 Get:33 http://deb.debian.org/debian bullseye/main amd64 socat amd64 1.7.4.1-3 [370 kB]
+#6 31.64 Get:34 http://deb.debian.org/debian bullseye/main amd64 rabbitmq-server all 3.8.9-3+deb11u1 [15.1 MB]
+#6 35.22 debconf: unable to initialize frontend: Dialog
+#6 35.22 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 35.22 debconf: falling back to frontend: Readline
+#6 35.24 debconf: unable to initialize frontend: Readline
+#6 35.24 debconf: (This frontend requires a controlling tty.)
+#6 35.24 debconf: falling back to frontend: Teletype
+#6 35.25 dpkg-preconfigure: unable to re-open stdin: 
+#6 35.33 Fetched 48.0 MB in 11s (4276 kB/s)
+#6 35.37 Selecting previously unselected package libpopt0:amd64.
+#6 35.37 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 79900 files and directories currently installed.)
+#6 35.41 Preparing to unpack .../00-libpopt0_1.18-2_amd64.deb ...
+#6 35.41 Unpacking libpopt0:amd64 (1.18-2) ...
+#6 35.46 Selecting previously unselected package logrotate.
+#6 35.47 Preparing to unpack .../01-logrotate_3.18.0-2+deb11u2_amd64.deb ...
+#6 35.47 Unpacking logrotate (3.18.0-2+deb11u2) ...
+#6 35.51 Selecting previously unselected package libc-l10n.
+#6 35.52 Preparing to unpack .../02-libc-l10n_2.31-13+deb11u8_all.deb ...
+#6 35.52 Unpacking libc-l10n (2.31-13+deb11u8) ...
+#6 35.62 Selecting previously unselected package liblockfile-bin.
+#6 35.63 Preparing to unpack .../03-liblockfile-bin_1.17-1+b1_amd64.deb ...
+#6 35.63 Unpacking liblockfile-bin (1.17-1+b1) ...
+#6 35.68 Selecting previously unselected package exim4-config.
+#6 35.70 Preparing to unpack .../04-exim4-config_4.94.2-7+deb11u2_all.deb ...
+#6 35.70 Unpacking exim4-config (4.94.2-7+deb11u2) ...
+#6 35.76 Selecting previously unselected package exim4-base.
+#6 35.77 Preparing to unpack .../05-exim4-base_4.94.2-7+deb11u2_amd64.deb ...
+#6 35.77 Unpacking exim4-base (4.94.2-7+deb11u2) ...
+#6 35.85 Selecting previously unselected package libunbound8:amd64.
+#6 35.86 Preparing to unpack .../06-libunbound8_1.13.1-1+deb11u2_amd64.deb ...
+#6 35.86 Unpacking libunbound8:amd64 (1.13.1-1+deb11u2) ...
+#6 35.93 Selecting previously unselected package libgnutls-dane0:amd64.
+#6 35.94 Preparing to unpack .../07-libgnutls-dane0_3.7.1-5+deb11u4_amd64.deb ...
+#6 35.94 Unpacking libgnutls-dane0:amd64 (3.7.1-5+deb11u4) ...
+#6 35.99 Selecting previously unselected package exim4-daemon-light.
+#6 36.00 Preparing to unpack .../08-exim4-daemon-light_4.94.2-7+deb11u2_amd64.deb ...
+#6 36.00 Unpacking exim4-daemon-light (4.94.2-7+deb11u2) ...
+#6 36.08 Selecting previously unselected package liblockfile1:amd64.
+#6 36.09 Preparing to unpack .../09-liblockfile1_1.17-1+b1_amd64.deb ...
+#6 36.09 Unpacking liblockfile1:amd64 (1.17-1+b1) ...
+#6 36.12 Selecting previously unselected package bsd-mailx.
+#6 36.14 Preparing to unpack .../10-bsd-mailx_8.1.2-0.20180807cvs-2_amd64.deb ...
+#6 36.14 Unpacking bsd-mailx (8.1.2-0.20180807cvs-2) ...
+#6 36.19 Selecting previously unselected package erlang-base.
+#6 36.20 Preparing to unpack .../11-erlang-base_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 36.20 Unpacking erlang-base (1:23.2.6+dfsg-1+deb11u1) ...
+#6 36.84 Selecting previously unselected package erlang-asn1.
+#6 36.85 Preparing to unpack .../12-erlang-asn1_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 36.85 Unpacking erlang-asn1 (1:23.2.6+dfsg-1+deb11u1) ...
+#6 36.94 Selecting previously unselected package erlang-crypto.
+#6 36.95 Preparing to unpack .../13-erlang-crypto_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 36.95 Unpacking erlang-crypto (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.00 Selecting previously unselected package erlang-public-key.
+#6 37.02 Preparing to unpack .../14-erlang-public-key_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.02 Unpacking erlang-public-key (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.11 Selecting previously unselected package erlang-mnesia.
+#6 37.12 Preparing to unpack .../15-erlang-mnesia_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.12 Unpacking erlang-mnesia (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.21 Selecting previously unselected package erlang-runtime-tools.
+#6 37.22 Preparing to unpack .../16-erlang-runtime-tools_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.22 Unpacking erlang-runtime-tools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.27 Selecting previously unselected package erlang-ssl.
+#6 37.28 Preparing to unpack .../17-erlang-ssl_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.28 Unpacking erlang-ssl (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.41 Selecting previously unselected package erlang-eldap.
+#6 37.43 Preparing to unpack .../18-erlang-eldap_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.43 Unpacking erlang-eldap (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.47 Selecting previously unselected package erlang-ftp.
+#6 37.48 Preparing to unpack .../19-erlang-ftp_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.48 Unpacking erlang-ftp (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.52 Selecting previously unselected package erlang-tftp.
+#6 37.53 Preparing to unpack .../20-erlang-tftp_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.53 Unpacking erlang-tftp (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.58 Selecting previously unselected package erlang-inets.
+#6 37.59 Preparing to unpack .../21-erlang-inets_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.59 Unpacking erlang-inets (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.67 Selecting previously unselected package erlang-snmp.
+#6 37.68 Preparing to unpack .../22-erlang-snmp_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.68 Unpacking erlang-snmp (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.87 Selecting previously unselected package erlang-os-mon.
+#6 37.88 Preparing to unpack .../23-erlang-os-mon_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.88 Unpacking erlang-os-mon (1:23.2.6+dfsg-1+deb11u1) ...
+#6 37.93 Selecting previously unselected package erlang-parsetools.
+#6 37.94 Preparing to unpack .../24-erlang-parsetools_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 37.94 Unpacking erlang-parsetools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 38.00 Selecting previously unselected package erlang-syntax-tools.
+#6 38.01 Preparing to unpack .../25-erlang-syntax-tools_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 38.01 Unpacking erlang-syntax-tools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 38.08 Selecting previously unselected package erlang-tools.
+#6 38.10 Preparing to unpack .../26-erlang-tools_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 38.10 Unpacking erlang-tools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 38.18 Selecting previously unselected package erlang-xmerl.
+#6 38.19 Preparing to unpack .../27-erlang-xmerl_1%3a23.2.6+dfsg-1+deb11u1_amd64.deb ...
+#6 38.19 Unpacking erlang-xmerl (1:23.2.6+dfsg-1+deb11u1) ...
+#6 38.31 Selecting previously unselected package libsctp1:amd64.
+#6 38.32 Preparing to unpack .../28-libsctp1_1.0.18+dfsg-1_amd64.deb ...
+#6 38.32 Unpacking libsctp1:amd64 (1.0.18+dfsg-1) ...
+#6 38.36 Selecting previously unselected package libwrap0:amd64.
+#6 38.38 Preparing to unpack .../29-libwrap0_7.6.q-31_amd64.deb ...
+#6 38.38 Unpacking libwrap0:amd64 (7.6.q-31) ...
+#6 38.43 Selecting previously unselected package locales-all.
+#6 38.44 Preparing to unpack .../30-locales-all_2.31-13+deb11u8_amd64.deb ...
+#6 38.44 Unpacking locales-all (2.31-13+deb11u8) ...
+#6 40.65 Selecting previously unselected package psmisc.
+#6 40.67 Preparing to unpack .../31-psmisc_23.4-2_amd64.deb ...
+#6 40.67 Unpacking psmisc (23.4-2) ...
+#6 40.72 Selecting previously unselected package socat.
+#6 40.74 Preparing to unpack .../32-socat_1.7.4.1-3_amd64.deb ...
+#6 40.74 Unpacking socat (1.7.4.1-3) ...
+#6 40.81 Selecting previously unselected package rabbitmq-server.
+#6 40.82 Preparing to unpack .../33-rabbitmq-server_3.8.9-3+deb11u1_all.deb ...
+#6 40.82 Unpacking rabbitmq-server (3.8.9-3+deb11u1) ...
+#6 41.47 Setting up libc-l10n (2.31-13+deb11u8) ...
+#6 41.47 Setting up liblockfile-bin (1.17-1+b1) ...
+#6 41.47 Setting up erlang-base (1:23.2.6+dfsg-1+deb11u1) ...
+#6 41.76 Created symlink /etc/systemd/system/multi-user.target.wants/epmd.service → /lib/systemd/system/epmd.service.
+#6 41.76 Created symlink /etc/systemd/system/sockets.target.wants/epmd.socket → /lib/systemd/system/epmd.socket.
+#6 41.91 Searching for services which depend on erlang and should be started... none found.
+#6 42.02 Setting up psmisc (23.4-2) ...
+#6 42.03 Setting up erlang-xmerl (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.03 Setting up erlang-syntax-tools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.04 Setting up locales-all (2.31-13+deb11u8) ...
+#6 42.04 Setting up libunbound8:amd64 (1.13.1-1+deb11u2) ...
+#6 42.05 Setting up erlang-parsetools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.05 Setting up libwrap0:amd64 (7.6.q-31) ...
+#6 42.06 Setting up socat (1.7.4.1-3) ...
+#6 42.06 Setting up erlang-asn1 (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.06 Setting up erlang-tftp (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.06 Setting up libsctp1:amd64 (1.0.18+dfsg-1) ...
+#6 42.06 Setting up exim4-config (4.94.2-7+deb11u2) ...
+#6 42.17 debconf: unable to initialize frontend: Dialog
+#6 42.17 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 42.17 debconf: falling back to frontend: Readline
+#6 42.32 Adding system-user for exim (v4)
+#6 42.92 Setting up erlang-mnesia (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.92 Setting up liblockfile1:amd64 (1.17-1+b1) ...
+#6 42.92 Setting up erlang-crypto (1:23.2.6+dfsg-1+deb11u1) ...
+#6 42.92 Setting up libpopt0:amd64 (1.18-2) ...
+#6 42.93 Setting up logrotate (3.18.0-2+deb11u2) ...
+#6 43.07 Created symlink /etc/systemd/system/timers.target.wants/logrotate.timer → /lib/systemd/system/logrotate.timer.
+#6 43.07 Setting up libgnutls-dane0:amd64 (3.7.1-5+deb11u4) ...
+#6 43.08 Setting up exim4-base (4.94.2-7+deb11u2) ...
+#6 43.16 debconf: unable to initialize frontend: Dialog
+#6 43.16 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 43.16 debconf: falling back to frontend: Readline
+#6 43.22 exim: DB upgrade, deleting hints-db
+#6 43.38 Created symlink /etc/systemd/system/timers.target.wants/exim4-base.timer → /lib/systemd/system/exim4-base.timer.
+#6 43.40 Setting up erlang-runtime-tools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.41 Setting up erlang-tools (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.41 Setting up erlang-snmp (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.41 Setting up erlang-public-key (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.41 Setting up exim4-daemon-light (4.94.2-7+deb11u2) ...
+#6 43.49 debconf: unable to initialize frontend: Dialog
+#6 43.49 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 43.49 debconf: falling back to frontend: Readline
+#6 43.53 invoke-rc.d: could not determine current runlevel
+#6 43.54 invoke-rc.d: policy-rc.d denied execution of start.
+#6 43.56 Setting up erlang-ssl (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.56 Setting up erlang-os-mon (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.56 Setting up erlang-eldap (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.56 Setting up bsd-mailx (8.1.2-0.20180807cvs-2) ...
+#6 43.58 update-alternatives: using /usr/bin/bsd-mailx to provide /usr/bin/mailx (mailx) in auto mode
+#6 43.58 Setting up erlang-ftp (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.58 Setting up erlang-inets (1:23.2.6+dfsg-1+deb11u1) ...
+#6 43.58 Setting up rabbitmq-server (3.8.9-3+deb11u1) ...
+#6 43.62 Adding group `rabbitmq' (GID 110) ...
+#6 43.64 Done.
+#6 43.67 Adding system user `rabbitmq' (UID 107) ...
+#6 43.67 Adding new user `rabbitmq' (UID 107) with group `rabbitmq' ...
+#6 43.72 Not creating home directory `/var/lib/rabbitmq'.
+#6 43.88 Created symlink /etc/systemd/system/multi-user.target.wants/rabbitmq-server.service → /lib/systemd/system/rabbitmq-server.service.
+#6 43.90 invoke-rc.d: could not determine current runlevel
+#6 43.91 invoke-rc.d: policy-rc.d denied execution of start.
+#6 43.91 Processing triggers for man-db (2.9.4-2) ...
+#6 45.05 Processing triggers for libc-bin (2.31-13+deb11u8) ...
+#6 45.16 Reading package lists...
+#6 45.56 Building dependency tree...
+#6 45.64 Reading state information...
+#6 45.74 The following additional packages will be installed:
+#6 45.74   libjemalloc2 liblua5.1-0 liblzf1 lua-bitop lua-cjson redis-tools
+#6 45.74 Suggested packages:
+#6 45.74   ruby-redis
+#6 45.81 The following NEW packages will be installed:
+#6 45.81   libjemalloc2 liblua5.1-0 liblzf1 lua-bitop lua-cjson redis-server
+#6 45.81   redis-tools
+#6 46.09 0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+#6 46.09 Need to get 1231 kB of archives.
+#6 46.09 After this operation, 5332 kB of additional disk space will be used.
+#6 46.09 Get:1 http://deb.debian.org/debian bullseye/main amd64 libjemalloc2 amd64 5.2.1-3 [248 kB]
+#6 46.29 Get:2 http://deb.debian.org/debian bullseye/main amd64 liblua5.1-0 amd64 5.1.5-8.1+b3 [109 kB]
+#6 46.31 Get:3 http://deb.debian.org/debian bullseye/main amd64 liblzf1 amd64 3.6-3 [10.2 kB]
+#6 46.31 Get:4 http://deb.debian.org/debian bullseye/main amd64 lua-bitop amd64 1.0.2-5 [6936 B]
+#6 46.31 Get:5 http://deb.debian.org/debian bullseye/main amd64 lua-cjson amd64 2.1.0+dfsg-2.1 [17.5 kB]
+#6 46.35 Get:6 http://deb.debian.org/debian bullseye/main amd64 redis-tools amd64 5:6.0.16-1+deb11u2 [741 kB]
+#6 46.49 Get:7 http://deb.debian.org/debian bullseye/main amd64 redis-server amd64 5:6.0.16-1+deb11u2 [98.2 kB]
+#6 46.71 debconf: unable to initialize frontend: Dialog
+#6 46.71 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 46.71 debconf: falling back to frontend: Readline
+#6 46.72 debconf: unable to initialize frontend: Readline
+#6 46.72 debconf: (This frontend requires a controlling tty.)
+#6 46.72 debconf: falling back to frontend: Teletype
+#6 46.73 dpkg-preconfigure: unable to re-open stdin: 
+#6 46.79 Fetched 1231 kB in 1s (1719 kB/s)
+#6 46.82 Selecting previously unselected package libjemalloc2:amd64.
+#6 46.82 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 88610 files and directories currently installed.)
+#6 46.86 Preparing to unpack .../0-libjemalloc2_5.2.1-3_amd64.deb ...
+#6 46.86 Unpacking libjemalloc2:amd64 (5.2.1-3) ...
+#6 46.93 Selecting previously unselected package liblua5.1-0:amd64.
+#6 46.94 Preparing to unpack .../1-liblua5.1-0_5.1.5-8.1+b3_amd64.deb ...
+#6 46.94 Unpacking liblua5.1-0:amd64 (5.1.5-8.1+b3) ...
+#6 46.99 Selecting previously unselected package liblzf1:amd64.
+#6 47.00 Preparing to unpack .../2-liblzf1_3.6-3_amd64.deb ...
+#6 47.00 Unpacking liblzf1:amd64 (3.6-3) ...
+#6 47.03 Selecting previously unselected package lua-bitop:amd64.
+#6 47.04 Preparing to unpack .../3-lua-bitop_1.0.2-5_amd64.deb ...
+#6 47.04 Unpacking lua-bitop:amd64 (1.0.2-5) ...
+#6 47.07 Selecting previously unselected package lua-cjson:amd64.
+#6 47.08 Preparing to unpack .../4-lua-cjson_2.1.0+dfsg-2.1_amd64.deb ...
+#6 47.08 Unpacking lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+#6 47.11 Selecting previously unselected package redis-tools.
+#6 47.12 Preparing to unpack .../5-redis-tools_5%3a6.0.16-1+deb11u2_amd64.deb ...
+#6 47.12 Unpacking redis-tools (5:6.0.16-1+deb11u2) ...
+#6 47.23 Selecting previously unselected package redis-server.
+#6 47.24 Preparing to unpack .../6-redis-server_5%3a6.0.16-1+deb11u2_amd64.deb ...
+#6 47.28 Unpacking redis-server (5:6.0.16-1+deb11u2) ...
+#6 47.35 Setting up libjemalloc2:amd64 (5.2.1-3) ...
+#6 47.35 Setting up lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+#6 47.35 Setting up liblzf1:amd64 (3.6-3) ...
+#6 47.35 Setting up lua-bitop:amd64 (1.0.2-5) ...
+#6 47.36 Setting up liblua5.1-0:amd64 (5.1.5-8.1+b3) ...
+#6 47.36 Setting up redis-tools (5:6.0.16-1+deb11u2) ...
+#6 47.50 Setting up redis-server (5:6.0.16-1+deb11u2) ...
+#6 47.58 invoke-rc.d: could not determine current runlevel
+#6 47.59 invoke-rc.d: policy-rc.d denied execution of start.
+#6 47.73 Created symlink /etc/systemd/system/redis.service → /lib/systemd/system/redis-server.service.
+#6 47.73 Created symlink /etc/systemd/system/multi-user.target.wants/redis-server.service → /lib/systemd/system/redis-server.service.
+#6 47.74 Processing triggers for man-db (2.9.4-2) ...
+#6 48.05 Processing triggers for libc-bin (2.31-13+deb11u8) ...
+#6 48.14 Reading package lists...
+#6 48.55 Building dependency tree...
+#6 48.63 Reading state information...
+#6 48.73 The following additional packages will be installed:
+#6 48.73   libconfig-inifiles-perl libdbd-mariadb-perl libdbi-perl libterm-readkey-perl
+#6 48.73   mariadb-client-10.5 mariadb-client-core-10.5
+#6 48.73 Suggested packages:
+#6 48.73   libclone-perl libmldbm-perl libnet-daemon-perl libsql-statement-perl
+#6 48.79 The following NEW packages will be installed:
+#6 48.79   libconfig-inifiles-perl libdbd-mariadb-perl libdbi-perl libterm-readkey-perl
+#6 48.79   mariadb-client mariadb-client-10.5 mariadb-client-core-10.5
+#6 49.00 0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+#6 49.00 Need to get 3299 kB of archives.
+#6 49.00 After this operation, 38.9 MB of additional disk space will be used.
+#6 49.00 Get:1 http://deb.debian.org/debian bullseye/main amd64 libconfig-inifiles-perl all 3.000003-1 [52.1 kB]
+#6 49.13 Get:2 http://deb.debian.org/debian bullseye/main amd64 libdbi-perl amd64 1.643-3+b1 [780 kB]
+#6 49.34 Get:3 http://deb.debian.org/debian bullseye/main amd64 libdbd-mariadb-perl amd64 1.21-3 [110 kB]
+#6 49.38 Get:4 http://deb.debian.org/debian bullseye/main amd64 libterm-readkey-perl amd64 2.38-1+b2 [27.8 kB]
+#6 49.38 Get:5 http://deb.debian.org/debian bullseye/main amd64 mariadb-client-core-10.5 amd64 1:10.5.23-0+deb11u1 [785 kB]
+#6 49.56 Get:6 http://deb.debian.org/debian bullseye/main amd64 mariadb-client-10.5 amd64 1:10.5.23-0+deb11u1 [1508 kB]
+#6 49.91 Get:7 http://deb.debian.org/debian bullseye/main amd64 mariadb-client all 1:10.5.23-0+deb11u1 [35.7 kB]
+#6 50.10 debconf: unable to initialize frontend: Dialog
+#6 50.10 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 50.10 debconf: falling back to frontend: Readline
+#6 50.11 debconf: unable to initialize frontend: Readline
+#6 50.11 debconf: (This frontend requires a controlling tty.)
+#6 50.11 debconf: falling back to frontend: Teletype
+#6 50.12 dpkg-preconfigure: unable to re-open stdin: 
+#6 50.19 Fetched 3299 kB in 1s (2953 kB/s)
+#6 50.23 Selecting previously unselected package libconfig-inifiles-perl.
+#6 50.23 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 88698 files and directories currently installed.)
+#6 50.27 Preparing to unpack .../0-libconfig-inifiles-perl_3.000003-1_all.deb ...
+#6 50.27 Unpacking libconfig-inifiles-perl (3.000003-1) ...
+#6 50.32 Selecting previously unselected package libdbi-perl:amd64.
+#6 50.33 Preparing to unpack .../1-libdbi-perl_1.643-3+b1_amd64.deb ...
+#6 50.33 Unpacking libdbi-perl:amd64 (1.643-3+b1) ...
+#6 50.43 Selecting previously unselected package libdbd-mariadb-perl.
+#6 50.44 Preparing to unpack .../2-libdbd-mariadb-perl_1.21-3_amd64.deb ...
+#6 50.44 Unpacking libdbd-mariadb-perl (1.21-3) ...
+#6 50.49 Selecting previously unselected package libterm-readkey-perl.
+#6 50.50 Preparing to unpack .../3-libterm-readkey-perl_2.38-1+b2_amd64.deb ...
+#6 50.50 Unpacking libterm-readkey-perl (2.38-1+b2) ...
+#6 50.53 Selecting previously unselected package mariadb-client-core-10.5.
+#6 50.54 Preparing to unpack .../4-mariadb-client-core-10.5_1%3a10.5.23-0+deb11u1_amd64.deb ...
+#6 50.54 Unpacking mariadb-client-core-10.5 (1:10.5.23-0+deb11u1) ...
+#6 50.66 Selecting previously unselected package mariadb-client-10.5.
+#6 50.67 Preparing to unpack .../5-mariadb-client-10.5_1%3a10.5.23-0+deb11u1_amd64.deb ...
+#6 50.67 Unpacking mariadb-client-10.5 (1:10.5.23-0+deb11u1) ...
+#6 50.88 Selecting previously unselected package mariadb-client.
+#6 50.89 Preparing to unpack .../6-mariadb-client_1%3a10.5.23-0+deb11u1_all.deb ...
+#6 50.89 Unpacking mariadb-client (1:10.5.23-0+deb11u1) ...
+#6 50.95 Setting up libconfig-inifiles-perl (3.000003-1) ...
+#6 50.95 Setting up mariadb-client-core-10.5 (1:10.5.23-0+deb11u1) ...
+#6 50.95 Setting up mariadb-client-10.5 (1:10.5.23-0+deb11u1) ...
+#6 50.96 Setting up libterm-readkey-perl (2.38-1+b2) ...
+#6 50.96 Setting up libdbi-perl:amd64 (1.643-3+b1) ...
+#6 50.96 Setting up mariadb-client (1:10.5.23-0+deb11u1) ...
+#6 50.96 Setting up libdbd-mariadb-perl (1.21-3) ...
+#6 50.96 Processing triggers for man-db (2.9.4-2) ...
+#6 52.10 Reading package lists...
+#6 52.51 Building dependency tree...
+#6 52.59 Reading state information...
+#6 52.69 Suggested packages:
+#6 52.69   anacron checksecurity
+#6 52.71 The following NEW packages will be installed:
+#6 52.71   cron
+#6 52.99 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#6 52.99 Need to get 99.6 kB of archives.
+#6 52.99 After this operation, 269 kB of additional disk space will be used.
+#6 52.99 Get:1 http://deb.debian.org/debian bullseye/main amd64 cron amd64 3.0pl1-137 [99.6 kB]
+#6 53.25 debconf: unable to initialize frontend: Dialog
+#6 53.25 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 53.25 debconf: falling back to frontend: Readline
+#6 53.26 debconf: unable to initialize frontend: Readline
+#6 53.26 debconf: (This frontend requires a controlling tty.)
+#6 53.26 debconf: falling back to frontend: Teletype
+#6 53.27 dpkg-preconfigure: unable to re-open stdin: 
+#6 53.33 Fetched 99.6 kB in 0s (284 kB/s)
+#6 53.36 Selecting previously unselected package cron.
+#6 53.36 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 88978 files and directories currently installed.)
+#6 53.40 Preparing to unpack .../cron_3.0pl1-137_amd64.deb ...
+#6 53.40 Unpacking cron (3.0pl1-137) ...
+#6 53.47 Setting up cron (3.0pl1-137) ...
+#6 53.51 Adding group `crontab' (GID 112) ...
+#6 53.52 Done.
+#6 53.57 invoke-rc.d: could not determine current runlevel
+#6 53.58 invoke-rc.d: policy-rc.d denied execution of start.
+#6 53.72 Created symlink /etc/systemd/system/multi-user.target.wants/cron.service → /lib/systemd/system/cron.service.
+#6 53.73 Processing triggers for man-db (2.9.4-2) ...
+#6 DONE 54.3s
+
+#8 [3/8] ADD https://api.github.com/repos/williamdlees/digby_backend/commits?per_page=1 latest_commit
+#8 DONE 0.0s
+
+#9 [4/8] RUN   git clone "https://github.com/williamdlees/digby_backend.git" /app &&   ln -s /config/migrations /app/migrations &&   ln -s /config/exports /app/exports &&   pip install "celery[redis]" &&   pip install -r /app/requirements.txt &&   pip install gevent
+#9 0.200 Cloning into '/app'...
+#9 31.36 Collecting celery[redis]
+#9 31.70   Downloading celery-5.3.6-py3-none-any.whl (422 kB)
+#9 31.90      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 422.0/422.0 kB 2.0 MB/s eta 0:00:00
+#9 32.04 Collecting click-plugins>=1.1.1
+#9 32.10   Downloading click_plugins-1.1.1-py2.py3-none-any.whl (7.5 kB)
+#9 32.18 Collecting click-repl>=0.2.0
+#9 32.24   Downloading click_repl-0.3.0-py3-none-any.whl (10 kB)
+#9 32.32 Collecting vine<6.0,>=5.1.0
+#9 32.38   Downloading vine-5.1.0-py3-none-any.whl (9.6 kB)
+#9 32.50 Collecting kombu<6.0,>=5.3.4
+#9 32.56   Downloading kombu-5.3.5-py3-none-any.whl (200 kB)
+#9 32.58      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.0/200.0 kB 19.0 MB/s eta 0:00:00
+#9 32.65 Collecting click-didyoumean>=0.3.0
+#9 32.71   Downloading click_didyoumean-0.3.1-py3-none-any.whl (3.6 kB)
+#9 32.80 Collecting billiard<5.0,>=4.2.0
+#9 32.86   Downloading billiard-4.2.0-py3-none-any.whl (86 kB)
+#9 32.87      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.7/86.7 kB 18.8 MB/s eta 0:00:00
+#9 32.96 Collecting click<9.0,>=8.1.2
+#9 33.02   Downloading click-8.1.7-py3-none-any.whl (97 kB)
+#9 33.03      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 19.1 MB/s eta 0:00:00
+#9 33.11 Collecting tzdata>=2022.7
+#9 33.17   Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
+#9 33.20      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 kB 17.1 MB/s eta 0:00:00
+#9 33.28 Collecting python-dateutil>=2.8.2
+#9 33.34   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#9 33.36      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 27.2 MB/s eta 0:00:00
+#9 33.47 Collecting redis!=4.5.5,<6.0.0,>=4.5.2
+#9 33.53   Downloading redis-5.0.3-py3-none-any.whl (251 kB)
+#9 33.54      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 251.8/251.8 kB 30.4 MB/s eta 0:00:00
+#9 33.69 Collecting prompt-toolkit>=3.0.36
+#9 33.75   Downloading prompt_toolkit-3.0.43-py3-none-any.whl (386 kB)
+#9 33.77      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.1/386.1 kB 26.7 MB/s eta 0:00:00
+#9 33.88 Collecting amqp<6.0.0,>=5.1.1
+#9 33.95   Downloading amqp-5.2.0-py3-none-any.whl (50 kB)
+#9 33.95      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.9/50.9 kB 11.4 MB/s eta 0:00:00
+#9 34.03 Collecting typing-extensions
+#9 34.10   Downloading typing_extensions-4.10.0-py3-none-any.whl (33 kB)
+#9 34.18 Collecting six>=1.5
+#9 34.24   Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+#9 34.33 Collecting async-timeout>=4.0.3
+#9 34.39   Downloading async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+#9 34.49 Collecting wcwidth
+#9 34.56   Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+#9 34.74 Installing collected packages: wcwidth, vine, tzdata, typing-extensions, six, prompt-toolkit, click, billiard, async-timeout, redis, python-dateutil, click-repl, click-plugins, click-didyoumean, amqp, kombu, celery
+#9 35.93 Successfully installed amqp-5.2.0 async-timeout-4.0.3 billiard-4.2.0 celery-5.3.6 click-8.1.7 click-didyoumean-0.3.1 click-plugins-1.1.1 click-repl-0.3.0 kombu-5.3.5 prompt-toolkit-3.0.43 python-dateutil-2.9.0.post0 redis-5.0.3 six-1.16.0 typing-extensions-4.10.0 tzdata-2024.1 vine-5.1.0 wcwidth-0.2.13
+#9 35.93 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 36.17 
+#9 36.17 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#9 36.17 [notice] To update, run: pip install --upgrade pip
+#9 36.86 Collecting alembic==1.8.1
+#9 37.13   Downloading alembic-1.8.1-py3-none-any.whl (209 kB)
+#9 37.28      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.8/209.8 kB 1.4 MB/s eta 0:00:00
+#9 37.42 Collecting biopython==1.78
+#9 37.49   Downloading biopython-1.78-cp39-cp39-manylinux1_x86_64.whl (2.3 MB)
+#9 37.69      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 11.4 MB/s eta 0:00:00
+#9 37.81 Collecting celery==5.2.7
+#9 37.88   Downloading celery-5.2.7-py3-none-any.whl (405 kB)
+#9 37.89      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 405.6/405.6 kB 44.4 MB/s eta 0:00:00
+#9 37.98 Collecting Flask==2.1.2
+#9 38.04   Downloading Flask-2.1.2-py3-none-any.whl (95 kB)
+#9 38.05      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.2/95.2 kB 19.4 MB/s eta 0:00:00
+#9 38.12 Collecting Flask-Admin==1.6
+#9 38.19   Downloading Flask-Admin-1.6.0.tar.gz (6.6 MB)
+#9 38.34      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 44.5 MB/s eta 0:00:00
+#9 39.03   Preparing metadata (setup.py): started
+#9 39.40   Preparing metadata (setup.py): finished with status 'done'
+#9 39.48 Collecting Flask-Babel==2.0.0
+#9 39.54   Downloading Flask_Babel-2.0.0-py3-none-any.whl (9.3 kB)
+#9 39.62 Collecting Flask-BabelEx==0.9.4
+#9 39.68   Downloading Flask_BabelEx-0.9.4-py3-none-any.whl (8.7 kB)
+#9 39.76 Collecting Flask-Bootstrap==3.3.7.1
+#9 39.82   Downloading Flask-Bootstrap-3.3.7.1.tar.gz (456 kB)
+#9 39.84      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 456.4/456.4 kB 39.4 MB/s eta 0:00:00
+#9 39.87   Preparing metadata (setup.py): started
+#9 40.04   Preparing metadata (setup.py): finished with status 'done'
+#9 40.13 Collecting Flask-Cors==3.0.10
+#9 40.20   Downloading Flask_Cors-3.0.10-py2.py3-none-any.whl (14 kB)
+#9 40.27 Collecting Flask-Login==0.6.2
+#9 40.34   Downloading Flask_Login-0.6.2-py3-none-any.whl (17 kB)
+#9 40.43 Collecting Flask-JWT-Extended==4.4.4
+#9 40.49   Downloading Flask_JWT_Extended-4.4.4-py2.py3-none-any.whl (22 kB)
+#9 40.65 Collecting Flask-Mail==0.9.1
+#9 40.71   Downloading Flask-Mail-0.9.1.tar.gz (45 kB)
+#9 40.72      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.7/45.7 kB 9.9 MB/s eta 0:00:00
+#9 40.74   Preparing metadata (setup.py): started
+#9 40.91   Preparing metadata (setup.py): finished with status 'done'
+#9 41.00 Collecting Flask-Migrate==4.0.0
+#9 41.06   Downloading Flask_Migrate-4.0.0-py3-none-any.whl (20 kB)
+#9 41.14 Collecting Flask-Principal==0.4.0
+#9 41.20   Downloading Flask-Principal-0.4.0.tar.gz (5.5 kB)
+#9 41.21   Preparing metadata (setup.py): started
+#9 41.38   Preparing metadata (setup.py): finished with status 'done'
+#9 41.46 Collecting flask-restx==1.0.3
+#9 41.53   Downloading flask_restx-1.0.3-py2.py3-none-any.whl (5.3 MB)
+#9 41.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 44.0 MB/s eta 0:00:00
+#9 41.76 Collecting Flask-Security-Too==3.4.5
+#9 41.82   Downloading Flask_Security_Too-3.4.5-py2.py3-none-any.whl (186 kB)
+#9 41.83      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 186.4/186.4 kB 45.4 MB/s eta 0:00:00
+#9 41.91 Collecting Flask-SQLAlchemy==2.5.1
+#9 41.97   Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl (17 kB)
+#9 42.05 Collecting Flask-Table==0.5.0
+#9 42.11   Downloading Flask-Table-0.5.0.tar.gz (18 kB)
+#9 42.12   Preparing metadata (setup.py): started
+#9 42.30   Preparing metadata (setup.py): finished with status 'done'
+#9 42.38 Collecting Flask-WTF==1.0.1
+#9 42.45   Downloading Flask_WTF-1.0.1-py3-none-any.whl (12 kB)
+#9 42.53 Collecting gunicorn
+#9 42.60   Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+#9 42.61      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 15.8 MB/s eta 0:00:00
+#9 43.01 Collecting lxml>=4.6.3
+#9 43.08   Downloading lxml-5.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.0 MB)
+#9 43.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 38.7 MB/s eta 0:00:00
+#9 43.47 Collecting MarkupSafe
+#9 43.54   Downloading MarkupSafe-2.1.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+#9 43.99 Collecting numpy==1.23.5
+#9 44.05   Downloading numpy-1.23.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+#9 44.41      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.1/17.1 MB 45.7 MB/s eta 0:00:00
+#9 44.77 Collecting pandas==1.5.1
+#9 44.83   Downloading pandas-1.5.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+#9 45.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.2/12.2 MB 44.6 MB/s eta 0:00:00
+#9 45.22 Collecting pika==1.3.1
+#9 45.28   Downloading pika-1.3.1-py3-none-any.whl (155 kB)
+#9 45.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 kB 24.8 MB/s eta 0:00:00
+#9 45.43 Collecting pydevd==2.9.1
+#9 45.49   Downloading pydevd-2.9.1.tar.gz (1.1 MB)
+#9 45.51      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 67.2 MB/s eta 0:00:00
+#9 45.62   Preparing metadata (setup.py): started
+#9 46.17   Preparing metadata (setup.py): finished with status 'done'
+#9 46.27 Collecting PyGithub==2.1.1
+#9 46.33   Downloading PyGithub-2.1.1-py3-none-any.whl (302 kB)
+#9 46.35      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 302.9/302.9 kB 43.9 MB/s eta 0:00:00
+#9 46.47 Collecting PyYAML==6.0
+#9 46.53   Downloading PyYAML-6.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (661 kB)
+#9 46.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 661.8/661.8 kB 56.6 MB/s eta 0:00:00
+#9 46.63 Collecting receptor_utils
+#9 46.69   Downloading receptor_utils-0.0.47-py3-none-any.whl (25 kB)
+#9 46.81 Collecting redis==4.4.4
+#9 46.87   Downloading redis-4.4.4-py3-none-any.whl (238 kB)
+#9 46.88      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 238.0/238.0 kB 37.5 MB/s eta 0:00:00
+#9 46.98 Collecting requests==2.28.1
+#9 47.05   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+#9 47.06      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 13.6 MB/s eta 0:00:00
+#9 47.77 Collecting SQLAlchemy==1.3.19
+#9 47.84   Downloading SQLAlchemy-1.3.19.tar.gz (6.2 MB)
+#9 47.95      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 58.5 MB/s eta 0:00:00
+#9 48.45   Preparing metadata (setup.py): started
+#9 48.75   Preparing metadata (setup.py): finished with status 'done'
+#9 48.84 Collecting sqlalchemy_filters==0.12.0
+#9 48.90   Downloading sqlalchemy_filters-0.12.0-py3-none-any.whl (14 kB)
+#9 48.98 Collecting stringcase==1.2.0
+#9 49.05   Downloading stringcase-1.2.0.tar.gz (3.0 kB)
+#9 49.06   Preparing metadata (setup.py): started
+#9 49.23   Preparing metadata (setup.py): finished with status 'done'
+#9 49.33 Collecting Werkzeug==2.2.3
+#9 49.40   Downloading Werkzeug-2.2.3-py3-none-any.whl (233 kB)
+#9 49.41      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 233.6/233.6 kB 30.5 MB/s eta 0:00:00
+#9 49.48 Collecting WTForms==2.3.3
+#9 49.55   Downloading WTForms-2.3.3-py2.py3-none-any.whl (169 kB)
+#9 49.56      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 169.1/169.1 kB 27.7 MB/s eta 0:00:00
+#9 49.63 Collecting xlwt==1.3.0
+#9 49.69   Downloading xlwt-1.3.0-py2.py3-none-any.whl (99 kB)
+#9 49.70      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.0/100.0 kB 20.4 MB/s eta 0:00:00
+#9 49.79 Collecting mysqlclient
+#9 49.87   Downloading mysqlclient-2.2.4.tar.gz (90 kB)
+#9 49.87      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.4/90.4 kB 19.1 MB/s eta 0:00:00
+#9 49.90   Installing build dependencies: started
+#9 52.10   Installing build dependencies: finished with status 'done'
+#9 52.11   Getting requirements to build wheel: started
+#9 52.38   Getting requirements to build wheel: finished with status 'done'
+#9 52.39   Installing backend dependencies: started
+#9 53.55   Installing backend dependencies: finished with status 'done'
+#9 53.55   Preparing metadata (pyproject.toml): started
+#9 53.82   Preparing metadata (pyproject.toml): finished with status 'done'
+#9 53.94 Collecting Mako
+#9 54.01   Downloading Mako-1.3.2-py3-none-any.whl (78 kB)
+#9 54.02      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.7/78.7 kB 16.1 MB/s eta 0:00:00
+#9 54.16 Collecting billiard<4.0,>=3.6.4.0
+#9 54.22   Downloading billiard-3.6.4.0-py3-none-any.whl (89 kB)
+#9 54.23      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.5/89.5 kB 20.3 MB/s eta 0:00:00
+#9 54.24 Requirement already satisfied: click<9.0,>=8.0.3 in /usr/local/lib/python3.9/site-packages (from celery==5.2.7->-r /app/requirements.txt (line 3)) (8.1.7)
+#9 54.24 Requirement already satisfied: click-didyoumean>=0.0.3 in /usr/local/lib/python3.9/site-packages (from celery==5.2.7->-r /app/requirements.txt (line 3)) (0.3.1)
+#9 54.24 Requirement already satisfied: click-repl>=0.2.0 in /usr/local/lib/python3.9/site-packages (from celery==5.2.7->-r /app/requirements.txt (line 3)) (0.3.0)
+#9 54.24 Requirement already satisfied: vine<6.0,>=5.0.0 in /usr/local/lib/python3.9/site-packages (from celery==5.2.7->-r /app/requirements.txt (line 3)) (5.1.0)
+#9 54.24 Requirement already satisfied: click-plugins>=1.1.1 in /usr/local/lib/python3.9/site-packages (from celery==5.2.7->-r /app/requirements.txt (line 3)) (1.1.1)
+#9 54.37 Collecting pytz>=2021.3
+#9 54.44   Downloading pytz-2024.1-py2.py3-none-any.whl (505 kB)
+#9 54.45      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 505.5/505.5 kB 44.1 MB/s eta 0:00:00
+#9 54.46 Requirement already satisfied: kombu<6.0,>=5.2.3 in /usr/local/lib/python3.9/site-packages (from celery==5.2.7->-r /app/requirements.txt (line 3)) (5.3.5)
+#9 54.54 Collecting Jinja2>=3.0
+#9 54.61   Downloading Jinja2-3.1.3-py3-none-any.whl (133 kB)
+#9 54.62      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.2/133.2 kB 28.6 MB/s eta 0:00:00
+#9 54.74 Collecting importlib-metadata>=3.6.0
+#9 54.80   Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+#9 54.89 Collecting itsdangerous>=2.0
+#9 54.95   Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+#9 55.06 Collecting Babel>=2.3
+#9 55.12   Downloading Babel-2.14.0-py3-none-any.whl (11.0 MB)
+#9 55.34      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.0/11.0 MB 49.1 MB/s eta 0:00:00
+#9 55.45 Collecting speaklater>=1.2
+#9 55.52   Downloading speaklater-1.3.tar.gz (3.6 kB)
+#9 55.53   Preparing metadata (setup.py): started
+#9 55.70   Preparing metadata (setup.py): finished with status 'done'
+#9 55.80 Collecting dominate
+#9 55.86   Downloading dominate-2.9.1-py2.py3-none-any.whl (29 kB)
+#9 55.93 Collecting visitor
+#9 55.99   Downloading visitor-0.1.3.tar.gz (3.3 kB)
+#9 56.00   Preparing metadata (setup.py): started
+#9 56.17   Preparing metadata (setup.py): finished with status 'done'
+#9 56.19 Requirement already satisfied: Six in /usr/local/lib/python3.9/site-packages (from Flask-Cors==3.0.10->-r /app/requirements.txt (line 9)) (1.16.0)
+#9 56.30 Collecting PyJWT<3.0,>=2.0
+#9 56.36   Downloading PyJWT-2.8.0-py3-none-any.whl (22 kB)
+#9 56.45 Collecting blinker
+#9 56.51   Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
+#9 56.66 Collecting jsonschema
+#9 56.72   Downloading jsonschema-4.21.1-py3-none-any.whl (85 kB)
+#9 56.73      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.5/85.5 kB 17.4 MB/s eta 0:00:00
+#9 56.82 Collecting aniso8601>=0.82
+#9 56.88   Downloading aniso8601-9.0.1-py2.py3-none-any.whl (52 kB)
+#9 56.89      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 52.8/52.8 kB 11.7 MB/s eta 0:00:00
+#9 57.03 Collecting passlib>=1.7.1
+#9 57.09   Downloading passlib-1.7.4-py2.py3-none-any.whl (525 kB)
+#9 57.11      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 525.6/525.6 kB 47.7 MB/s eta 0:00:00
+#9 57.18 Collecting email-validator>=1.0.5
+#9 57.25   Downloading email_validator-2.1.1-py3-none-any.whl (30 kB)
+#9 57.33 Requirement already satisfied: python-dateutil>=2.8.1 in /usr/local/lib/python3.9/site-packages (from pandas==1.5.1->-r /app/requirements.txt (line 24)) (2.9.0.post0)
+#9 57.48 Collecting pynacl>=1.4.0
+#9 57.55   Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (856 kB)
+#9 57.57      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 856.7/856.7 kB 61.6 MB/s eta 0:00:00
+#9 57.72 Collecting Deprecated
+#9 57.78   Downloading Deprecated-1.2.14-py2.py3-none-any.whl (9.6 kB)
+#9 57.79 Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.9/site-packages (from PyGithub==2.1.1->-r /app/requirements.txt (line 27)) (4.10.0)
+#9 57.89 Collecting urllib3>=1.26.0
+#9 57.95   Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
+#9 57.96      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.1/121.1 kB 22.3 MB/s eta 0:00:00
+#9 57.98 Requirement already satisfied: async-timeout>=4.0.2 in /usr/local/lib/python3.9/site-packages (from redis==4.4.4->-r /app/requirements.txt (line 30)) (4.0.3)
+#9 58.18 Collecting charset-normalizer<3,>=2
+#9 58.25   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+#9 58.27 Collecting urllib3>=1.26.0
+#9 58.33   Downloading urllib3-1.26.18-py2.py3-none-any.whl (143 kB)
+#9 58.35      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 143.8/143.8 kB 25.7 MB/s eta 0:00:00
+#9 58.42 Collecting idna<4,>=2.5
+#9 58.48   Downloading idna-3.6-py3-none-any.whl (61 kB)
+#9 58.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB 15.2 MB/s eta 0:00:00
+#9 58.58 Collecting certifi>=2017.4.17
+#9 58.64   Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
+#9 58.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.8/163.8 kB 28.3 MB/s eta 0:00:00
+#9 58.81 Collecting packaging
+#9 58.88   Downloading packaging-24.0-py3-none-any.whl (53 kB)
+#9 58.89      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.5/53.5 kB 11.3 MB/s eta 0:00:00
+#9 58.92 Collecting receptor_utils
+#9 58.99   Downloading receptor_utils-0.0.46-py3-none-any.whl (25 kB)
+#9 59.08   Downloading receptor_utils-0.0.45-py3-none-any.whl (25 kB)
+#9 59.16   Downloading receptor_utils-0.0.44-py3-none-any.whl (25 kB)
+#9 59.23 Requirement already satisfied: prompt-toolkit>=3.0.36 in /usr/local/lib/python3.9/site-packages (from click-repl>=0.2.0->celery==5.2.7->-r /app/requirements.txt (line 3)) (3.0.43)
+#9 59.31 Collecting dnspython>=2.0.0
+#9 59.37   Downloading dnspython-2.6.1-py3-none-any.whl (307 kB)
+#9 59.39      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 38.5 MB/s eta 0:00:00
+#9 59.50 Collecting zipp>=0.5
+#9 59.57   Downloading zipp-3.18.1-py3-none-any.whl (8.2 kB)
+#9 59.62 Requirement already satisfied: amqp<6.0.0,>=5.1.1 in /usr/local/lib/python3.9/site-packages (from kombu<6.0,>=5.2.3->celery==5.2.7->-r /app/requirements.txt (line 3)) (5.2.0)
+#9 60.06 Collecting cryptography>=3.4.0
+#9 60.12   Downloading cryptography-42.0.5-cp39-abi3-manylinux_2_28_x86_64.whl (4.6 MB)
+#9 60.21      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 53.6 MB/s eta 0:00:00
+#9 60.51 Collecting cffi>=1.4.1
+#9 60.58   Downloading cffi-1.16.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (443 kB)
+#9 60.59      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 443.4/443.4 kB 54.8 MB/s eta 0:00:00
+#9 60.94 Collecting wrapt<2,>=1.10
+#9 61.00   Downloading wrapt-1.16.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (80 kB)
+#9 61.02      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.1/80.1 kB 15.9 MB/s eta 0:00:00
+#9 61.53 Collecting rpds-py>=0.7.1
+#9 61.59   Downloading rpds_py-0.18.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+#9 61.61      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 75.1 MB/s eta 0:00:00
+#9 61.69 Collecting jsonschema-specifications>=2023.03.6
+#9 61.75   Downloading jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+#9 61.86 Collecting referencing>=0.28.4
+#9 61.92   Downloading referencing-0.34.0-py3-none-any.whl (26 kB)
+#9 62.01 Collecting attrs>=22.2.0
+#9 62.07   Downloading attrs-23.2.0-py3-none-any.whl (60 kB)
+#9 62.08      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.8/60.8 kB 13.3 MB/s eta 0:00:00
+#9 62.21 Collecting pycparser
+#9 62.28   Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+#9 62.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.7/118.7 kB 21.9 MB/s eta 0:00:00
+#9 62.36 Requirement already satisfied: wcwidth in /usr/local/lib/python3.9/site-packages (from prompt-toolkit>=3.0.36->click-repl>=0.2.0->celery==5.2.7->-r /app/requirements.txt (line 3)) (0.2.13)
+#9 62.44 Building wheels for collected packages: Flask-Admin, Flask-Bootstrap, Flask-Mail, Flask-Principal, Flask-Table, pydevd, SQLAlchemy, stringcase, mysqlclient, speaklater, visitor
+#9 62.44   Building wheel for Flask-Admin (setup.py): started
+#9 64.65   Building wheel for Flask-Admin (setup.py): finished with status 'done'
+#9 64.68   Created wheel for Flask-Admin: filename=Flask_Admin-1.6.0-py3-none-any.whl size=7496284 sha256=7363d374539aaa2f37832499e9aff8d590118f326c02387fea7c570c4a5b4eee
+#9 64.68   Stored in directory: /root/.cache/pip/wheels/c7/24/5d/d8f54b7ee7aa0968aff2471f4d44d9bfe2aaa279635834e4ca
+#9 64.70   Building wheel for Flask-Bootstrap (setup.py): started
+#9 65.00   Building wheel for Flask-Bootstrap (setup.py): finished with status 'done'
+#9 65.01   Created wheel for Flask-Bootstrap: filename=Flask_Bootstrap-3.3.7.1-py3-none-any.whl size=460123 sha256=a4fef6af7a5e77f35bd656d9255e0287175dd95e98a756af7452f04f0d9efa74
+#9 65.01   Stored in directory: /root/.cache/pip/wheels/bb/41/c0/e09286bce2bca8d80bcaeccf519aa73b9747278e78ca83ce3f
+#9 65.01   Building wheel for Flask-Mail (setup.py): started
+#9 65.25   Building wheel for Flask-Mail (setup.py): finished with status 'done'
+#9 65.25   Created wheel for Flask-Mail: filename=Flask_Mail-0.9.1-py3-none-any.whl size=7582 sha256=bb59cf5dac7067a851ca8f6a3ec96b6e40e2a8df7697228907ba5f9bdb72b15e
+#9 65.25   Stored in directory: /root/.cache/pip/wheels/46/f9/d1/7fb1d1ae35210f02223b4502e2724235cffaed49e22df5007f
+#9 65.26   Building wheel for Flask-Principal (setup.py): started
+#9 65.49   Building wheel for Flask-Principal (setup.py): finished with status 'done'
+#9 65.49   Created wheel for Flask-Principal: filename=Flask_Principal-0.4.0-py3-none-any.whl size=5575 sha256=f1c0eb34b8666cc836883d538c496f80b917e852d7f51127aaaa4145ca7daf6c
+#9 65.50   Stored in directory: /root/.cache/pip/wheels/1c/f5/71/a395458968141d421053db412da8b24f6010d3fbad27d35f2e
+#9 65.50   Building wheel for Flask-Table (setup.py): started
+#9 65.74   Building wheel for Flask-Table (setup.py): finished with status 'done'
+#9 65.74   Created wheel for Flask-Table: filename=Flask_Table-0.5.0-py3-none-any.whl size=13972 sha256=f64cac4f2b1bac3d76dc82d97f17369fe6e3ec51175dd7644159417b22ade7c5
+#9 65.74   Stored in directory: /root/.cache/pip/wheels/2d/d6/c7/80453b0989a5a5879330ea37209a6892cf76981002171b3fea
+#9 65.75   Building wheel for pydevd (setup.py): started
+#9 83.59   Building wheel for pydevd (setup.py): finished with status 'done'
+#9 83.61   Created wheel for pydevd: filename=pydevd-2.9.1-cp39-cp39-linux_x86_64.whl size=2850460 sha256=3d40da38b95ce874fb7e87d8cd0feb48b6d424b9ecda2174a6b9997904feb4b1
+#9 83.61   Stored in directory: /root/.cache/pip/wheels/42/bf/0c/b6cbae05906e0643671f01cdca20ec6a5a12acfbbde1f95782
+#9 83.61   Building wheel for SQLAlchemy (setup.py): started
+#9 84.76   Building wheel for SQLAlchemy (setup.py): finished with status 'done'
+#9 84.77   Created wheel for SQLAlchemy: filename=SQLAlchemy-1.3.19-cp39-cp39-linux_x86_64.whl size=1238141 sha256=07fd837cbde6e5905bae33f6434cf7b1223a12a43e662496bdcdeb33815b532b
+#9 84.77   Stored in directory: /root/.cache/pip/wheels/ab/c8/25/b02cdeed551f8e5e7fa7e54eca202fd7a3ece3ec75c55c36b5
+#9 84.78   Building wheel for stringcase (setup.py): started
+#9 85.01   Building wheel for stringcase (setup.py): finished with status 'done'
+#9 85.01   Created wheel for stringcase: filename=stringcase-1.2.0-py3-none-any.whl size=3586 sha256=227305e3c944dddd09b638f1de27314c28c9b2921750e4104c83d6a3c7ca9be5
+#9 85.01   Stored in directory: /root/.cache/pip/wheels/0a/0d/86/88baa0554de5fdccfc2b2ee060175eec0a85c12cdfd8fef566
+#9 85.02   Building wheel for mysqlclient (pyproject.toml): started
+#9 85.90   Building wheel for mysqlclient (pyproject.toml): finished with status 'done'
+#9 85.91   Created wheel for mysqlclient: filename=mysqlclient-2.2.4-cp39-cp39-linux_x86_64.whl size=132753 sha256=eb10a0fd5514cb56e45fbad8388bce25b2be97f08eef24fdfb0dd039189764c7
+#9 85.91   Stored in directory: /root/.cache/pip/wheels/df/23/68/faa07b93488a130b3295ca4e91574e85a9dc4764cd463bc152
+#9 85.92   Building wheel for speaklater (setup.py): started
+#9 86.14   Building wheel for speaklater (setup.py): finished with status 'done'
+#9 86.15   Created wheel for speaklater: filename=speaklater-1.3-py3-none-any.whl size=4715 sha256=23f4b49d44f2a75959b6c6508134269622caec5908d6326cf0ba58ad586cd276
+#9 86.15   Stored in directory: /root/.cache/pip/wheels/85/13/19/10a3d5546c67fe7051b53bf0d5a525c6d0202c363b9db80f5b
+#9 86.15   Building wheel for visitor (setup.py): started
+#9 86.39   Building wheel for visitor (setup.py): finished with status 'done'
+#9 86.39   Created wheel for visitor: filename=visitor-0.1.3-py3-none-any.whl size=3945 sha256=c838f22b39edfa2d1372fdd0307c63878b8bc3a1021708bff6b766513f02f08f
+#9 86.39   Stored in directory: /root/.cache/pip/wheels/cd/93/8e/b92d317bbcc888f0bdcd7df644ae49e8e0f1b4f738eec61b82
+#9 86.39 Successfully built Flask-Admin Flask-Bootstrap Flask-Mail Flask-Principal Flask-Table pydevd SQLAlchemy stringcase mysqlclient speaklater visitor
+#9 86.91 Installing collected packages: xlwt, visitor, stringcase, speaklater, pytz, pydevd, passlib, billiard, aniso8601, zipp, wrapt, urllib3, SQLAlchemy, rpds-py, redis, receptor_utils, PyYAML, PyJWT, pycparser, pika, packaging, numpy, mysqlclient, MarkupSafe, lxml, itsdangerous, idna, dominate, dnspython, charset-normalizer, certifi, blinker, Babel, attrs, WTForms, Werkzeug, sqlalchemy_filters, requests, referencing, pandas, Mako, Jinja2, importlib-metadata, gunicorn, email-validator, Deprecated, cffi, biopython, pynacl, jsonschema-specifications, Flask, cryptography, celery, alembic, jsonschema, Flask-WTF, Flask-SQLAlchemy, Flask-Principal, Flask-Mail, Flask-Login, Flask-JWT-Extended, Flask-Cors, Flask-Bootstrap, Flask-BabelEx, Flask-Babel, Flask-Admin, PyGithub, Flask-Table, Flask-Security-Too, flask-restx, Flask-Migrate
+#9 88.12   Attempting uninstall: billiard
+#9 88.12     Found existing installation: billiard 4.2.0
+#9 88.13     Uninstalling billiard-4.2.0:
+#9 88.13       Successfully uninstalled billiard-4.2.0
+#9 88.92   Attempting uninstall: redis
+#9 88.92     Found existing installation: redis 5.0.3
+#9 88.94     Uninstalling redis-5.0.3:
+#9 88.94       Successfully uninstalled redis-5.0.3
+#9 97.92   Attempting uninstall: celery
+#9 97.92     Found existing installation: celery 5.3.6
+#9 97.97     Uninstalling celery-5.3.6:
+#9 97.97       Successfully uninstalled celery-5.3.6
+#9 99.58 Successfully installed Babel-2.14.0 Deprecated-1.2.14 Flask-2.1.2 Flask-Admin-1.6.0 Flask-Babel-2.0.0 Flask-BabelEx-0.9.4 Flask-Bootstrap-3.3.7.1 Flask-Cors-3.0.10 Flask-JWT-Extended-4.4.4 Flask-Login-0.6.2 Flask-Mail-0.9.1 Flask-Migrate-4.0.0 Flask-Principal-0.4.0 Flask-SQLAlchemy-2.5.1 Flask-Security-Too-3.4.5 Flask-Table-0.5.0 Flask-WTF-1.0.1 Jinja2-3.1.3 Mako-1.3.2 MarkupSafe-2.1.5 PyGithub-2.1.1 PyJWT-2.8.0 PyYAML-6.0 SQLAlchemy-1.3.19 WTForms-2.3.3 Werkzeug-2.2.3 alembic-1.8.1 aniso8601-9.0.1 attrs-23.2.0 billiard-3.6.4.0 biopython-1.78 blinker-1.7.0 celery-5.2.7 certifi-2024.2.2 cffi-1.16.0 charset-normalizer-2.1.1 cryptography-42.0.5 dnspython-2.6.1 dominate-2.9.1 email-validator-2.1.1 flask-restx-1.0.3 gunicorn-21.2.0 idna-3.6 importlib-metadata-7.1.0 itsdangerous-2.1.2 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 lxml-5.1.0 mysqlclient-2.2.4 numpy-1.23.5 packaging-24.0 pandas-1.5.1 passlib-1.7.4 pika-1.3.1 pycparser-2.21 pydevd-2.9.1 pynacl-1.5.0 pytz-2024.1 receptor_utils-0.0.44 redis-4.4.4 referencing-0.34.0 requests-2.28.1 rpds-py-0.18.0 speaklater-1.3 sqlalchemy_filters-0.12.0 stringcase-1.2.0 urllib3-1.26.18 visitor-0.1.3 wrapt-1.16.0 xlwt-1.3.0 zipp-3.18.1
+#9 99.59 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 99.59 
+#9 99.59 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#9 99.59 [notice] To update, run: pip install --upgrade pip
+#9 101.0 Collecting gevent
+#9 101.3   Downloading gevent-24.2.1-cp39-cp39-manylinux_2_28_x86_64.whl (6.5 MB)
+#9 101.8      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 14.9 MB/s eta 0:00:00
+#9 102.1 Collecting greenlet>=2.0.0
+#9 102.2   Downloading greenlet-3.0.3-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (614 kB)
+#9 102.2      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 614.3/614.3 kB 65.1 MB/s eta 0:00:00
+#9 102.5 Collecting zope.interface
+#9 102.5   Downloading zope.interface-6.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (246 kB)
+#9 102.5      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 246.4/246.4 kB 33.4 MB/s eta 0:00:00
+#9 102.6 Collecting zope.event
+#9 102.7   Downloading zope.event-5.0-py3-none-any.whl (6.8 kB)
+#9 102.7 Requirement already satisfied: setuptools in /usr/local/lib/python3.9/site-packages (from zope.event->gevent) (58.1.0)
+#9 103.2 Installing collected packages: zope.interface, zope.event, greenlet, gevent
+#9 103.9 Successfully installed gevent-24.2.1 greenlet-3.0.3 zope.event-5.0 zope.interface-6.2
+#9 103.9 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 103.9 
+#9 103.9 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#9 103.9 [notice] To update, run: pip install --upgrade pip
+#9 DONE 104.3s
+
+#10 [5/8] COPY app/* /app/
+#10 DONE 0.0s
+
+#11 [6/8] COPY app/cronjobs /etc/crontabs/root
+#11 DONE 0.0s
+
+#12 [7/8] RUN dos2unix /app/start.sh
+#12 0.186 dos2unix: converting file /app/start.sh to Unix format...
+#12 DONE 0.2s
+
+#13 [8/8] RUN   Rscript /app/install_vdjbaseviz &&   chmod +x /app/start.sh &&   chmod +x /app/rotate.sh &&   ln -s /study_data /app/static/study_data &&   mkdir -p /backup/backup.daily &&   mkdir -p /backup/backup.weekly &&   mkdir -p /backup/backup.monthly &&   crontab /app/cronjobs
+#13 0.470 Loading required package: usethis
+#13 1.134 
+#13 1.134 Attaching package: ‘remotes’
+#13 1.134 
+#13 1.135 The following objects are masked from ‘package:devtools’:
+#13 1.135 
+#13 1.135     dev_package_deps, install_bioc, install_bitbucket, install_cran,
+#13 1.135     install_deps, install_dev, install_git, install_github,
+#13 1.135     install_gitlab, install_local, install_svn, install_url,
+#13 1.135     install_version, update_packages
+#13 1.135 
+#13 1.135 The following object is masked from ‘package:usethis’:
+#13 1.135 
+#13 1.135     git_credentials
+#13 1.135 
+#13 3.240 Skipping install of 'rabhit' from a bitbucket remote, the SHA1 (14464a3a) has not changed since last install.
+#13 3.240   Use `force = TRUE` to force installation
+#13 3.243 Installing package into ‘/usr/local/lib/R/site-library’
+#13 3.243 (as ‘lib’ is unspecified)
+#13 3.244 trying URL 'http://cran.r-project.org/src/contrib/Archive/dplyr/dplyr_1.0.10.tar.gz'
+#13 4.196 Content type 'application/x-gzip' length 884984 bytes (864 KB)
+#13 4.197 ==================================================
+#13 4.209 downloaded 864 KB
+#13 4.209 
+#13 4.727 * installing *source* package ‘dplyr’ ...
+#13 4.743 ** package ‘dplyr’ successfully unpacked and MD5 sums checked
+#13 4.766 ** using staged installation
+#13 4.789 ** libs
+#13 4.823 using C++ compiler: ‘g++ (Debian 10.2.1-6) 10.2.1 20210110’
+#13 4.831 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c chop.cpp -o chop.o
+#13 5.052 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c filter.cpp -o filter.o
+#13 5.294 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c funs.cpp -o funs.o
+#13 5.493 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c group_by.cpp -o group_by.o
+#13 6.086 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c group_data.cpp -o group_data.o
+#13 6.280 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c imports.cpp -o imports.o
+#13 6.476 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c init.cpp -o init.o
+#13 6.675 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c mask.cpp -o mask.o
+#13 6.879 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c mutate.cpp -o mutate.o
+#13 7.092 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c slice.cpp -o slice.o
+#13 7.279 g++ -std=gnu++17 -I"/usr/share/R/include" -DNDEBUG       -fpic  -g -O2 -ffile-prefix-map=/home/jranke/git/r-backports/bullseye/r-base-4.3.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c summarise.cpp -o summarise.o
+#13 7.540 g++ -std=gnu++17 -shared -L/usr/lib/R/lib -Wl,-z,relro -o dplyr.so chop.o filter.o funs.o group_by.o group_data.o imports.o init.o mask.o mutate.o slice.o summarise.o -L/usr/lib/R/lib -lR
+#13 7.615 installing to /usr/local/lib/R/site-library/00LOCK-dplyr/00new/dplyr/libs
+#13 7.618 ** R
+#13 7.667 ** data
+#13 7.668 *** moving datasets to lazyload DB
+#13 7.754 ** inst
+#13 7.758 ** byte-compile and prepare package for lazy loading
+#13 11.57 ** help
+#13 11.88 *** installing help indices
+#13 12.09 *** copying figures
+#13 12.09 ** building package indices
+#13 12.42 ** installing vignettes
+#13 12.45 ** testing if installed package can be loaded from temporary location
+#13 12.94 ** checking absolute paths in shared objects and dynamic libraries
+#13 12.98 ** testing if installed package can be loaded from final location
+#13 13.60 ** testing if installed package keeps a record of temporary installation path
+#13 13.62 * DONE (dplyr)
+#13 15.45 Downloading bitbucket repo yaarilab/vdjbaseVis@HEAD
+#13 17.24 
+#13 17.24 Skipping 21 packages not available: splitstackshape, mltools, stringi, tidyr, RColorBrewer, rlang, gtable, htmlwidgets, fastmatch, tigger, alakazam, gridExtra, ggdendro, data.table, dendextend, cowplot, gtools, plotly, reshape2, dplyr, ggplot2
+#13 17.30 ── R CMD build ─────────────────────────────────────────────────────────────────
+#13 17.51 * checking for file ‘/tmp/RtmpiZmc2I/remotes7983c594/yaarilab-vdjbasevis-1823b1bf9863/DESCRIPTION’ ... OK
+#13 17.53 * preparing ‘vdjbasevis’:
+#13 17.53 * checking DESCRIPTION meta-information ... OK
+#13 17.58 * checking for LF line-endings in source and make files and shell scripts
+#13 17.58 * checking for empty or unneeded directories
+#13 17.59 Omitted ‘LazyData’ from DESCRIPTION
+#13 17.60 * building ‘vdjbasevis_0.1.6.0.tar.gz’
+#13 17.62 
+#13 17.64 Installing package into ‘/usr/local/lib/R/site-library’
+#13 17.64 (as ‘lib’ is unspecified)
+#13 17.90 * installing *source* package ‘vdjbasevis’ ...
+#13 17.90 ** using staged installation
+#13 17.92 ** R
+#13 17.95 ** byte-compile and prepare package for lazy loading
+#13 25.59 ** help
+#13 25.62 *** installing help indices
+#13 25.65 ** building package indices
+#13 25.87 ** testing if installed package can be loaded from temporary location
+#13 32.38 ** testing if installed package can be loaded from final location
+#13 38.96 ** testing if installed package keeps a record of temporary installation path
+#13 38.97 * DONE (vdjbasevis)
+#13 DONE 39.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 9.3s done
+#14 writing image sha256:a07faf9a4416a8304f8d114c8a281146ee2604a8b6f92d0e02c7da4828b231c7 done
+#14 naming to docker.io/library/vdjbase_flask done
+#14 DONE 9.3s
