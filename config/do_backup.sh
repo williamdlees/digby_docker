@@ -17,7 +17,7 @@ rm $BACKUP_DIR/incoming/*
 rm -rf $BACKUP_DIR/temp/*
 
 # Dump MySQL tables
-mysqldump --all-databases -h mariadb -P 3306 -u root -pgsdfgtwevdfg >/config/log/sqldump
+mysqldump --all-databases -h mariadb -P 3306 -u root -p'7Th3y45!N&i%@RW' >/config/log/sqldump
 
 if ! [ $(find "/config/log/sqldump") ]
 then
