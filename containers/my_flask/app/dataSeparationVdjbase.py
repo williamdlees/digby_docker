@@ -15,7 +15,18 @@ CONFIG_PATH = r'/app/study_data_conf.csv'
 FILES_VERSION_PATH = r"/app/study_data_versions.csv"
 BASE = r'/study_data'
 
+# Configuration Files Description:
+# 1. study_data_conf.csv - This file contains the configuration for the study data. Each row specifies a dataset with details
+#    including data type, species, dataset name, GitHub repository URL, branch, and an optional authentication key.
+#    the file is already created in the app folder.
+#    Fields: ['Type', 'Species', 'Data_Set', 'Repo_URL', 'Repo_Branch', 'Authentication_Key']
+#
+# 2. study_data_versions.csv - This file tracks the versions of files downloaded from GitHub. It helps in determining
+#    whether a file has been updated on the repository since the last download.
+#    Fields: ['File_Path', 'Commit_ID', 'Repo_URL']
+
 def check_and_create_csv(csv_path):
+    # Checks if a file of the versions exists at the specified path, and if not, creates a new CSV file with the necessary headers.
     if not os.path.exists(csv_path):
         print(f"Creating new CSV at {csv_path}...")
         with open(csv_path, mode='w', newline='') as file:
@@ -62,6 +73,7 @@ def clean_file_versions(csv_entries, versions_csv_path=FILES_VERSION_PATH):
 
 
 def validate_csv_entry(entry):
+    # Validates a single entry from the configuration CSV, ensuring it contains all required fields.
     print("Validating CSV entry...")
     required_keys = ['Type', 'Species', 'Data_Set',
                      'Repo_URL', 'Repo_Branch', 'Authentication_Key']
@@ -73,6 +85,7 @@ def validate_csv_entry(entry):
 
 
 def get_file_version(file_path, repo_url, csv_path=FILES_VERSION_PATH):
+    # Updates or adds a file's version information in the versions CSV
     print(f"Fetching version for {file_path} from {repo_url}...")
     with open(csv_path, mode='r') as file:
         reader = csv.DictReader(file)
@@ -85,6 +98,7 @@ def get_file_version(file_path, repo_url, csv_path=FILES_VERSION_PATH):
 
 
 def update_file_version(file_path, commit_id, repo_url, csv_path=FILES_VERSION_PATH):
+    # Updates or adds a file's version info in the versions CSV, identified by file path and repo URL.
     print(f"Updating file version for {file_path}...")
     entries = []
     updated = False
@@ -108,6 +122,7 @@ def update_file_version(file_path, commit_id, repo_url, csv_path=FILES_VERSION_P
 
 
 def initialize_github(auth_key=None):
+    # Initializes a Github object for API interactions, using an auth key if provided
     print("Initializing Github...")
     if auth_key:
         return Github(auth_key)
@@ -117,6 +132,7 @@ def initialize_github(auth_key=None):
 
 
 def retrieve_and_store_file(github, repo_url, repo_branch, data_path, filename, store_path):
+    # Downloads and stores a file from a GitHub repo to a local path
     print(
         f"Retrieving {filename} from {repo_url}/{repo_branch}/{data_path}...")
     repo = repo_url.split('/')[-1]
@@ -139,6 +155,7 @@ def retrieve_and_store_file(github, repo_url, repo_branch, data_path, filename, 
 
 
 def read_csv_entries():
+    # Reads and validates entries from the configuration CSV, returning a list of valid entries
     print("Reading CSV entries...")
     csv_entries = []
     with open(CONFIG_PATH, mode='r') as file:
@@ -155,6 +172,7 @@ def read_csv_entries():
 
 
 def determine_path_structure(entry):
+    # Calculates the directory structure for storing files based on the entry type
     print("Determining path structure...")
     base_path = "/study_data"
     if entry['Type'] == "Genomic":
@@ -173,6 +191,7 @@ def determine_path_structure(entry):
 
 
 def unzip_samples(zip_path, extract_path):
+    # Extracts files from a zip archive into a specified directory
     print(f"Unzipping {zip_path}...")
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         for member in zip_ref.namelist():
@@ -193,6 +212,7 @@ def unzip_samples(zip_path, extract_path):
 
 
 def clear_directory(directory_path):
+    # Removes all contents within a specified directory
     print(f"Clearing directory {directory_path}...")
     for item in os.listdir(directory_path):
         item_path = os.path.join(directory_path, item)
@@ -202,6 +222,7 @@ def clear_directory(directory_path):
 
 
 def process_csv_entry(entry, files_to_download):
+    # Processes a single CSV entry, managing file download, storage, and version updating
     print("Processing CSV entry...")
     auth_key = entry['Authentication_Key'] if entry['Authentication_Key'] else None
     github = initialize_github(auth_key)
