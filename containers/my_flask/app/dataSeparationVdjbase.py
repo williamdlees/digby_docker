@@ -6,9 +6,10 @@ import base64
 import zipfile
 import shutil
 
-# CONFIG_PATH = r'C:\Users\yaniv\Desktop\work\dataManager\study_data_conf.csv'
-# FILES_VERSION_PATH = r"C:\Users\yaniv\Desktop\work\dataManager\study_data_versions.csv"
-# BASE = r'C:\Users\yaniv\Desktop\work\dataManager\study_data'
+# This script manages the updating and organization of genomic and AIRR-seq data for a research study. It reads configurations 
+# from two CSV files, retrieves and stores updated files from specified GitHub repositories, and cleans up unneeded data.
+# This helps in keeping the study data current and well-organized.
+
 
 CREATE_PATHS = [r'VDJbase/db', r'Genomic/db', r'VDJbase/samples', r'Genomic/samples']
 CONFIG_PATH = r'/app/study_data_conf.csv'
@@ -335,7 +336,7 @@ def main():
             print("error: ", e)
 
     remove_unlisted_data(csv_entries)
-    print("Main execution completed.")
+    print("Finished updating study_data.")
 
 
 if __name__ == "__main__":
