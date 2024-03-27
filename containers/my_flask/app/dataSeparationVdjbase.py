@@ -6,16 +6,15 @@ import base64
 import zipfile
 import shutil
 
-"""
-This script manages the updating and organization of genomic and AIRR-seq data for a research study. It reads configurations 
-from two CSV files, retrieves and stores updated files from specified GitHub repositories, and cleans up unneeded data.
-This helps in keeping the study data current and well-organized.
-"""
+# This script manages the updating and organization of genomic and AIRR-seq data for a research study. It reads configurations 
+# from two CSV files, retrieves and stores updated files from specified GitHub repositories, and cleans up unneeded data.
+# This helps in keeping the study data current and well-organized.
 
 
-CONFIG_PATH = r'/config/study_data_conf.csv'
-FILES_VERSION_PATH = r"/config/study_data_versions.csv"
-
+CREATE_PATHS = [r'VDJbase/db', r'Genomic/db', r'VDJbase/samples', r'Genomic/samples']
+CONFIG_PATH = r'/app/study_data_conf.csv'
+FILES_VERSION_PATH = r"/app/study_data_versions.csv"
+BASE = r'/study_data'
 
 # Configuration Files Description:
 # 1. study_data_conf.csv - This file contains the configuration for the study data. Each row specifies a dataset with details
@@ -27,7 +26,6 @@ FILES_VERSION_PATH = r"/config/study_data_versions.csv"
 #    whether a file has been updated on the repository since the last download.
 #    Fields: ['File_Path', 'Commit_ID', 'Repo_URL']
 
-
 def check_and_create_csv(csv_path):
     # Checks if a file of the versions exists at the specified path, and if not, creates a new CSV file with the necessary headers.
     if not os.path.exists(csv_path):
@@ -37,6 +35,11 @@ def check_and_create_csv(csv_path):
                 file, fieldnames=['File_Path', 'Commit_ID', 'Repo_URL'])
             writer.writeheader()
 
+def create_folders():
+    for path in CREATE_PATHS:
+        to_create = os.path.join(BASE, path)
+        if not os.path.exists(to_create):
+            os.makedirs(to_create)
 
 def clean_file_versions(csv_entries, versions_csv_path=FILES_VERSION_PATH):
     # Create a set of all path and repo URL combinations listed in the CSV
@@ -231,8 +234,25 @@ def process_csv_entry(entry, files_to_download):
     for filename in files_to_download:
         file_version = get_file_version(
             f"{data_path}/{filename}", entry['Repo_URL'])
-        latest_commit_id = github.get_user(entry['Repo_URL'].split('/')[-2]).get_repo(
-            entry['Repo_URL'].split('/')[-1]).get_commits(path=f"{data_path}/{filename}", sha=entry['Repo_Branch'])[0].sha
+        # latest_commit_id = github.get_user(entry['Repo_URL'].split('/')[-2]).get_repo(
+        #     entry['Repo_URL'].split('/')[-1]).get_commits(path=f"{data_path}/{filename}", sha=entry['Repo_Branch'])[0].sha
+        url_parts = entry['Repo_URL'].split('/')
+        username = url_parts[-2]
+        repo_name = url_parts[-1]
+
+        # Get the user object from GitHub
+        user = github.get_user(username)
+
+        # Get the repository object
+        repo = user.get_repo(repo_name)
+
+        # Retrieve the latest commit ID
+        commits = repo.get_commits(path=f"{data_path}/{filename}", sha=entry['Repo_Branch'])
+        if commits:
+            latest_commit_id = commits[0].sha
+        else:
+            latest_commit_id = None
+        
         if file_version != latest_commit_id:
             if filename == "samples.zip":
                 # clear_directory(samples_path)
@@ -288,12 +308,11 @@ def remove_unlisted_data(csv_entries, base_path="/study_data"):
                             try:
                                 os.remove(hidden_file_path)
                             except OSError as e:
-                                if e.errno == 16:  # Device or resource busy
-                                    print(
-                                        f"Cannot remove {hidden_file_path}: Device or resource busy")
-                                else:
-                                    print(e)
-                try:
+                                    if e.errno == 16:  # Device or resource busy
+                                        print(f"Cannot remove {hidden_file_path}: Device or resource busy")
+                                    else:
+                                        print(e)
+                try:                        
                     print(f"Removing unlisted directory: {full_path}")
                     shutil.rmtree(full_path)
                 except Exception as e:
@@ -302,36 +321,22 @@ def remove_unlisted_data(csv_entries, base_path="/study_data"):
     print("Unlisted data removed successfully.")
 
 
-def is_config_file_valid(file_path):
-    # Check if the file contains more than just the header.
-    try:
-        with open(file_path, 'r') as file:
-            lines = file.readlines()
-            return len(lines) >= 2
-    except IOError:
-        print(f"Error: Unable to open {file_path}.")
-        return False
-
-
 def main():
-    print("Updating study_data...")
-    if not is_config_file_valid(CONFIG_PATH):
-        print(f"Error: The file {CONFIG_PATH} is empty.")
+    print("Starting main execution...")
+    create_folders()
+    check_and_create_csv(FILES_VERSION_PATH)
+    csv_entries = read_csv_entries()
+    clean_file_versions(csv_entries)
+    files_to_download = ['samples.zip', 'db.sqlite3', 'db_description.txt']
 
-    else:
-        check_and_create_csv(FILES_VERSION_PATH)
-        csv_entries = read_csv_entries()
-        clean_file_versions(csv_entries)
-        files_to_download = ['samples.zip', 'db.sqlite3', 'db_description.txt']
+    for entry in csv_entries:
+        try:
+            process_csv_entry(entry, files_to_download)
+        except Exception as e:
+            print("error: ", e)
 
-        for entry in csv_entries:
-            try:
-                process_csv_entry(entry, files_to_download)
-            except Exception as e:
-                print("error: ", e)
-
-        remove_unlisted_data(csv_entries)
-        print("Finished updating study_data.")
+    remove_unlisted_data(csv_entries)
+    print("Finished updating study_data.")
 
 
 if __name__ == "__main__":
