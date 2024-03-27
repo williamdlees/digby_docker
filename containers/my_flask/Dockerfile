@@ -43,6 +43,6 @@ RUN \
   mkdir -p /backup/backup.daily && \
   mkdir -p /backup/backup.weekly && \
   mkdir -p /backup/backup.monthly && \
-  crontab /app/cronjobs && \ 
+  crontab /app/cronjobs
  
 CMD ["/app/start.sh"]
