@@ -5,8 +5,11 @@ import requests
 import base64
 import zipfile
 import shutil
+import glob
+import subprocess
 
-# This script manages the updating and organization of genomic and AIRR-seq data for a research study. It reads configurations 
+
+# This script manages the updating and organization of genomic and AIRR-seq data for a research study. It reads configurations
 # from two CSV files, retrieves and stores updated files from specified GitHub repositories, and cleans up unneeded data.
 # This helps in keeping the study data current and well-organized.
 
@@ -155,6 +158,19 @@ def retrieve_and_store_file(github, repo_url, repo_branch, data_path, filename, 
     print(f"{filename} retrieved and stored successfully.")
 
 
+def list_files_in_repo_dir(github, repo_url, repo_branch, data_path):
+    # list files in the specified path of the repo
+    repo = repo_url.split('/')[-1]
+    user = repo_url.split('/')[-2]
+    github_repo = github.get_user(user).get_repo(repo)
+    dir_contents = github_repo.get_contents(
+        path=f"{data_path}", ref=repo_branch)
+
+    files = [dir_content.path for dir_content in dir_contents]
+
+    return files
+
+
 def read_csv_entries():
     # Reads and validates entries from the configuration CSV, returning a list of valid entries
     print("Reading CSV entries...")
@@ -194,22 +210,15 @@ def determine_path_structure(entry):
 def unzip_samples(zip_path, extract_path):
     # Extracts files from a zip archive into a specified directory
     print(f"Unzipping {zip_path}...")
-    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-        for member in zip_ref.namelist():
-            # Construct full path
-            full_path = os.path.join(extract_path, member)
 
-            # Remove the item if it exists (whether it's a file or directory)
-            if os.path.exists(full_path):
-                if os.path.isfile(full_path):
-                    os.remove(full_path)
-                elif os.path.isdir(full_path):
-                    shutil.rmtree(full_path)
+    cwd = os.getcwd()
+    os.chdir(os.path.dirname(zip_path))
+    print(f"zip -s0 {zip_path} --out sq.zip; unzip -o sq.zip")
+    subprocess.run(f"zip -s0 {zip_path} --out sq.zip; unzip -o sq.zip", shell=True);
+    print(f"{zip_path} unzipped successfully")
+    os.chdir(cwd)
 
-            # Extract the item
-            zip_ref.extract(member, extract_path)
-
-    print(f"{zip_path} unzipped successfully.")
+    return
 
 
 def clear_directory(directory_path):
@@ -230,6 +239,9 @@ def process_csv_entry(entry, files_to_download):
 
     data_path = f"{entry['Type']}/{entry['Species']}/{entry['Data_Set']}"
     db_path, samples_path = determine_path_structure(entry)
+
+    # find the files in the top-level directory for this dataset
+    files_in_dataset_root = list_files_in_repo_dir(github, entry['Repo_URL'], entry['Repo_Branch'], data_path)
 
     for filename in files_to_download:
         file_version = get_file_version(
@@ -252,11 +264,14 @@ def process_csv_entry(entry, files_to_download):
             latest_commit_id = commits[0].sha
         else:
             latest_commit_id = None
-        
+
         if file_version != latest_commit_id:
             if filename == "samples.zip":
                 # clear_directory(samples_path)
                 store_path = samples_path
+                if os.path.exists(store_path):
+                    print(f"Deleting existing content of {store_path}")
+                    subprocess.run(f"rm -rf {store_path}/*.*", shell=True)
             else:
                 store_path = db_path
 
@@ -267,7 +282,17 @@ def process_csv_entry(entry, files_to_download):
                 github, entry['Repo_URL'], entry['Repo_Branch'], data_path, filename, store_path)
 
             if filename == "samples.zip":
+                for file in files_in_dataset_root:
+                    file = os.path.basename(file)
+                    if "samples.z" in file and "samples.zip" not in file:
+                        print(f"downloading {file}")
+                        retrieve_and_store_file(
+                            github, entry['Repo_URL'], entry['Repo_Branch'], data_path, file, store_path)
+
                 unzip_samples(os.path.join(store_path, filename), store_path)
+                subprocess.run(f"rm {store_path}/sq.zip", shell=True)
+                subprocess.run(f"rm {store_path}/samples.z*", shell = True)
+
 
             update_file_version(f"{data_path}/{filename}",
                                 latest_commit_id, entry['Repo_URL'])
@@ -312,7 +337,7 @@ def remove_unlisted_data(csv_entries, base_path="/study_data"):
                                         print(f"Cannot remove {hidden_file_path}: Device or resource busy")
                                     else:
                                         print(e)
-                try:                        
+                try:
                     print(f"Removing unlisted directory: {full_path}")
                     shutil.rmtree(full_path)
                 except Exception as e:
@@ -330,10 +355,10 @@ def main():
     files_to_download = ['samples.zip', 'db.sqlite3', 'db_description.txt']
 
     for entry in csv_entries:
-        try:
-            process_csv_entry(entry, files_to_download)
-        except Exception as e:
-            print("error: ", e)
+        #try:
+        process_csv_entry(entry, files_to_download)
+        #except Exception as e:
+        #    print("error: ", e)
 
     remove_unlisted_data(csv_entries)
     print("Finished updating study_data.")
