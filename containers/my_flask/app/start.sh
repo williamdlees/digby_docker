@@ -3,7 +3,7 @@
 #while true; do sleep 60; done
 
 # Allow other containers to stabilise
-sleep 20
+sleep 10
 
 cp /config/secret.cfg /app/secret.cfg
 cp /config/do_backup.sh /app/do_backup.sh
@@ -16,7 +16,7 @@ if [ ! -f /config/study_data_conf.csv ]; then
   cp /app/sample_study_data_conf.csv /config/study_data_conf.csv 
 fi
 
-while true; do sleep 60; done
+#while true; do sleep 60; done
 
 python /app/dataSeparationVdjbase.py
 
