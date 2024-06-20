@@ -16,10 +16,12 @@ if [ ! -f /config/study_data_conf.csv ]; then
   cp /app/sample_study_data_conf.csv /config/study_data_conf.csv 
 fi
 
+while true; do sleep 60; done
+
 python /app/dataSeparationVdjbase.py
 
 
-#while true; do sleep 60; done
+
 
 
 echo "migrating database"

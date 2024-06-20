@@ -207,15 +207,20 @@ def determine_path_structure(entry):
     return db_path, samples_path
 
 
-def unzip_samples(zip_path, extract_path):
+def unzip_samples(zip_path, store_path):
     # Extracts files from a zip archive into a specified directory
-    print(f"Unzipping {zip_path}...")
+    print(f"Downloading {zip_path}...")
 
     cwd = os.getcwd()
-    os.chdir(os.path.dirname(zip_path))
+    os.chdir(store_path)
+    cmd = f"curl {zip_path} --output samples.zip"
+    print(cmd)
+    subprocess.run(cmd)
+    cmd = f"unzip -o sq.zip"
+    print(cmd)
+    subprocess.run(cmd)
     print(f"zip -s0 {zip_path} --out sq.zip; unzip -o sq.zip")
-    subprocess.run(f"zip -s0 {zip_path} --out sq.zip; unzip -o sq.zip", shell=True);
-    print(f"{zip_path} unzipped successfully")
+    print(f"{zip_path} downloaded and unzipped")
     os.chdir(cwd)
 
     return
@@ -266,7 +271,7 @@ def process_csv_entry(entry, files_to_download):
             latest_commit_id = None
 
         if file_version != latest_commit_id:
-            if filename == "samples.zip":
+            if filename == "link_to_sample.txt":
                 # clear_directory(samples_path)
                 store_path = samples_path
                 if os.path.exists(store_path):
@@ -281,18 +286,11 @@ def process_csv_entry(entry, files_to_download):
             retrieve_and_store_file(
                 github, entry['Repo_URL'], entry['Repo_Branch'], data_path, filename, store_path)
 
-            if filename == "samples.zip":
-                for file in files_in_dataset_root:
-                    file = os.path.basename(file)
-                    if "samples.z" in file and "samples.zip" not in file:
-                        print(f"downloading {file}")
-                        retrieve_and_store_file(
-                            github, entry['Repo_URL'], entry['Repo_Branch'], data_path, file, store_path)
-
-                unzip_samples(os.path.join(store_path, filename), store_path)
-                subprocess.run(f"rm {store_path}/sq.zip", shell=True)
-                subprocess.run(f"rm {store_path}/samples.z*", shell = True)
-
+            if filename == "link_to_sample.txt":
+                with open(os.path.join(store_path, filename), 'r') as f:
+                    zip_url = f.read()
+                    
+                unzip_samples(zip_url, store_path)
 
             update_file_version(f"{data_path}/{filename}",
                                 latest_commit_id, entry['Repo_URL'])
