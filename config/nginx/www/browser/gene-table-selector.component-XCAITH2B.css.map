@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/gene-table-selector/gene-table-selector.component.css"],
+  "sourcesContent": [".selector-dropdown .dropdown-btn {\r\n  line-height: 24px !important;\r\n  height: 38px !important;\r\n  border-top-left-radius: 0px !important;\r\n  border-bottom-left-radius: 0px !important;\r\n  border-color: rgb(206, 212, 218) !important;\r\n  padding: 6px 24px 6px 12px !important;\r\n}\r\n\r\n"],
+  "mappings": "AAAA,CAAC,kBAAkB,CAAC,aAClB,YAAa,eACb,OAAQ,eACR,uBAAwB,YACxB,0BAA2B,YAC3B,aAAc,kBALhB,QAMW,IAAI,KAAK,IAAI,cACxB",
+  "names": []
+}

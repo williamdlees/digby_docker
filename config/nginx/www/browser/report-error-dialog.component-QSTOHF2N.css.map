@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/reports/report-error-dialog/report-error-dialog.component.css"],
+  "sourcesContent": [".btn-sm {\r\n  padding: 0.1rem .3rem !important;\r\n  line-height: 1 !important;\r\n}\r\n\r\n.i {\r\n  line-height: inherit;\r\n}\r\n\r\n.primary-icon {\r\n  color: #007bff;\r\n  align-items: center;\r\n  vertical-align: bottom;\r\n  line-height: 20px;\r\n}\r\n\r\n.header-text {\r\n  color: rgba(0,0,0,0.54);\r\n  font-size: 12px;\r\n}\r\n\r\n.btn-solid-icon {\r\n  background-color: white;\r\n  color: #6c757d;\r\n  border: none;\r\n}\r\n"],
+  "mappings": "AAAA,CAAC,OAAD,QACW,MAAO,gBAChB,YAAa,WACf,CAEA,CAAC,EACC,YAAa,OACf,CAEA,CAAC,aACC,MAAO,QACP,YAAa,OACb,eAAgB,OAChB,YAAa,IACf,CAEA,CAAC,YACC,MAAO,UACP,UAAW,IACb,CAEA,CAAC,eACC,iBAAkB,KAClB,MAAO,QACP,OAAQ,IACV",
+  "names": []
+}

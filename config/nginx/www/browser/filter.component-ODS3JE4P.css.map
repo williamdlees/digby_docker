@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/table/filter/filter.component.css"],
+  "sourcesContent": [".narrow-input ::ng-deep .mat-mdc-form-field-infix {\r\n  width: 60px;\r\n  min-width: 60px;\r\n  flex: 1 1 auto; /* This allows it to grow but sets a base width */\r\n}\r\n\r\n::ng-deep .filter-dropdown {\r\n  .dropdown-btn {\r\n    width: 60px !important;\r\n    min-width: 60px !important;\r\n    flex: 1 1 auto !important;\r\n  }\r\n\r\n  .dropdown-list {\r\n    width: auto !important;\r\n    min-width: 120px !important; /* Make dropdown wide enough for content */\r\n  }\r\n}\r\n"],
+  "mappings": "AAAA,CAAC,aAAa,UAAU,CAAC,yBACvB,MAAO,KACP,UAAW,KACX,KAAM,EAAE,EAAE,IACZ,CAGE,OAAC,aACC,MAAO,eACP,UAAW,eACX,KAAM,EAAE,EAAE,cACZ,CAEA,OAAC,cACC,MAAO,eACP,UAAW,eACb",
+  "names": []
+}

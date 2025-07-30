@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/rep-sample/rep-sample-info/rep-sample-info.component.css"],
+  "sourcesContent": ["ul {\r\n  margin-bottom: 0.2rem !important;\r\n}\r\n\r\nh4 {\r\n  margin-top: 1rem !important;\r\n  margin-bottom: 0.2rem !important;\r\n}\r\n\r\n.cdk-overlay-container {\r\n  font-size: 14px !important;\r\n  z-index: 1100 !important;\r\n}\r\n\r\n.digby-table-tooltip {\r\n  font-size: 14px;\r\n}\r\n\r\n"],
+  "mappings": "AAAA,GACE,cAAe,eACjB,CAEA,GACE,WAAY,eACZ,cAAe,eACjB,CAEA,CAAC,sBACC,UAAW,eACX,QAAS,cACX,CAEA,CAAC,oBACC,UAAW,IACb",
+  "names": []
+}

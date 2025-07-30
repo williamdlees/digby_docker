@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/app-header/app-header.component.css"],
+  "sourcesContent": [".navbar-nav,\r\n.nav-item {\r\n  font-size: 16px;\r\n}\r\n\r\n.dropdown-toggle::after {\r\ndisplay: none;\r\n}\r\n"],
+  "mappings": "AAAA,CAAC,WACD,CAAC,SACC,UAAW,IACb,CAEA,CAAC,eAAe,OAChB,QAAS,IACT",
+  "names": []
+}

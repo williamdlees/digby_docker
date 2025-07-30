@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/refbook/refbook-panel/refbook-panel.component.css"],
+  "sourcesContent": [".iframe-container {\r\n  position: relative;\r\n  overflow: hidden;\r\n  padding-top: 56.25%;\r\n}\r\n.iframe-container iframe {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  border: 0;\r\n}\r\n"],
+  "mappings": "AAAA,CAAC,iBACC,SAAU,SACV,SAAU,OACV,YAAa,MACf,CACA,CALC,iBAKiB,OAChB,SAAU,SACV,IAAK,EACL,KAAM,EACN,MAAO,KACP,OAAQ,KACR,OAAQ,CACV",
+  "names": []
+}
