@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/rep-explore-data/rep-explore-data-panel/rep-explore-data-panel.component.css"],
+  "sourcesContent": [".explore-small-col {\r\n  width: 8% !important;\r\n  flex: 0 0 8% !important;\r\n  white-space: wrap !important;\r\n}\r\n\r\n.explore-large-col {\r\n  width: 25% !important;\r\n  flex: 0 0 25% !important;\r\n  white-space: wrap !important;\r\n}\r\n"],
+  "mappings": "AAAA,CAAC,kBACC,MAAO,aACP,KAAM,EAAE,EAAE,aACV,YAAa,cACf,CAEA,CAAC,kBACC,MAAO,cACP,KAAM,EAAE,EAAE,cACV,YAAa,cACf",
+  "names": []
+}
