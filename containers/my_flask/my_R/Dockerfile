@@ -1,6 +1,6 @@
 FROM python:3.9-bookworm
 
-MAINTAINER William Lees william@lees.org.uk
+LABEL org.opencontainers.image.authors="william@lees.org.uk"
 
 RUN mkdir /app
 

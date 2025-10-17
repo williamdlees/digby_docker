@@ -1,6 +1,6 @@
 FROM my_r
 
-MAINTAINER William Lees william@lees.org.uk
+LABEL org.opencontainers.image.authors="william@lees.org.uk"
 
 ARG backend_repo_url="https://github.com/williamdlees/digby_backend.git"
 RUN \ 
