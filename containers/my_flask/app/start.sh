@@ -24,15 +24,6 @@ python /app/dataSeparationVdjbase.py
 
 
 
-echo "migrating database"
-if [ ! -f migrations/README ]; then
-  rm migrations/.gitkeep
-  rm exports/.gitkeep
-  flask db init
-fi
-flask db migrate
-flask db upgrade
-
 echo "starting cron"
 service cron start
 echo "starting RabbitMQ"
