@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/dash-refbook/dash-drill.service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\r\nimport { Observable, Subject } from 'rxjs';\r\n\r\nexport type DrillKind = 'allele' | 'sample' | 'gene';\r\n\r\nexport interface DrillEvent {\r\n  kind: DrillKind;\r\n  value: string;\r\n}\r\n\r\n/** Clicks in a panel, on their way back to the dashboard shell. */\r\n@Injectable()\r\nexport class DashDrillService {\r\n  private readonly drills = new Subject<DrillEvent>();\r\n\r\n  get events$(): Observable<DrillEvent> {\r\n    return this.drills.asObservable();\r\n  }\r\n\r\n  drill(kind: DrillKind, value: string): void {\r\n    if (value) {\r\n      this.drills.next({ kind, value });\r\n    }\r\n  }\r\n}\r\n"],
+  "mappings": "gDAYA,IAAaA,GAAgB,IAAA,CAAvB,MAAOA,CAAgB,CAD7BC,aAAA,CAEmB,KAAAC,OAAS,IAAIC,EAE9B,IAAIC,SAAO,CACT,OAAO,KAAKF,OAAOG,aAAY,CACjC,CAEAC,MAAMC,EAAiBC,EAAa,CAC9BA,GACF,KAAKN,OAAOO,KAAK,CAAEF,KAAAA,EAAMC,MAAAA,CAAK,CAAE,CAEpC,iDAXWR,EAAgB,CAAA,iCAAhBA,EAAgBU,QAAhBV,EAAgBW,SAAA,CAAA,CAAA,SAAhBX,CAAgB,GAAA",
+  "names": ["DashDrillService", "constructor", "drills", "Subject", "events$", "asObservable", "drill", "kind", "value", "next", "factory", "\u0275fac"]
+}

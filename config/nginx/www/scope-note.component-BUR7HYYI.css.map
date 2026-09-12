@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;0248afb3f435cc17b40291deda321f5bb5526c12de0ab10df2e2cee3bde489c2;d:/Research/digby/src/app/dash-refbook/scope-note/scope-note.component.ts"],
+  "sourcesContent": ["\n    .scope-note {\n      margin: 0 0 0.5rem; padding: 0.25rem 0.5rem;\n      background: #fef7e0; border-left: 3px solid #f9ab00; border-radius: 0 3px 3px 0;\n      font-size: 0.78rem; color: #5f6368;\n    }\n    .marker { margin-right: 0.35rem; color: #f9ab00; }\n  "],
+  "mappings": "AACI,CAAC,WADL,OAEc,EAAE,EAAE,MAFlB,QAEmC,OAAQ,MACrC,WAAY,QAAS,YAAa,IAAI,MAAM,QAHlD,cAG0E,EAAE,IAAI,IAAI,EAC9E,UAAW,OAAS,MAAO,OAC7B,CACA,CAAC,OAAS,aAAc,OAAS,MAAO,OAAS",
+  "names": []
+}

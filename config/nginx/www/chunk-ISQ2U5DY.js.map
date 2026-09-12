@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/retry_with_backoff.ts"],
+  "sourcesContent": ["import { Observable, timer, throwError } from 'rxjs';\r\nimport { retry } from 'rxjs/operators';\r\n\r\nexport function retryWithBackoff(delayMs = 1000, maxRetry = 3, backoffMs = 1000) {\r\n  return (src: Observable<any>) =>\r\n    src.pipe(\r\n      retry({\r\n        count: maxRetry,\r\n        delay: (error, retryCount) => {\r\n          // a 4xx is the server's answer, not a failure to reach it: retrying\r\n          // one only delays the message the user needs to see\r\n          if (error?.status >= 400 && error?.status < 500) {\r\n            return throwError(() => error);\r\n          }\r\n          const backoffTime = delayMs + (retryCount - 1) * backoffMs;\r\n          return timer(backoffTime);\r\n        }\r\n      })\r\n    );\r\n}\r\n"],
+  "mappings": "sDAGM,SAAUA,EAAiBC,EAAU,IAAMC,EAAW,EAAGC,EAAY,IAAI,CAC7E,OAAQC,GACNA,EAAIC,KACFC,EAAM,CACJC,MAAOL,EACPM,MAAOA,CAACC,EAAOC,IAAc,CAG3B,GAAID,GAAOE,QAAU,KAAOF,GAAOE,OAAS,IAC1C,OAAOC,EAAW,IAAMH,CAAK,EAE/B,IAAMI,EAAcZ,GAAWS,EAAa,GAAKP,EACjD,OAAOW,EAAMD,CAAW,CAC1B,EACD,CAAC,CAER",
+  "names": ["retryWithBackoff", "delayMs", "maxRetry", "backoffMs", "src", "pipe", "retry", "count", "delay", "error", "retryCount", "status", "throwError", "backoffTime", "timer"]
+}

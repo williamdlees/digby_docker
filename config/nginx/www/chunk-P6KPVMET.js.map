@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/environments/environment.prod.ts"],
+  "sourcesContent": ["export const environment = {\r\n  production: true,\r\n  apiBasePath: location.protocol + '//' + location.hostname + '/admin/api',\r\n  igvBasePath: location.protocol + '//' + location.hostname + '/static/study_data/Genomic/samples',\r\n};\r\n"],
+  "mappings": "AAAO,IAAMA,EAAc,CACzBC,WAAY,GACZC,YAAaC,SAASC,SAAW,KAAOD,SAASE,SAAW,aAC5DC,YAAaH,SAASC,SAAW,KAAOD,SAASE,SAAW",
+  "names": ["environment", "production", "apiBasePath", "location", "protocol", "hostname", "igvBasePath"]
+}

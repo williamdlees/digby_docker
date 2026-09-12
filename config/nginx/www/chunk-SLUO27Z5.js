@@ -1,0 +1,2 @@
+function c(s,a){s.querySelectorAll(".yaxislayer-above text").forEach(e=>{let l=Array.from(e.childNodes).filter(r=>r.nodeType===3).map(r=>r.nodeValue??"").join("").trim(),t=a.get(l),o=e.querySelector("title");if(!t||t===l){o?.remove(),e.style.removeProperty("cursor");return}let n=o??e.ownerDocument.createElementNS("http://www.w3.org/2000/svg","title");n.textContent=t,o||e.appendChild(n),e.style.pointerEvents="all",e.style.cursor="help"})}export{c as a};
+//# sourceMappingURL=chunk-SLUO27Z5.js.map

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;83f329c1fb25ec2bb70fedb41acc967fc2ce9b3f32a0b263f11406df72403a51;d:/Research/digby/src/app/dash-refbook/dash-refbook-zygosity/dash-refbook-zygosity.component.ts"],
+  "sourcesContent": ["\n    .upset-toolbar {\n      display: flex; align-items: center; gap: 0.5rem;\n      margin: 0 0 0.5rem; font-size: 0.8rem; color: var(--vdj-body, #455857);\n    }\n    .upset-toolbar label { font-weight: 600; }\n    .upset-toolbar select { width: auto; min-width: 6rem; }\n    .upset-note { color: var(--vdj-muted, #7a8c8b); }\n\n    /* Width comes from the column; height is set per render from the number of sets. */\n    .upset-chart { width: 100%; min-width: 0; overflow-x: auto; }\n\n    .upset-status { margin: 0.5rem 0; font-size: 0.85rem; color: #5f6368; }\n    .upset-status.error { color: #d62839; }\n  "],
+  "mappings": "AACI,CAAC,cACC,QAAS,KAAM,YAAa,OAAQ,IAAK,MAF/C,OAGc,EAAE,EAAE,MAAQ,UAAW,MAAQ,MAAO,IAAI,UAAU,EAAE,QAChE,CACA,CAJC,cAIc,MAAQ,YAAa,GAAK,CACzC,CALC,cAKc,OAAS,MAAO,KAAM,UAAW,IAAM,CACtD,CAAC,WAAa,MAAO,IAAI,WAAW,EAAE,QAAU,CAGhD,CAAC,YAAc,MAAO,KAAM,UAAW,EAAG,WAAY,IAAM,CAE5D,CAAC,aAZL,OAY4B,MAAO,EAAG,UAAW,OAAS,MAAO,OAAS,CACtE,CADC,YACY,CAAC,MAAQ,MAAO,OAAS",
+  "names": []
+}

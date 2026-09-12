@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;1483d1817eed2437401caee8b04798b92c61456eb5524bee6d53279ee01edc01;d:/Research/digby/src/app/shared/plot-export/plot-export.component.ts"],
+  "sourcesContent": ["\n    .plot-export { display: flex; gap: 0.35rem; justify-content: flex-end; margin: 0.25rem 0 0; }\n    button {\n      border: 1px solid var(--vdj-rule, #e7eeed);\n      background: #fff;\n      color: var(--vdj-body, #455857);\n      border-radius: 999px;\n      padding: 0.05rem 0.65rem;\n      font-size: 0.75rem;\n      line-height: 1.6;\n      cursor: pointer;\n    }\n    button:hover { border-color: var(--vdj-teal, #188080); color: var(--vdj-teal-dark, #0f5f5f); }\n    button:focus-visible { outline: 2px solid var(--vdj-teal, #188080); outline-offset: 1px; }\n  "],
+  "mappings": "AACI,CAAC,YAAc,QAAS,KAAM,IAAK,OAAS,gBAAiB,SADjE,OACmF,OAAQ,EAAE,CAAG,CAC5F,OACE,OAAQ,IAAI,MAAM,IAAI,UAAU,EAAE,SAClC,WAAY,KACZ,MAAO,IAAI,UAAU,EAAE,SAL7B,cAMqB,MANrB,QAOe,OAAQ,OACjB,UAAW,OACX,YAAa,IACb,OAAQ,OACV,CACA,MAAM,OAAS,aAAc,IAAI,UAAU,EAAE,SAAU,MAAO,IAAI,eAAe,EAAE,QAAU,CAC7F,MAAM,eAAiB,QAAS,IAAI,MAAM,IAAI,UAAU,EAAE,SAAU,eAAgB,GAAK",
+  "names": []
+}
