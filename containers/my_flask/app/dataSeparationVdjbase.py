@@ -193,22 +193,29 @@ def determine_path_structure(entry):
     # Calculates the directory structure for storing files based on the entry type
     print("Determining path structure...")
     base_path = "/study_data"
+    db_path = None
+    samples_path = None
+    annotation_path = None
+    dbsnp_path = None
+
     if entry['Type'] == "Genomic":
-        db_path = os.path.join(base_path, "Genomic", "db",
-                               entry['Species'], entry['Data_Set'])
-        samples_path = os.path.join(
-            base_path, "Genomic", "samples", entry['Species'], entry['Data_Set'])
-    else:  # Assuming AIRR-seq
-        db_path = os.path.join(base_path, "VDJbase", "db",
-                               entry['Species'], entry['Data_Set'])
-        samples_path = os.path.join(
-            base_path, "VDJbase", "samples", entry['Species'], entry['Data_Set'])
+        db_path = os.path.join(base_path, "Genomic", "db", entry['Species'], entry['Data_Set'])
+        samples_path = os.path.join(base_path, "Genomic", "samples", entry['Species'], entry['Data_Set'])
+
+    elif entry['Type'] == 'AIRR-seq':
+        db_path = os.path.join(base_path, "VDJbase", "db", entry['Species'], entry['Data_Set'])
+        samples_path = os.path.join(base_path, "VDJbase", "samples", entry['Species'], entry['Data_Set'])
+
+    elif entry['Type'] == 'QTL':
+        db_path = os.path.join(base_path, "QTL", "db", entry['Species'], entry['Data_Set'])
+        annotation_path = os.path.join(base_path, "QTL", "db", entry['Species'], entry['Data_Set'], 'annotation')
+        dbsnp_path = os.path.join(base_path, "QTL", "db", entry['Species'], entry['Data_Set'], 'dbsnp')
 
     print("Path structure determined successfully.")
-    return db_path, samples_path
+    return db_path, samples_path, annotation_path, dbsnp_path
 
 
-def download_samples(zip_path, store_path):
+def download_samples(zip_path, store_path, download_filename):
     # Extracts files from a zip archive into a specified directory
     print(f"Downloading {zip_path}...")
 
@@ -220,6 +227,7 @@ def download_samples(zip_path, store_path):
     os.chdir(cwd)
 
     return
+
 
 def unzip_samples(filename, store_path):
     # Extracts files from a zip archive into a specified directory
@@ -253,7 +261,7 @@ def process_csv_entry(entry, files_to_download):
     github = initialize_github(auth_key)
 
     data_path = f"{entry['Type']}/{entry['Species']}/{entry['Data_Set']}"
-    db_path, samples_path = determine_path_structure(entry)
+    db_path, samples_path, annotation_path, dbsnp_path = determine_path_structure(entry)
 
     # find the files in the top-level directory for this dataset
     files_in_dataset_root = list_files_in_repo_dir(github, entry['Repo_URL'], entry['Repo_Branch'], data_path)
@@ -294,8 +302,17 @@ def process_csv_entry(entry, files_to_download):
 
         if file_version != latest_commit_id:
             if filename == "link_to_sample.txt" or filename == 'samples.zip':
-                # clear_directory(samples_path)
                 store_path = samples_path
+                if os.path.exists(store_path):
+                    print(f"Deleting existing content of {store_path}")
+                    subprocess.run(f"rm -rf {store_path}/*.*", shell=True)
+            elif filename == "link_to_annotation.txt" or filename == 'annotation.zip':
+                store_path = annotation_path
+                if os.path.exists(store_path):
+                    print(f"Deleting existing content of {store_path}")
+                    subprocess.run(f"rm -rf {store_path}/*.*", shell=True)
+            elif filename == "link_to_dbsnp.txt" or filename == 'dbsnp.zip':
+                store_path = dbsnp_path
                 if os.path.exists(store_path):
                     print(f"Deleting existing content of {store_path}")
                     subprocess.run(f"rm -rf {store_path}/*.*", shell=True)
@@ -306,23 +323,21 @@ def process_csv_entry(entry, files_to_download):
                 os.makedirs(store_path)
 
             try:
-                retrieve_and_store_file(
-                    github, entry['Repo_URL'], entry['Repo_Branch'], data_path, filename, store_path)
+                retrieve_and_store_file(github, entry['Repo_URL'], entry['Repo_Branch'], data_path, filename, store_path)
             except:
                 print(f"{data_path}/{filename} not found in GitHub")
                 continue
 
-            if filename == "link_to_sample.txt":
+            if filename in ["link_to_sample.txt", "link_to_annotation.txt", "link_to_dbsnp.txt"]:
                 with open(os.path.join(store_path, filename), 'r') as f:
                     zip_url = f.read()
                     
-                download_samples(zip_url, store_path)
+                download_samples(zip_url, store_path, filename.replace('link_to_', '').replace('.txt', '.zip'))
                 
             if filename == "link_to_sample.txt" or filename == 'samples.zip':
                 unzip_samples(filename, store_path)
 
-            update_file_version(f"{data_path}/{filename}",
-                                latest_commit_id, entry['Repo_URL'])
+            update_file_version(f"{data_path}/{filename}", latest_commit_id, entry['Repo_URL'])
 
     print("CSV entry processed successfully.")
 
@@ -379,7 +394,7 @@ def main():
     check_and_create_csv(FILES_VERSION_PATH)
     csv_entries = read_csv_entries()
     clean_file_versions(csv_entries)
-    files_to_download = ['samples.zip', 'link_to_sample.txt', 'db.sqlite3', 'db_description.txt']
+    files_to_download = ['samples.zip', 'annotation.zip', 'dbsnp.zip', 'link_to_sample.txt', 'link_to_annotation.zip', 'link_to_dbsnp.txt', 'db.sqlite3', 'db_description.txt']
 
     for entry in csv_entries:
         #try:
