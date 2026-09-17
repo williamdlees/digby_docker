@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;273798f2018e12199848a8ecb9253d244a9bed0f62edf01cb57c9add793f1513;d:/Research/digby/src/app/dash-qtl/qtl-genotype-counts/qtl-genotype-counts.component.ts"],
+  "sourcesContent": ["\n    .none { margin: 0.4rem 0 0; font-size: 0.78rem; color: var(--vdj-muted, #5f6368); }\n  "],
+  "mappings": "AACI,CAAC,KADL,OACoB,MAAO,EAAE,EAAG,UAAW,OAAS,MAAO,IAAI,WAAW,EAAE,QAAU",
+  "names": []
+}

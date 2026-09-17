@@ -328,13 +328,13 @@ def process_csv_entry(entry, files_to_download):
                 print(f"{data_path}/{filename} not found in GitHub")
                 continue
 
-            if filename in ["link_to_sample.txt", "link_to_annotation.txt", "link_to_dbsnp.txt"]:
+            if filename.startswith("link_to_"):
                 with open(os.path.join(store_path, filename), 'r') as f:
                     zip_url = f.read()
                     
                 download_samples(zip_url, store_path, filename.replace('link_to_', '').replace('.txt', '.zip'))
                 
-            if filename == "link_to_sample.txt" or filename == 'samples.zip':
+            if filename.startswith("link_to_") or filename.endswith(".zip"):
                 unzip_samples(filename, store_path)
 
             update_file_version(f"{data_path}/{filename}", latest_commit_id, entry['Repo_URL'])
@@ -352,11 +352,14 @@ def remove_unlisted_data(csv_entries, base_path="/study_data"):
                              "db", entry['Species'], entry['Data_Set']))
             listed_paths.add(os.path.join(base_path, "Genomic",
                              "samples", entry['Species'], entry['Data_Set']))
-        else:  # Assuming AIRR-seq
+        elif entry['Type'] == "AIRR-seq":
             listed_paths.add(os.path.join(base_path, "VDJbase",
                              "db", entry['Species'], entry['Data_Set']))
             listed_paths.add(os.path.join(base_path, "VDJbase",
                              "samples", entry['Species'], entry['Data_Set']))
+        elif entry['Type'] == "QTL":
+            listed_paths.add(os.path.join(base_path, "QTL",
+                             "db", entry['Species'], entry['Data_Set']))
 
     # Check each subdirectory in the base_path
     # topdown=False to ensure we delete subdirs first
@@ -375,10 +378,10 @@ def remove_unlisted_data(csv_entries, base_path="/study_data"):
                             try:
                                 os.remove(hidden_file_path)
                             except OSError as e:
-                                    if e.errno == 16:  # Device or resource busy
-                                        print(f"Cannot remove {hidden_file_path}: Device or resource busy")
-                                    else:
-                                        print(e)
+                                if e.errno == 16:  # Device or resource busy
+                                    print(f"Cannot remove {hidden_file_path}: Device or resource busy")
+                                else:
+                                    print(e)
                 try:
                     print(f"Removing unlisted directory: {full_path}")
                     shutil.rmtree(full_path)
