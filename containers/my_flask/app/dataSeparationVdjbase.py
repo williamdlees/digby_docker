@@ -229,13 +229,13 @@ def download_samples(zip_path, store_path, download_filename):
     return
 
 
-def unzip_samples(filename, store_path):
+def unzip_files(filename, store_path):
     # Extracts files from a zip archive into a specified directory
     print(f"Unzipping {store_path}/{filename}...")
 
     cwd = os.getcwd()
     os.chdir(store_path)
-    cmd = ["unzip", "-o", "samples.zip"]
+    cmd = ["unzip", "-o", filename]
     print(cmd)
     subprocess.run(cmd)
     print(f"{filename} downloaded and unzipped")
@@ -335,7 +335,7 @@ def process_csv_entry(entry, files_to_download):
                 download_samples(zip_url, store_path, filename.replace('link_to_', '').replace('.txt', '.zip'))
                 
             if filename.startswith("link_to_") or filename.endswith(".zip"):
-                unzip_samples(filename, store_path)
+                unzip_files(filename, store_path)
 
             update_file_version(f"{data_path}/{filename}", latest_commit_id, entry['Repo_URL'])
 
