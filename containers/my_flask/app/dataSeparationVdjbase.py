@@ -231,9 +231,11 @@ def download_samples(zip_path, store_path, download_filename):
 
 def unzip_files(filename, store_path):
     # Extracts files from a zip archive into a specified directory
-    print(f"Unzipping {store_path}/{filename}...")
-
     cwd = os.getcwd()
+    filename = cwd + "/" + os.path.basename(filename)
+
+    print(f"Unzipping {filename} to {store_path}...")
+
     os.chdir(store_path)
     cmd = ["unzip", "-o", filename]
     print(cmd)
