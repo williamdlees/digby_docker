@@ -287,17 +287,17 @@ def process_csv_entry(entry, files_to_download):
         try:
             contents = repo.get_contents(path=f"{data_path}/{filename}", ref=entry['Repo_Branch'])
             if not contents:
-                print(f'{data_path}/{filename} not found in this repo')
+                print(f'{data_path}/{filename} not found in this repo (no contents)')
                 continue
-        except:
-            print(f'{data_path}/{filename} not found in this repo')
+        except Exception as e:
+            print(f'{data_path}/{filename} not found in this repo: {e}')
             continue
         
         commits = repo.get_commits(path=f"{data_path}/{filename}", sha=entry['Repo_Branch'])
         if commits.totalCount:
             latest_commit_id = commits[0].sha
         else:
-            print(f'{data_path}/{filename} not found in this repo')
+            print(f'{data_path}/{filename} not found in this repo (no commits)')
             continue
             
         print(f'Processing filename {data_path}/{filename}')
