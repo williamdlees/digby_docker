@@ -336,8 +336,8 @@ def process_csv_entry(entry, files_to_download):
                     
                 download_samples(zip_url, store_path, filename.replace('link_to_', '').replace('.txt', '.zip'))
                 
-            if filename.startswith("link_to_") or filename.endswith(".zip"):
-                unzip_files(filename, store_path)
+            if filename.endswith(".zip"):
+                unzip_files(f"{data_path}/{filename}", store_path)
 
             update_file_version(f"{data_path}/{filename}", latest_commit_id, entry['Repo_URL'])
 
