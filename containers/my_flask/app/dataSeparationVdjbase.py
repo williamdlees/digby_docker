@@ -98,7 +98,7 @@ def get_file_version(file_path, repo_url, csv_path=FILES_VERSION_PATH):
                 print("Version fetched successfully.")
                 return row['Commit_ID']
 
-    print("Current version not found.")
+    print("No version recorded for this file.")
     return None
 
 
@@ -271,8 +271,6 @@ def process_csv_entry(entry, files_to_download):
 
     for filename in files_to_download:
         file_version = get_file_version(f"{data_path}/{filename}", entry['Repo_URL'])
-        # latest_commit_id = github.get_user(entry['Repo_URL'].split('/')[-2]).get_repo(
-        #     entry['Repo_URL'].split('/')[-1]).get_commits(path=f"{data_path}/{filename}", sha=entry['Repo_Branch'])[0].sha
         url_parts = entry['Repo_URL'].split('/')
         username = url_parts[-2]
         repo_name = url_parts[-1]
@@ -326,8 +324,8 @@ def process_csv_entry(entry, files_to_download):
 
             try:
                 retrieve_and_store_file(github, entry['Repo_URL'], entry['Repo_Branch'], data_path, filename, store_path)
-            except:
-                print(f"{data_path}/{filename} not found in GitHub")
+            except Exception as e:
+                print(f"Error retrieving file {data_path}/{filename}: {e}")
                 continue
 
             if filename.startswith("link_to_"):
@@ -399,13 +397,12 @@ def main():
     check_and_create_csv(FILES_VERSION_PATH)
     csv_entries = read_csv_entries()
     clean_file_versions(csv_entries)
-    files_to_download = ['samples.zip', 'annotation.zip', 'dbsnp.zip', 'link_to_sample.txt', 'link_to_annotation.zip', 'link_to_dbsnp.txt', 'db.sqlite3', 'db_description.txt']
+    files_to_download = ['samples.zip', 'annotation.zip', 'dbsnp.zip',
+                         'link_to_sample.txt', 'link_to_annotation.zip', 'link_to_dbsnp.txt',
+                         'db.sqlite3', 'link_to_db.txt', 'db_description.txt']
 
     for entry in csv_entries:
-        #try:
         process_csv_entry(entry, files_to_download)
-        #except Exception as e:
-        #    print("error: ", e)
 
     remove_unlisted_data(csv_entries)
     print("Finished updating study_data.")
