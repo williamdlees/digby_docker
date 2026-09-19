@@ -29,6 +29,7 @@ BASE = r'/study_data'
 #    whether a file has been updated on the repository since the last download.
 #    Fields: ['File_Path', 'Commit_ID', 'Repo_URL']
 
+
 def check_and_create_csv(csv_path):
     # Checks if a file of the versions exists at the specified path, and if not, creates a new CSV file with the necessary headers.
     if not os.path.exists(csv_path):
@@ -38,11 +39,13 @@ def check_and_create_csv(csv_path):
                 file, fieldnames=['File_Path', 'Commit_ID', 'Repo_URL'])
             writer.writeheader()
 
+
 def create_folders():
     for path in CREATE_PATHS:
         to_create = os.path.join(BASE, path)
         if not os.path.exists(to_create):
             os.makedirs(to_create)
+
 
 def clean_file_versions(csv_entries, versions_csv_path=FILES_VERSION_PATH):
     # Create a set of all path and repo URL combinations listed in the CSV
@@ -73,7 +76,7 @@ def clean_file_versions(csv_entries, versions_csv_path=FILES_VERSION_PATH):
         writer.writeheader()
         writer.writerows(updated_versions)
 
-    print("File versions cleaned successfully.")
+    print("File versions cleaned.")
 
 
 def validate_csv_entry(entry):
@@ -85,7 +88,7 @@ def validate_csv_entry(entry):
         if key not in entry and key != 'Authentication_Key':  # Make Authentication_Key optional
             raise ValueError(f"Missing key: {key}")
 
-    print("CSV entry validated successfully.")
+    print("CSV entry validated.")
 
 
 def get_file_version(file_path, repo_url, csv_path=FILES_VERSION_PATH):
@@ -95,7 +98,7 @@ def get_file_version(file_path, repo_url, csv_path=FILES_VERSION_PATH):
         reader = csv.DictReader(file)
         for row in reader:
             if row['File_Path'] == file_path and row['Repo_URL'] == repo_url:
-                print("Version fetched successfully.")
+                print("Version fetched.")
                 return row['Commit_ID']
 
     print("No version recorded for this file.")
@@ -123,7 +126,7 @@ def update_file_version(file_path, commit_id, repo_url, csv_path=FILES_VERSION_P
         writer.writeheader()
         writer.writerows(entries)
 
-    print("File version updated successfully.")
+    print("File version updated.")
 
 
 def initialize_github(auth_key=None):
@@ -132,7 +135,7 @@ def initialize_github(auth_key=None):
     if auth_key:
         return Github(auth_key)
 
-    print("Github initialized successfully.")
+    print("Github initialized.")
     return Github()  # No authentication
 
 
@@ -156,7 +159,7 @@ def retrieve_and_store_file(github, repo_url, repo_branch, data_path, filename, 
     with open(os.path.join(store_path, filename), 'wb') as file:
         file.write(file_data)
 
-    print(f"{filename} retrieved and stored successfully.")
+    print(f"{filename} retrieved and stored.")
 
 
 def list_files_in_repo_dir(github, repo_url, repo_branch, data_path):
@@ -185,7 +188,7 @@ def read_csv_entries():
             except ValueError as e:
                 print(f"Invalid CSV entry: {e}")
 
-    print("CSV entries read successfully.")
+    print("CSV entries read.")
     return csv_entries
 
 
@@ -211,7 +214,6 @@ def determine_path_structure(entry):
         annotation_path = os.path.join(base_path, "QTL", "db", entry['Species'], entry['Data_Set'], 'annotation')
         dbsnp_path = os.path.join(base_path, "QTL", "db", entry['Species'], entry['Data_Set'], 'dbsnp')
 
-    print("Path structure determined successfully.")
     return db_path, samples_path, annotation_path, dbsnp_path
 
 
@@ -232,15 +234,12 @@ def download_samples(zip_path, store_path, download_filename):
 def unzip_files(filename, store_path):
     # Extracts files from a zip archive into a specified directory
     cwd = os.getcwd()
-    filename = cwd + "/" + os.path.basename(filename)
-
     print(f"Unzipping {filename} to {store_path}...")
-
     os.chdir(store_path)
-    cmd = ["unzip", "-o", filename]
+    cmd = ["unzip", "-oq", filename]
     print(cmd)
     subprocess.run(cmd)
-    print(f"{filename} downloaded and unzipped")
+    print(f"{filename} unzip completed.")
     os.chdir(cwd)
 
     return
@@ -253,7 +252,7 @@ def clear_directory(directory_path):
         item_path = os.path.join(directory_path, item)
         shutil.rmtree(item_path, ignore_errors=True)
 
-    print(f"{directory_path} cleared successfully.")
+    print(f"{directory_path} cleared.")
 
 
 def process_csv_entry(entry, files_to_download):
@@ -263,13 +262,19 @@ def process_csv_entry(entry, files_to_download):
     github = initialize_github(auth_key)
 
     data_path = f"{entry['Type']}/{entry['Species']}/{entry['Data_Set']}"
+    print(f"\n\n\n----- Processing data path {data_path} -----")
     db_path, samples_path, annotation_path, dbsnp_path = determine_path_structure(entry)
 
     # find the files in the top-level directory for this dataset
     files_in_dataset_root = list_files_in_repo_dir(github, entry['Repo_URL'], entry['Repo_Branch'], data_path)
-    print(f'Files in dataset root: {",".join(files_in_dataset_root)}')
+    files_in_dataset_root = [os.path.basename(f) for f in files_in_dataset_root]
+    print(f'Files in dataset root: {", ".join(files_in_dataset_root)}')
 
-    for filename in files_to_download:
+    files_to_process = [filename for filename in files_to_download if filename in files_in_dataset_root]
+    print(f"\nFiles to process: {', '.join(files_to_process)}")
+
+    for filename in files_to_process:
+        print(f"\n----- Processing file: {filename} -----")
         file_version = get_file_version(f"{data_path}/{filename}", entry['Repo_URL'])
         url_parts = entry['Repo_URL'].split('/')
         username = url_parts[-2]
@@ -297,8 +302,6 @@ def process_csv_entry(entry, files_to_download):
         else:
             print(f'{data_path}/{filename} not found in this repo (no commits)')
             continue
-            
-        print(f'Processing filename {data_path}/{filename}')
 
         if file_version != latest_commit_id:
             if filename == "link_to_sample.txt" or filename == 'samples.zip':
@@ -336,11 +339,9 @@ def process_csv_entry(entry, files_to_download):
                 unzip_files(f"{store_path}/{filename.replace('link_to_', '').replace('.txt', '.zip')}", store_path)
                 
             elif filename.endswith(".zip"):
-                unzip_files(f"{data_path}/{filename}", store_path)
+                unzip_files(f"{store_path}/{filename}", store_path)
 
             update_file_version(f"{data_path}/{filename}", latest_commit_id, entry['Repo_URL'])
-
-    print("CSV entry processed successfully.")
 
 
 def remove_unlisted_data(csv_entries, base_path="/study_data"):
@@ -389,7 +390,7 @@ def remove_unlisted_data(csv_entries, base_path="/study_data"):
                 except Exception as e:
                     print(e)
 
-    print("Unlisted data removed successfully.")
+    print("Unlisted data removed.")
 
 
 def main():
