@@ -221,7 +221,7 @@ def download_samples(zip_path, store_path, download_filename):
 
     cwd = os.getcwd()
     os.chdir(store_path)
-    cmd = ["curl", zip_path, "--output", "samples.zip"]
+    cmd = ["curl", zip_path, "--output", download_filename]
     print(cmd)
     subprocess.run(cmd)
     os.chdir(cwd)
@@ -331,10 +331,11 @@ def process_csv_entry(entry, files_to_download):
             if filename.startswith("link_to_"):
                 with open(os.path.join(store_path, filename), 'r') as f:
                     zip_url = f.read()
-                    
+
                 download_samples(zip_url, store_path, filename.replace('link_to_', '').replace('.txt', '.zip'))
+                unzip_files(f"{store_path}/{filename.replace('link_to_', '').replace('.txt', '.zip')}", store_path)
                 
-            if filename.endswith(".zip"):
+            elif filename.endswith(".zip"):
                 unzip_files(f"{data_path}/{filename}", store_path)
 
             update_file_version(f"{data_path}/{filename}", latest_commit_id, entry['Repo_URL'])
